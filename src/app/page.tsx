@@ -107,8 +107,8 @@ export default function Home() {
               Casa Nina
             </h1>
             <p className="text-white/75 text-base md:text-lg max-w-md leading-relaxed mb-8">
-              Un appartamento raffinato dove l&apos;architettura genovese incontra
-              il comfort contemporaneo.
+              Una casa spaziosa e accogliente nel cuore di Genova — per
+              famiglie, coppie e viaggiatori di ogni tipo.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a
@@ -142,15 +142,16 @@ export default function Home() {
               L&apos;Appartamento
             </p>
             <h2 className="font-serif text-3xl md:text-4xl leading-snug mb-6">
-              Architettura genovese, comfort moderno
+              A real home in the heart of Genoa
             </h2>
             <p className="text-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              Tucked into Genoa&apos;s elegant Carignano quarter, Casa Nina is a
-              fully renovated apartment where classic architecture meets
-              thoughtful, contemporary living. Original arched doorways, warm
-              oak floors, and sage-green walls — every detail chosen with care.
-              Wake up to a quiet neighborhood, walk to the old port, and return
-              to a home that feels genuinely yours.
+              Casa Nina is a spacious, fully renovated apartment in the quiet
+              Carignano quarter — perfect for families, couples, solo travellers,
+              and anyone who wants to experience Genoa like a local. Original
+              arched doorways, warm oak floors, a fully equipped kitchen, and
+              everything you need to settle in and feel at home. The old port,
+              restaurants, and the city centre are all within easy walking
+              distance.
             </p>
           </div>
         </section>
@@ -384,8 +385,8 @@ export default function Home() {
               <div>
                 <h3 className="font-serif text-lg mb-3">Casa Nina Carignano</h3>
                 <p className="text-muted text-sm leading-relaxed">
-                  A premium short-stay apartment in Genoa, Italy. Classic
-                  architecture, contemporary comfort, direct booking.
+                  A spacious apartment in Genoa for families, couples, and
+                  travellers of all kinds. Book direct for the best rate.
                 </p>
               </div>
               <div>
