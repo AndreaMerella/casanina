@@ -15,7 +15,7 @@
   --color-card: #f5f0eb;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --font-serif: "DM Serif Display", Georgia, "Times New Roman", serif;
+  --font-serif: var(--font-dm-serif), Georgia, "Times New Roman", serif;
 }
 
 html {
