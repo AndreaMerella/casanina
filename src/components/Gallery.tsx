@@ -3,32 +3,32 @@ import Image from "next/image";
 const galleryImages = [
   {
     src: "/images/living-room.jpg",
-    alt: "Spacious living room with dedicated workspace",
+    alt: "Bright and comfortable living room",
     span: "col-span-2 row-span-2",
   },
   {
     src: "/images/kitchen.jpg",
-    alt: "Fully equipped modern kitchen",
+    alt: "Dining area",
     span: "",
   },
   {
     src: "/images/bedroom.jpg",
-    alt: "Comfortable bedroom with premium linens",
+    alt: "Hallway",
     span: "",
   },
   {
     src: "/images/bathroom.jpg",
-    alt: "Elegant bathroom with rain shower",
+    alt: "Bathroom with shower",
     span: "",
   },
   {
     src: "/images/view.jpg",
-    alt: "Panoramic view over Genoa",
+    alt: "Building entrance",
     span: "",
   },
   {
     src: "/images/workspace.jpg",
-    alt: "Dedicated desk and high-speed workspace setup",
+    alt: "Living room — another angle",
     span: "col-span-2",
   },
 ];
