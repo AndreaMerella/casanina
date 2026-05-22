@@ -8,12 +8,12 @@ const galleryImages = [
   },
   {
     src: "/images/kitchen.jpg",
-    alt: "Dining area",
+    alt: "Modern fully equipped kitchen",
     span: "",
   },
   {
     src: "/images/bedroom.jpg",
-    alt: "Hallway",
+    alt: "Double bedroom with wardrobe",
     span: "",
   },
   {
