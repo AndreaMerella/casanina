@@ -93,14 +93,14 @@ export default function Home() {
         {/* ─── Hero ─── */}
         <section className="relative h-[80vh] w-full overflow-hidden bg-stone-800">
           <Image
-            src="/images/hero.jpg"
-            alt="Casa Nina Carignano"
+            src="/images/living-room.jpg"
+            alt="Casa Nina Carignano - living room"
             fill
             priority
-            className="object-cover"
+            className="object-cover object-center"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
 
           <HeroContent />
         </section>
@@ -144,28 +144,18 @@ export default function Home() {
                   Perched on Genova&apos;s most elegant hill, Carignano is a quiet residential quarter with views of the port.
                   Walk to Corso Italia, Boccadasse, the caruggi and Porto Antico. All within minutes.
                 </p>
-                <div className="grid grid-cols-3 gap-2 mb-6">
+                <div className="grid grid-cols-2 gap-2 mb-6">
                   {[
                     { src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boccadasse.jpg", alt: "Boccadasse" },
                     { src: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
                     { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Porto_antico_-_Genova.jpg/1280px-Porto_antico_-_Genova.jpg", alt: "Porto Antico" },
                   ].map(({ src, alt }) => (
-                    <div key={alt} className="relative overflow-hidden rounded-xl aspect-square bg-border">
-                      <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="15vw" />
-                      <div className="absolute bottom-0 inset-x-0 bg-black/40 text-white text-[10px] text-center py-1">{alt}</div>
+                    <div key={alt} className="relative overflow-hidden rounded-xl aspect-[4/3] bg-border">
+                      <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="20vw" />
+                      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent text-white text-[10px] text-center py-2">{alt}</div>
                     </div>
                   ))}
-                </div>
-                <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
-                  <iframe
-                    src="https://www.youtube.com/embed/BCIygKlkOgA?autoplay=0&mute=1&controls=1&rel=0"
-                    title="Genova drone 4K"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="w-full h-full"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                  />
                 </div>
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   {[

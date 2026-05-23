@@ -26,7 +26,7 @@ export default function Header() {
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-[#f2ede4]/95 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-gradient-to-b from-black/50 to-transparent"
+          : "bg-gradient-to-b from-black/70 via-black/30 to-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -44,10 +44,11 @@ export default function Header() {
             <a
               key={label}
               href={href}
-              className={`text-sm transition-colors ${
+              style={!scrolled ? { textShadow: "0 1px 4px rgba(0,0,0,0.9)" } : undefined}
+              className={`text-sm font-medium transition-colors ${
                 scrolled
                   ? "text-muted hover:text-foreground"
-                  : "text-white/70 hover:text-white"
+                  : "text-white hover:text-white/80"
               }`}
             >
               {label}
