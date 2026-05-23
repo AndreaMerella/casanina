@@ -513,7 +513,7 @@ export default function Home() {
                 </h4>
                 <div className="text-sm text-muted space-y-1.5">
                   {/* TODO: Replace with real email and WhatsApp */}
-                  <p>info@casanina.it</p>
+                  <a href="mailto:casaninacarignano@gmail.com" className="hover:text-foreground transition-colors">casaninacarignano@gmail.com</a>
                   <p>Viale Aspromonte, 66, 16128 Genova GE</p>
                   <a
                     href="https://wa.me/39XXXXXXXXXX"
