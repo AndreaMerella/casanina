@@ -276,9 +276,11 @@ export default function Home() {
                 </div>
                 <div className="w-px h-14 bg-border hidden sm:block" />
                 <div className="flex flex-col items-center">
-                  <span className="font-serif text-5xl font-bold">5★</span>
-                  <span className="text-sm font-medium mt-1">Top Rated</span>
-                  <span className="text-muted text-xs mt-0.5">Airbnb</span>
+                  <div className="inline-flex items-center gap-1.5 bg-foreground text-background text-xs font-semibold px-3 py-1.5 rounded-lg mb-2">
+                    🏆 Traveller Review Award 2026
+                  </div>
+                  <span className="font-serif text-5xl font-bold">9.7</span>
+                  <span className="text-muted text-xs mt-0.5">Booking.com Award</span>
                 </div>
               </div>
 
@@ -302,22 +304,40 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
+                  quote: "Nice and clean apartment in a fabulous area of Genova. The host pays attention to details — toiletries, snacks, beverages, coffee, and even a parking permit. As we often travel to Genoa, we will choose to come back to this place.",
+                  author: "Laura",
+                  origin: "United Kingdom",
+                  score: "10",
+                },
+                {
+                  quote: "Very comfortable and fully equipped. Good neighborhood, shops, and cafes close by. Very quiet at night. Beach within 15 minutes walk. The host was very friendly and helpful.",
+                  author: "Oksana",
+                  origin: "Canada",
+                  score: "10",
+                },
+                {
+                  quote: "The apartment is suitably located in the quiet suburb of Carignano, close to public transportation and other amenities. Very comfortable and expertly clean.",
+                  author: "Thomas",
+                  origin: "Italy",
+                  score: "10",
+                },
+                {
+                  quote: "Beautifully decorated flat, comfortable, clean, super location, great host!",
+                  author: "Edward",
+                  origin: "South Africa",
+                  score: "10",
+                },
+                {
+                  quote: "The place is very spacious, clean, and amenities are complete. A great place to explore Genova. The host was very attentive and responds to questions promptly.",
+                  author: "Suzelyn",
+                  origin: "Philippines",
+                  score: "10",
+                },
+                {
                   quote: "Atmosphere of both neighbourhood and apartment.",
                   author: "Christian",
                   origin: "Kenya",
                   score: "9.0",
-                },
-                {
-                  quote: "Appartamento bellissimo, pulito e ben organizzato. Posizione ottima nel quartiere Carignano.",
-                  author: "Marco",
-                  origin: "Italia",
-                  score: "10",
-                },
-                {
-                  quote: "Everything was perfect — the apartment is exactly as described, spacious and comfortable. Highly recommend!",
-                  author: "Sarah",
-                  origin: "United Kingdom",
-                  score: "10",
                 },
               ].map(({ quote, author, origin, score }) => (
                 <div key={author} className="bg-card rounded-2xl p-6 border border-border">
