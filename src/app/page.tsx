@@ -31,6 +31,7 @@ import BookingBanner from "@/components/BookingBanner";
 import Guestbook from "@/components/Guestbook";
 import Chatbot from "@/components/Chatbot";
 import HeroContent from "@/components/HeroContent";
+import MusicPlayer from "@/components/MusicPlayer";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -141,12 +142,12 @@ export default function Home() {
                 <h2 className="font-serif text-3xl md:text-4xl mb-4">Carignano, Genova</h2>
                 <p className="text-muted leading-relaxed mb-6">
                   Perched on Genova&apos;s most elegant hill, Carignano is a quiet residential quarter with views of the port.
-                  Walk to Corso Italia, Boccadasse, the caruggi and Porto Antico — all within minutes.
+                  Walk to Corso Italia, Boccadasse, the caruggi and Porto Antico. All within minutes.
                 </p>
                 <div className="grid grid-cols-3 gap-2 mb-6">
                   {[
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Genova-Boccadasse-DSCF1229.JPG", alt: "Boccadasse" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/4/40/Corso_Italia%2C_Genova%2C_Italy_-_DSC01153.JPG", alt: "Corso Italia" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boccadasse.jpg", alt: "Boccadasse" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
                     { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi" },
                   ].map(({ src, alt }) => (
                     <div key={alt} className="relative overflow-hidden rounded-xl aspect-square bg-border">
@@ -154,6 +155,17 @@ export default function Home() {
                       <div className="absolute bottom-0 inset-x-0 bg-black/40 text-white text-[10px] text-center py-1">{alt}</div>
                     </div>
                   ))}
+                </div>
+                <div className="relative aspect-video rounded-2xl overflow-hidden mb-6 shadow-md">
+                  <iframe
+                    src="https://www.youtube.com/embed/BCIygKlkOgA?autoplay=0&mute=1&controls=1&rel=0"
+                    title="Genova drone 4K"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="w-full h-full"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                  />
                 </div>
                 <div className="grid grid-cols-2 gap-3 text-sm">
                   {[
@@ -566,6 +578,7 @@ export default function Home() {
         </footer>
       </main>
       <Chatbot />
+      <MusicPlayer />
     </>
   );
 }
