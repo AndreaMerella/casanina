@@ -33,7 +33,11 @@ import HeroContent from "@/components/HeroContent";
 import MusicPlayer from "@/components/MusicPlayer";
 import AboutSection from "@/components/AboutSection";
 import GenovaIntro from "@/components/GenovaIntro";
+import GenovaSails from "@/components/GenovaSails";
+import GenovaVicoli from "@/components/GenovaVicoli";
 import GenovaVignette from "@/components/GenovaVignette";
+import GenovaBoccadasse from "@/components/GenovaBoccadasse";
+import GenovaMontagne from "@/components/GenovaMontagne";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
@@ -128,6 +132,9 @@ export default function Home() {
           </AnimateIn>
         </section>
 
+        {/* ─── Sails ─── */}
+        <GenovaSails />
+
         {/* ─── Gallery ─── */}
         <section id="gallery" className="px-4 md:px-8 pb-20 md:pb-28">
           <div className="max-w-6xl mx-auto">
@@ -135,7 +142,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Genova vignette divider ─── */}
+        {/* ─── Vicoli ─── */}
+        <GenovaVicoli />
+
+        {/* ─── Funicolare Zecca-Righi ─── */}
         <GenovaVignette />
 
         {/* ─── Genova + Location ─── */}
@@ -213,6 +223,9 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── Boccadasse ─── */}
+        <GenovaBoccadasse />
+
         {/* ─── Booking ─── */}
         <section id="booking" className="py-12 md:py-16 px-4 sm:px-6">
           <div className="max-w-5xl mx-auto">
@@ -239,6 +252,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ─── Montagne ─── */}
+        <GenovaMontagne />
 
         {/* ─── Reviews ─── */}
         <section className="py-12 md:py-16 px-4 sm:px-6">
