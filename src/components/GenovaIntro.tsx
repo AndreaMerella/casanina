@@ -8,7 +8,7 @@ export default function GenovaIntro() {
 
   return (
     <>
-      <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">{tx.genovaLabel}</p>
+      <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">{tx.genovaLabel}</p>
       <h2 className="font-serif text-3xl md:text-4xl mb-4">{tx.genovaTitle}</h2>
       <p className="text-muted leading-relaxed mb-6">{tx.genovaBody}</p>
     </>

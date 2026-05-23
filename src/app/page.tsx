@@ -187,7 +187,7 @@ export default function Home() {
         <section id="amenities" className="py-12 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
             <AnimateIn className="text-center mb-14">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
                 What&apos;s Included
               </p>
               <h2 className="font-serif text-3xl md:text-4xl">
@@ -215,7 +215,7 @@ export default function Home() {
             <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
 
               <AnimateIn className="lg:col-span-2 lg:sticky lg:top-24">
-                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">Reserve</p>
+                <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">Reserve</p>
                 <h2 className="font-serif text-3xl md:text-4xl mb-4">Book Your Stay</h2>
                 <p className="text-muted leading-relaxed mb-6">
                   Book directly for the best rate. No OTA commission, no middleman. Secure payment and instant confirmation.
@@ -242,7 +242,7 @@ export default function Home() {
 
             {/* Header */}
             <div className="text-center mb-10">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">Guest Reviews</p>
+              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">Guest Reviews</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-8">What Our Guests Say</h2>
 
               {/* Platform scores */}
@@ -362,7 +362,7 @@ export default function Home() {
         <section className="py-12 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
                 Good to Know
               </p>
               <h2 className="font-serif text-3xl md:text-4xl">House Rules</h2>
@@ -408,7 +408,7 @@ export default function Home() {
         <section className="py-12 md:py-16 px-6 bg-foreground text-background">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
                 Vikey Smart Check-in
               </p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">
@@ -444,7 +444,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
-                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+                <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
                   Explore the City
                 </p>
                 <h2 className="font-serif text-3xl md:text-4xl mb-5">

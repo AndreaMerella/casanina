@@ -10,7 +10,7 @@ export default function HeroContent() {
   return (
     <>
       <div className="absolute bottom-0 left-0 right-0 p-6 md:p-16 pb-16 md:pb-24">
-        <p className="text-white/65 text-xs md:text-sm uppercase tracking-[0.2em] mb-3">
+        <p className="text-white/65 text-xs md:text-sm uppercase tracking-[0.12em] mb-3">
           {tx.tagline}
         </p>
         <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-4">

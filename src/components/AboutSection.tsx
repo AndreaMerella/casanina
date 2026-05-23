@@ -8,7 +8,7 @@ export default function AboutSection() {
 
   return (
     <div className="max-w-3xl mx-auto text-center">
-      <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+      <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
         {tx.aboutLabel}
       </p>
       <h2 className="font-serif text-3xl md:text-4xl leading-snug mb-6">

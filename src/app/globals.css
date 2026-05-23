@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f5efe5;
-  --foreground: #1a1008;
+  --background: #faf8f4;
+  --foreground: #18120c;
 }
 
 @theme inline {
@@ -10,9 +10,9 @@
   --color-foreground: var(--foreground);
   --color-accent: #b5703a;
   --color-accent-dark: #8f5228;
-  --color-muted: #7a5c3e;
-  --color-border: #d9c9b0;
-  --color-card: #ede3d5;
+  --color-muted: #746a5e;
+  --color-border: #e4ddd3;
+  --color-card: #f3f0e9;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-serif: var(--font-dm-serif), Georgia, "Times New Roman", serif;
