@@ -237,7 +237,7 @@ export default function Home() {
                   </p>
 
                   <a
-                    href="https://booking.vikey.it"
+                    href="https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-4 bg-foreground text-background rounded-xl font-medium hover:opacity-90 transition-opacity"
@@ -514,7 +514,7 @@ export default function Home() {
                 <div className="text-sm text-muted space-y-1.5">
                   {/* TODO: Replace with real email and WhatsApp */}
                   <p>info@casanina.it</p>
-                  <p>Carignano, 16128 Genova GE</p>
+                  <p>Viale Aspromonte, 66, 16128 Genova GE</p>
                   <a
                     href="https://wa.me/39XXXXXXXXXX"
                     target="_blank"
