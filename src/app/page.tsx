@@ -29,6 +29,8 @@ import Header from "@/components/Header";
 import FloatingBar from "@/components/FloatingBar";
 import Gallery from "@/components/Gallery";
 import BookingBanner from "@/components/BookingBanner";
+import Guestbook from "@/components/Guestbook";
+import Chatbot from "@/components/Chatbot";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -88,16 +90,16 @@ export default function Home() {
         </Suspense>
 
         {/* ─── Hero ─── */}
-        <section className="relative h-screen w-full overflow-hidden bg-stone-800">
+        <section className="relative h-[80vh] w-full overflow-hidden bg-stone-800">
           <Image
             src="/images/hero.jpg"
-            alt="Casa Nina Carignano: soggiorno"
+            alt="Casa Nina Carignano"
             fill
             priority
             className="object-cover"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-black/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
 
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-16 pb-16 md:pb-24">
             <p className="text-white/65 text-xs md:text-sm uppercase tracking-[0.2em] mb-3">
@@ -174,18 +176,19 @@ export default function Home() {
                 Discover Genova
               </h2>
               <p className="text-muted leading-relaxed max-w-2xl mx-auto">
-                La Superba: one of Italy&apos;s most storied port cities.
-                Medieval caruggi, the largest medieval city centre in Europe,
-                world-class pesto, and the sea always within reach.
+                La Superba. Medieval caruggi, the largest historic centre in
+                Europe, world-class pesto, and the sea always within reach.
+                Boccadasse, Corso Italia and Piazza Matteotti are all on your
+                doorstep.
               </p>
             </div>
             <div className="grid grid-cols-3 gap-3 md:gap-4">
               {[
-                { src: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&q=80", alt: "Porto Antico di Genova" },
-                { src: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80", alt: "Caruggi di Genova" },
-                { src: "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?w=800&q=80", alt: "Panorama di Genova" },
+                { src: "/images/boccadasse.jpg", alt: "Boccadasse, Genova" },
+                { src: "/images/corso-italia.jpg", alt: "Corso Italia, Genova" },
+                { src: "/images/piazza-matteotti.jpg", alt: "Piazza Matteotti, Genova" },
               ].map(({ src, alt }) => (
-                <div key={alt} className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                <div key={alt} className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-border">
                   <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 33vw, 25vw" />
                 </div>
               ))}
@@ -512,6 +515,45 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── E-Bikes ─── */}
+        <section className="py-20 md:py-28 px-6 bg-card">
+          <div className="max-w-5xl mx-auto">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div>
+                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+                  Explore the City
+                </p>
+                <h2 className="font-serif text-3xl md:text-4xl mb-5">
+                  E-Bikes Available
+                </h2>
+                <p className="text-muted leading-relaxed mb-4">
+                  Discover Genova at your own pace with our two e-bikes.
+                  Boccadasse, Corso Italia, the Porto Antico — all effortlessly
+                  within reach. No hills are too steep.
+                </p>
+                <ul className="text-sm text-muted space-y-2 mb-8">
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> 2 e-bikes included on request</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Helmets and locks provided</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Cycle paths along Corso Italia</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Reach Boccadasse in 10 minutes</li>
+                </ul>
+                <a
+                  href="mailto:casaninacarignano@gmail.com?subject=E-bike%20request%20for%20my%20stay&body=Hi%2C%20I%27d%20love%20to%20include%20the%20e-bikes%20during%20my%20stay%20at%20Casa%20Nina."
+                  className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-medium text-sm hover:opacity-90 transition-opacity"
+                >
+                  Request e-bikes &rarr;
+                </a>
+              </div>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-border">
+                <Image src="/images/ebike.jpg" alt="E-bike Genova" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── Guestbook ─── */}
+        <Guestbook />
+
         {/* ─── Footer ─── */}
         <footer className="border-t border-border py-12 px-6">
           <div className="max-w-5xl mx-auto">
@@ -571,6 +613,7 @@ export default function Home() {
           </div>
         </footer>
       </main>
+      <Chatbot />
     </>
   );
 }
