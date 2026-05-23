@@ -27,7 +27,7 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-[#f2ede4]/95 backdrop-blur-md border-b border-border shadow-sm"
+          ? "bg-background/95 backdrop-blur-md border-b border-border shadow-sm"
           : "bg-foreground/80 backdrop-blur-md"
       }`}
     >
@@ -83,7 +83,7 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-white border-b border-border px-6 py-4 space-y-1">
+        <div className="md:hidden bg-card border-b border-border px-6 py-4 space-y-1">
           {links.map(({ label, href }) => (
             <a
               key={href}

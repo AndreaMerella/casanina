@@ -34,6 +34,8 @@ import HeroContent from "@/components/HeroContent";
 import MusicPlayer from "@/components/MusicPlayer";
 import AboutSection from "@/components/AboutSection";
 import GenovaIntro from "@/components/GenovaIntro";
+import AnimateIn from "@/components/AnimateIn";
+import EBikeModal from "@/components/EBikeModal";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -109,7 +111,9 @@ export default function Home() {
 
         {/* ─── About ─── */}
         <section id="about" className="py-12 md:py-16 px-6">
-          <AboutSection />
+          <AnimateIn>
+            <AboutSection />
+          </AnimateIn>
         </section>
 
         {/* ─── Gallery ─── */}
@@ -169,22 +173,24 @@ export default function Home() {
         {/* ─── Amenities ─── */}
         <section id="amenities" className="py-12 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-14">
+            <AnimateIn className="text-center mb-14">
               <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
                 What&apos;s Included
               </p>
               <h2 className="font-serif text-3xl md:text-4xl">
                 Everything You Need
               </h2>
-            </div>
+            </AnimateIn>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8">
-              {amenities.map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center shrink-0">
-                    <Icon className="w-[18px] h-[18px] text-accent" />
+              {amenities.map(({ icon: Icon, label }, i) => (
+                <AnimateIn key={label} delay={i * 60}>
+                  <div className="flex items-center gap-3 card-hover p-2 rounded-xl">
+                    <div className="w-10 h-10 rounded-xl bg-background flex items-center justify-center shrink-0">
+                      <Icon className="w-[18px] h-[18px] text-accent" />
+                    </div>
+                    <span className="text-sm font-medium">{label}</span>
                   </div>
-                  <span className="text-sm font-medium">{label}</span>
-                </div>
+                </AnimateIn>
               ))}
             </div>
           </div>
@@ -228,7 +234,7 @@ export default function Home() {
               <div className="lg:col-span-3">
                 {/* TODO: Replace href with your Vikey Booking Engine URL
                     Get it from: MyVikey → Channel Manager → Booking Engine → copy link */}
-                <div className="bg-white rounded-2xl border border-border p-8 shadow-sm">
+                <div className="bg-card rounded-2xl border border-border p-8 shadow-sm">
                   <div className="flex items-baseline gap-1.5 mb-2">
                     <span className="font-serif text-3xl font-bold">
                       &euro;{NIGHTLY_RATE}
@@ -484,15 +490,18 @@ export default function Home() {
                   <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Cycle paths along Corso Italia</li>
                   <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Reach Boccadasse in 10 minutes</li>
                 </ul>
-                <a
-                  href="mailto:casaninacarignano@gmail.com?subject=E-bike%20request%20for%20my%20stay&body=Hi%2C%20I%27d%20love%20to%20include%20the%20e-bikes%20during%20my%20stay%20at%20Casa%20Nina."
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-medium text-sm hover:opacity-90 transition-opacity"
-                >
-                  Request e-bikes &rarr;
-                </a>
+                <EBikeModal />
               </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-border flex items-center justify-center">
-                <p className="text-muted text-sm">Photo coming soon</p>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
+                <Image
+                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80"
+                  alt="E-bikes available at Casa Nina"
+                  fill
+                  className="object-cover hover:scale-105 transition-transform duration-700"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute bottom-4 left-4 text-white text-sm font-medium">2 e-bikes included on request</div>
               </div>
             </div>
           </div>
