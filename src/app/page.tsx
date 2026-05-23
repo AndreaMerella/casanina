@@ -32,6 +32,8 @@ import Guestbook from "@/components/Guestbook";
 import Chatbot from "@/components/Chatbot";
 import HeroContent from "@/components/HeroContent";
 import MusicPlayer from "@/components/MusicPlayer";
+import AboutSection from "@/components/AboutSection";
+import GenovaIntro from "@/components/GenovaIntro";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -107,23 +109,7 @@ export default function Home() {
 
         {/* ─── About ─── */}
         <section id="about" className="py-12 md:py-16 px-6">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
-              L&apos;Appartamento
-            </p>
-            <h2 className="font-serif text-3xl md:text-4xl leading-snug mb-6">
-              A real home in the heart of Genoa
-            </h2>
-            <p className="text-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
-              Casa Nina is a spacious, fully renovated apartment in the quiet
-              Carignano quarter: perfect for families, couples, solo travellers,
-              and anyone who wants to experience Genoa like a local. Original
-              arched doorways, warm oak floors, a fully equipped kitchen, and
-              everything you need to settle in and feel at home. The old port,
-              restaurants, and the city centre are all within easy walking
-              distance.
-            </p>
-          </div>
+          <AboutSection />
         </section>
 
         {/* ─── Gallery ─── */}
@@ -138,12 +124,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-10 items-start">
               <div>
-                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">La Superba</p>
-                <h2 className="font-serif text-3xl md:text-4xl mb-4">Carignano, Genova</h2>
-                <p className="text-muted leading-relaxed mb-6">
-                  Perched on Genova&apos;s most elegant hill, Carignano is a quiet residential quarter with views of the port.
-                  Walk to Corso Italia, Boccadasse, the caruggi and Porto Antico. All within minutes.
-                </p>
+                <GenovaIntro />
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {[
                     { src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boccadasse.jpg", alt: "Boccadasse" },
