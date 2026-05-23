@@ -6,6 +6,7 @@ const securityHeaders = [
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
   { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
   { key: "X-XSS-Protection", value: "1; mode=block" },
+  { key: "Content-Security-Policy", value: "frame-src 'self' https://booking.vikey.it https://www.openstreetmap.org;" },
 ];
 
 const nextConfig: NextConfig = {

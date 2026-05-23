@@ -22,7 +22,6 @@ import {
   Ban,
   Dog,
   Flame,
-  ExternalLink,
 } from "lucide-react";
 import Header from "@/components/Header";
 import FloatingBar from "@/components/FloatingBar";
@@ -203,71 +202,32 @@ export default function Home() {
         </section>
 
         {/* ─── Booking ─── */}
-        <section id="booking" className="py-12 md:py-16 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
-              <div className="lg:col-span-2 lg:sticky lg:top-24">
-                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
-                  Reserve
-                </p>
-                <h2 className="font-serif text-3xl md:text-4xl mb-4">
-                  Book Your Stay
-                </h2>
-                <p className="text-muted leading-relaxed mb-6">
-                  Book directly for the best rate: no OTA commission, no
-                  middleman. Secure payment and instant confirmation.
-                </p>
-                <div className="text-sm text-muted space-y-2">
-                  <p>
-                    <strong className="text-foreground">From:</strong>{" "}
-                    &euro;{NIGHTLY_RATE} / night
-                  </p>
-                  <p>
-                    <strong className="text-foreground">Minimum stay:</strong> 2
-                    nights
-                  </p>
-                  <p>
-                    <strong className="text-foreground">Check-in:</strong> from
-                    15:00
-                  </p>
-                  <p>
-                    <strong className="text-foreground">Check-out:</strong> by
-                    10:00
-                  </p>
-                </div>
-              </div>
+        <section id="booking" className="py-12 md:py-16 px-4 sm:px-6">
+          <div className="max-w-4xl mx-auto">
+            <AnimateIn className="text-center mb-8">
+              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">Reserve</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-3">Book Your Stay</h2>
+              <p className="text-muted text-sm max-w-md mx-auto">
+                Book direct for the best rate &mdash; no OTA fees, instant confirmation.
+              </p>
+            </AnimateIn>
 
-              <div className="lg:col-span-3">
-                {/* TODO: Replace href with your Vikey Booking Engine URL
-                    Get it from: MyVikey → Channel Manager → Booking Engine → copy link */}
-                <div className="bg-card rounded-2xl border border-border p-8 shadow-sm">
-                  <div className="flex items-baseline gap-1.5 mb-2">
-                    <span className="font-serif text-3xl font-bold">
-                      &euro;{NIGHTLY_RATE}
-                    </span>
-                    <span className="text-muted text-sm">/ night</span>
-                  </div>
-                  <p className="text-xs text-muted mb-8">
-                    + cleaning fee &middot; best rate guaranteed
-                  </p>
-
-                  <a
-                    href="https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-4 bg-foreground text-background rounded-xl font-medium hover:opacity-90 transition-opacity"
-                  >
-                    Check Availability &amp; Book
-                    <ExternalLink className="w-4 h-4 opacity-60" />
-                  </a>
-
-                  <p className="text-xs text-muted text-center mt-5">
-                    Secure booking &middot; Instant confirmation &middot; Managed
-                    via Vikey
-                  </p>
-                </div>
-              </div>
+            {/* Inline Vikey booking engine */}
+            <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
+              <iframe
+                src="https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4"
+                title="Book Casa Nina"
+                width="100%"
+                height="700"
+                style={{ border: 0, display: "block", minHeight: 600 }}
+                loading="lazy"
+                allow="payment"
+              />
             </div>
+
+            <p className="text-center text-xs text-muted mt-4">
+              Secure payment &middot; Instant confirmation &middot; Powered by Vikey
+            </p>
           </div>
         </section>
 
