@@ -256,6 +256,64 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ─── Reviews ─── */}
+        <section className="py-20 md:py-28 px-6">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+                Guest Reviews
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-6">
+                What Our Guests Say
+              </h2>
+              <div className="flex items-center justify-center gap-8 flex-wrap">
+                <div className="flex flex-col items-center">
+                  <span className="font-serif text-5xl font-bold">10.0</span>
+                  <span className="text-muted text-sm mt-1">Booking.com</span>
+                </div>
+                <div className="w-px h-12 bg-border hidden sm:block" />
+                <div className="flex flex-col items-center">
+                  <span className="font-serif text-5xl font-bold">10.0</span>
+                  <span className="text-muted text-sm mt-1">Airbnb</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                {
+                  quote: "Appartamento bellissimo, pulito e ben organizzato. Posizione ottima nel quartiere Carignano.",
+                  author: "Marco",
+                  origin: "Italia",
+                },
+                {
+                  quote: "Everything was perfect — the apartment is exactly as described, spacious and comfortable. Highly recommend!",
+                  author: "Sarah",
+                  origin: "United Kingdom",
+                },
+                {
+                  quote: "Superbe appartement, très bien situé. Hôtes réactifs et accueillants. On reviendra!",
+                  author: "Lucie",
+                  origin: "France",
+                },
+              ].map(({ quote, author, origin }) => (
+                <div key={author} className="bg-card rounded-2xl p-6 border border-border">
+                  <p className="text-muted leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-sm font-semibold text-accent">
+                      {author[0]}
+                    </div>
+                    <div>
+                      <p className="text-sm font-medium">{author}</p>
+                      <p className="text-xs text-muted">{origin}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ─── House Rules ─── */}
         <section className="py-20 md:py-28 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
