@@ -184,9 +184,9 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-3 gap-3 md:gap-4">
               {[
-                { src: "/images/boccadasse.jpg", alt: "Boccadasse, Genova" },
-                { src: "/images/corso-italia.jpg", alt: "Corso Italia, Genova" },
-                { src: "/images/piazza-matteotti.jpg", alt: "Piazza Matteotti, Genova" },
+                { src: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Genova-Boccadasse-DSCF1229.JPG", alt: "Boccadasse, Genova" },
+                { src: "https://upload.wikimedia.org/wikipedia/commons/4/40/Corso_Italia%2C_Genova%2C_Italy_-_DSC01153.JPG", alt: "Corso Italia, Genova" },
+                { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi di Genova" },
               ].map(({ src, alt }) => (
                 <div key={alt} className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-border">
                   <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 33vw, 25vw" />
@@ -544,8 +544,8 @@ export default function Home() {
                   Request e-bikes &rarr;
                 </a>
               </div>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-border">
-                <Image src="/images/ebike.jpg" alt="E-bike Genova" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-border flex items-center justify-center">
+                <p className="text-muted text-sm">Photo coming soon</p>
               </div>
             </div>
           </div>
