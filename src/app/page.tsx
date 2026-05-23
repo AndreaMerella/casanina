@@ -139,7 +139,7 @@ export default function Home() {
                     { src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boccadasse.jpg", alt: "Boccadasse" },
                     { src: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
                     { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Porto_antico_-_Genova.jpg/1280px-Porto_antico_-_Genova.jpg", alt: "Porto Antico" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Genova_porto_antico_panorama.jpg/1280px-Genova_porto_antico_panorama.jpg", alt: "Porto Antico" },
                   ].map(({ src, alt }) => (
                     <div key={alt} className="relative overflow-hidden rounded-xl aspect-[4/3] bg-border">
                       <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="20vw" />
@@ -163,12 +163,14 @@ export default function Home() {
               </div>
               <div className="rounded-2xl overflow-hidden border border-border shadow-sm">
                 <iframe
-                  src="https://www.openstreetmap.org/export/embed.html?bbox=8.934%2C44.397%2C8.955%2C44.414&layer=mapnik&marker=44.4056%2C8.9445"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.2!2d8.9445!3d44.4056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d3430d3e5b5555%3A0x0!2sViale+Aspromonte+66%2C+16128+Genova+GE!5e0!3m2!1sen!2sit!4v1"
                   width="100%"
                   height="420"
                   style={{ border: 0, display: "block" }}
-                  title="Casa Nina Carignano"
+                  title="Casa Nina Carignano on Google Maps"
                   loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
             </div>
