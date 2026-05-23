@@ -1,16 +1,15 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, ElementType } from "react";
 
 interface Props {
   children: React.ReactNode;
   className?: string;
-  delay?: number; // ms
-  as?: keyof JSX.IntrinsicElements;
+  delay?: number;
 }
 
-export default function AnimateIn({ children, className = "", delay = 0, as: Tag = "div" }: Props) {
-  const ref = useRef<HTMLElement>(null);
+export default function AnimateIn({ children, className = "", delay = 0 }: Props) {
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = ref.current;
@@ -30,9 +29,8 @@ export default function AnimateIn({ children, className = "", delay = 0, as: Tag
   }, [delay]);
 
   return (
-    // @ts-expect-error – dynamic tag is fine
-    <Tag ref={ref} className={`reveal ${className}`}>
+    <div ref={ref} className={`reveal ${className}`}>
       {children}
-    </Tag>
+    </div>
   );
 }
