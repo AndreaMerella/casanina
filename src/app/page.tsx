@@ -13,7 +13,6 @@ import {
   Tv,
   Armchair,
   Zap,
-  ArrowDown,
   Smartphone,
   UserCheck,
   DoorOpen,
@@ -31,6 +30,7 @@ import Gallery from "@/components/Gallery";
 import BookingBanner from "@/components/BookingBanner";
 import Guestbook from "@/components/Guestbook";
 import Chatbot from "@/components/Chatbot";
+import HeroContent from "@/components/HeroContent";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -101,44 +101,11 @@ export default function Home() {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
 
-          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-16 pb-16 md:pb-24">
-            <p className="text-white/65 text-xs md:text-sm uppercase tracking-[0.2em] mb-3">
-              Carignano, Genova
-            </p>
-            <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-4">
-              Casa Nina
-            </h1>
-            <p className="text-white/75 text-base md:text-lg max-w-md leading-relaxed mb-8">
-              Una casa spaziosa e accogliente nel cuore di Genova: per
-              famiglie, coppie e viaggiatori di ogni tipo.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <a
-                href="#booking"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white text-foreground rounded-xl font-medium text-sm hover:bg-white/90 transition-colors"
-              >
-                Prenota ora &rarr;
-              </a>
-              <a
-                href="#about"
-                className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white/10 text-white rounded-xl font-medium text-sm hover:bg-white/20 border border-white/20 transition-colors backdrop-blur-sm"
-              >
-                Scopri l&apos;appartamento
-              </a>
-            </div>
-          </div>
-
-          <a
-            href="#about"
-            className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 hover:text-white/70 transition-colors"
-            aria-label="Scroll down"
-          >
-            <ArrowDown className="w-5 h-5 animate-bounce" />
-          </a>
+          <HeroContent />
         </section>
 
         {/* ─── About ─── */}
-        <section id="about" className="py-20 md:py-28 px-6">
+        <section id="about" className="py-12 md:py-16 px-6">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
               L&apos;Appartamento
@@ -165,39 +132,59 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Discover Genova ─── */}
-        <section className="py-20 md:py-28 px-6 bg-card">
+        {/* ─── Genova + Location ─── */}
+        <section id="location" className="py-16 md:py-20 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-12">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
-                The City
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-5">
-                Discover Genova
-              </h2>
-              <p className="text-muted leading-relaxed max-w-2xl mx-auto">
-                La Superba. Medieval caruggi, the largest historic centre in
-                Europe, world-class pesto, and the sea always within reach.
-                Boccadasse, Corso Italia and Piazza Matteotti are all on your
-                doorstep.
-              </p>
-            </div>
-            <div className="grid grid-cols-3 gap-3 md:gap-4">
-              {[
-                { src: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Genova-Boccadasse-DSCF1229.JPG", alt: "Boccadasse, Genova" },
-                { src: "https://upload.wikimedia.org/wikipedia/commons/4/40/Corso_Italia%2C_Genova%2C_Italy_-_DSC01153.JPG", alt: "Corso Italia, Genova" },
-                { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi di Genova" },
-              ].map(({ src, alt }) => (
-                <div key={alt} className="relative overflow-hidden rounded-2xl aspect-[4/3] bg-border">
-                  <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 33vw, 25vw" />
+            <div className="grid md:grid-cols-2 gap-10 items-start">
+              <div>
+                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">La Superba</p>
+                <h2 className="font-serif text-3xl md:text-4xl mb-4">Carignano, Genova</h2>
+                <p className="text-muted leading-relaxed mb-6">
+                  Perched on Genova&apos;s most elegant hill, Carignano is a quiet residential quarter with views of the port.
+                  Walk to Corso Italia, Boccadasse, the caruggi and Porto Antico — all within minutes.
+                </p>
+                <div className="grid grid-cols-3 gap-2 mb-6">
+                  {[
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/a/a3/Genova-Boccadasse-DSCF1229.JPG", alt: "Boccadasse" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/4/40/Corso_Italia%2C_Genova%2C_Italy_-_DSC01153.JPG", alt: "Corso Italia" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi" },
+                  ].map(({ src, alt }) => (
+                    <div key={alt} className="relative overflow-hidden rounded-xl aspect-square bg-border">
+                      <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="15vw" />
+                      <div className="absolute bottom-0 inset-x-0 bg-black/40 text-white text-[10px] text-center py-1">{alt}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+                <div className="grid grid-cols-2 gap-3 text-sm">
+                  {[
+                    { label: "Corso Italia", value: "10 min walk" },
+                    { label: "Boccadasse", value: "25 min walk" },
+                    { label: "Porto Antico", value: "10 min by bus" },
+                    { label: "Brignole station", value: "20 min walk" },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="bg-background rounded-xl px-4 py-3">
+                      <p className="font-medium">{label}</p>
+                      <p className="text-muted text-xs mt-0.5">{value}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden border border-border shadow-sm">
+                <iframe
+                  src="https://www.openstreetmap.org/export/embed.html?bbox=8.934%2C44.397%2C8.955%2C44.414&layer=mapnik&marker=44.4056%2C8.9445"
+                  width="100%"
+                  height="420"
+                  style={{ border: 0, display: "block" }}
+                  title="Casa Nina Carignano"
+                  loading="lazy"
+                />
+              </div>
             </div>
           </div>
         </section>
 
         {/* ─── Amenities ─── */}
-        <section id="amenities" className="py-20 md:py-28 px-6 bg-card">
+        <section id="amenities" className="py-12 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
@@ -221,7 +208,7 @@ export default function Home() {
         </section>
 
         {/* ─── Booking ─── */}
-        <section id="booking" className="py-20 md:py-28 px-6">
+        <section id="booking" className="py-12 md:py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="grid lg:grid-cols-5 gap-12 lg:gap-16 items-start">
               <div className="lg:col-span-2 lg:sticky lg:top-24">
@@ -290,7 +277,7 @@ export default function Home() {
         </section>
 
         {/* ─── Reviews ─── */}
-        <section className="py-20 md:py-28 px-6">
+        <section className="py-12 md:py-16 px-6">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
@@ -334,7 +321,7 @@ export default function Home() {
             </div>
 
             {/* Review cards */}
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-3 gap-6 mb-10">
               {[
                 {
                   quote: "Nice and clean apartment in a fabulous area of Genova. The host pays attention to details: toiletries, snacks, beverages, coffee, and even a parking permit. As we often travel to Genoa, we will choose to come back to this place.",
@@ -390,11 +377,17 @@ export default function Home() {
                 </div>
               ))}
             </div>
+            <div className="text-center pt-4">
+              <p className="text-muted text-sm mb-3">Stayed with us? We&apos;d love to hear from you.</p>
+              <a href="#guestbook" className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-medium text-sm hover:opacity-90 transition-opacity">
+                Write in our guestbook &darr;
+              </a>
+            </div>
           </div>
         </section>
 
         {/* ─── House Rules ─── */}
-        <section className="py-20 md:py-28 px-6 bg-card">
+        <section className="py-12 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
@@ -440,7 +433,7 @@ export default function Home() {
         </section>
 
         {/* ─── Smart Check-in ─── */}
-        <section className="py-20 md:py-28 px-6 bg-foreground text-background">
+        <section className="py-12 md:py-16 px-6 bg-foreground text-background">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-14">
               <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
@@ -474,49 +467,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Location ─── */}
-        <section id="location" className="py-20 md:py-28 px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-10">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
-                Location
-              </p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-5">
-                Carignano, Genova
-              </h2>
-              <p className="text-muted leading-relaxed max-w-2xl mx-auto">
-                Perched on Genoa&apos;s most elegant hilltop, Carignano is a
-                quiet residential quarter with panoramic views of the ancient
-                port. Walk to the Basilica di Carignano, Via Roma boutiques, and
-                the vibrant Porto Antico waterfront in minutes.
-              </p>
-            </div>
-
-            <div className="mt-10 rounded-2xl overflow-hidden border border-border shadow-sm">
-              <iframe
-                src="https://www.openstreetmap.org/export/embed.html?bbox=8.934%2C44.397%2C8.955%2C44.414&layer=mapnik&marker=44.4056%2C8.9445"
-                width="100%"
-                height="400"
-                style={{ border: 0, display: "block" }}
-                title="Casa Nina Carignano: Mappa"
-                loading="lazy"
-              />
-            </div>
-            <p className="text-xs text-muted text-center mt-3">
-              <a
-                href="https://www.openstreetmap.org/?mlat=44.4056&mlon=8.9445#map=15/44.4056/8.9445"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-foreground transition-colors"
-              >
-                View larger map &rarr;
-              </a>
-            </p>
-          </div>
-        </section>
-
         {/* ─── E-Bikes ─── */}
-        <section className="py-20 md:py-28 px-6 bg-card">
+        <section className="py-12 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12 items-center">
               <div>
@@ -528,7 +480,7 @@ export default function Home() {
                 </h2>
                 <p className="text-muted leading-relaxed mb-4">
                   Discover Genova at your own pace with our two e-bikes.
-                  Boccadasse, Corso Italia, the Porto Antico — all effortlessly
+                  Boccadasse, Corso Italia, the Porto Antico. all effortlessly
                   within reach. No hills are too steep.
                 </p>
                 <ul className="text-sm text-muted space-y-2 mb-8">
@@ -551,7 +503,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Guestbook ─── */}
+        {/* ─── Reviews + Guestbook ─── */}
         <Guestbook />
 
         {/* ─── Footer ─── */}
@@ -588,7 +540,7 @@ export default function Home() {
                   <a href="mailto:casaninacarignano@gmail.com" className="hover:text-foreground transition-colors">casaninacarignano@gmail.com</a>
                   <p>Viale Aspromonte, 66, 16128 Genova GE</p>
                   <a
-                    href="https://wa.me/39XXXXXXXXXX"
+                    href="https://wa.me/393480048427"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 text-accent hover:text-accent-dark transition-colors mt-1"

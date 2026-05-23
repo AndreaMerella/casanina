@@ -17,7 +17,7 @@ export default function Guestbook() {
   }
 
   return (
-    <section id="guestbook" className="py-20 md:py-28 px-6 bg-card">
+    <section id="guestbook" className="py-12 md:py-16 px-6 bg-card">
       <div className="max-w-2xl mx-auto text-center">
         <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
           Our Guestbook

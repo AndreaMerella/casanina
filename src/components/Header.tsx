@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const links = [
   { label: "About", href: "#about" },
@@ -24,8 +25,8 @@ export default function Header() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-transparent"
+          ? "bg-[#f2ede4]/95 backdrop-blur-md border-b border-border shadow-sm"
+          : "bg-gradient-to-b from-black/50 to-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
@@ -54,16 +55,19 @@ export default function Header() {
           ))}
         </nav>
 
-        <a
-          href="#booking"
-          className={`hidden md:inline-flex px-4 py-2 rounded-xl text-sm font-medium transition-all ${
-            scrolled
-              ? "bg-foreground text-background hover:opacity-90"
-              : "bg-white/15 text-white hover:bg-white/25 backdrop-blur-sm border border-white/25"
-          }`}
-        >
-          Book Now
-        </a>
+        <div className="hidden md:flex items-center gap-3">
+          <LanguageSwitcher />
+          <a
+            href="#booking"
+            className={`inline-flex px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+              scrolled
+                ? "bg-foreground text-background hover:opacity-90"
+                : "bg-white/15 text-white hover:bg-white/25 backdrop-blur-sm border border-white/25"
+            }`}
+          >
+            Book Now
+          </a>
+        </div>
 
         <button
           onClick={() => setOpen(!open)}
