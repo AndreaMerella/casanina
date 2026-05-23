@@ -103,7 +103,6 @@ export default function Home() {
             muted
             loop
             playsInline
-            poster="/images/hero.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source

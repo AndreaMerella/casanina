@@ -85,7 +85,7 @@ export default function BookingWidget({
   const nights =
     checkIn && checkOut ? differenceInCalendarDays(checkOut, checkIn) : 0;
   const subtotal = nights * nightlyRate;
-  const total = subtotal + (nights > 0 ? cleaningFee : 0);
+  const total = subtotal;
 
   const handleBooking = async () => {
     if (!checkIn || !checkOut) return;
@@ -242,10 +242,7 @@ export default function BookingWidget({
               </span>
               <span>&euro;{subtotal}</span>
             </div>
-            <div className="flex justify-between text-sm">
-              <span className="text-muted">Cleaning fee</span>
-              <span>&euro;{cleaningFee}</span>
-            </div>
+
             <div className="flex justify-between font-semibold text-base pt-3 border-t border-border">
               <span>Total</span>
               <span>&euro;{total}</span>
