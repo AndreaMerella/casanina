@@ -33,6 +33,7 @@ import HeroContent from "@/components/HeroContent";
 import MusicPlayer from "@/components/MusicPlayer";
 import AboutSection from "@/components/AboutSection";
 import GenovaIntro from "@/components/GenovaIntro";
+import GenovaVignette from "@/components/GenovaVignette";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
@@ -133,6 +134,9 @@ export default function Home() {
             <Gallery />
           </div>
         </section>
+
+        {/* ─── Genova vignette divider ─── */}
+        <GenovaVignette />
 
         {/* ─── Genova + Location ─── */}
         <section id="location" className="py-16 md:py-20 px-6 bg-card">
