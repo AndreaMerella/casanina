@@ -15,9 +15,19 @@ export async function POST(req: NextRequest) {
     const checkOutDate = new Date(checkOut);
     const nights = differenceInCalendarDays(checkOutDate, checkInDate);
 
-    if (nights <= 0) {
+    if (nights <= 0 || nights > 90) {
       return NextResponse.json(
-        { error: "Check-out must be after check-in." },
+        { error: "Invalid stay duration." },
+        { status: 400 }
+      );
+    }
+
+    // Reject dates more than 2 years in the future
+    const twoYearsFromNow = new Date();
+    twoYearsFromNow.setFullYear(twoYearsFromNow.getFullYear() + 2);
+    if (checkInDate > twoYearsFromNow) {
+      return NextResponse.json(
+        { error: "Booking too far in advance." },
         { status: 400 }
       );
     }
