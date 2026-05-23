@@ -39,7 +39,7 @@ const amenities = [
   { icon: UtensilsCrossed, label: "Full Kitchen" },
   { icon: Snowflake, label: "Air Conditioning" },
   { icon: ShowerHead, label: "Shower" },
-  { icon: Tv, label: '55" Smart TV' },
+  { icon: Tv, label: "Smart TV" },
   { icon: Armchair, label: "Premium Furnishings" },
   { icon: KeyRound, label: "Smart Lock Access" },
   { icon: MapPin, label: "Historic Center" },
@@ -160,6 +160,36 @@ export default function Home() {
         <section id="gallery" className="px-4 md:px-8 pb-20 md:pb-28">
           <div className="max-w-6xl mx-auto">
             <Gallery />
+          </div>
+        </section>
+
+        {/* ─── Discover Genova ─── */}
+        <section className="py-20 md:py-28 px-6 bg-card">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
+                The City
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-5">
+                Discover Genova
+              </h2>
+              <p className="text-muted leading-relaxed max-w-2xl mx-auto">
+                La Superba — one of Italy&apos;s most storied port cities.
+                Medieval caruggi, the largest medieval city centre in Europe,
+                world-class pesto, and the sea always within reach.
+              </p>
+            </div>
+            <div className="grid grid-cols-3 gap-3 md:gap-4">
+              {[
+                { src: "https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&q=80", alt: "Porto Antico di Genova" },
+                { src: "https://images.unsplash.com/photo-1533105079780-92b9be482077?w=800&q=80", alt: "Caruggi di Genova" },
+                { src: "https://images.unsplash.com/photo-1576485375217-d6a95e34d043?w=800&q=80", alt: "Panorama di Genova" },
+              ].map(({ src, alt }) => (
+                <div key={alt} className="relative overflow-hidden rounded-2xl aspect-[4/3]">
+                  <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="(max-width: 768px) 33vw, 25vw" />
+                </div>
+              ))}
+            </div>
           </div>
         </section>
 

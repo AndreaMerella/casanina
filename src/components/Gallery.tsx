@@ -2,18 +2,18 @@ import Image from "next/image";
 
 const galleryImages = [
   {
-    src: "/images/living-room.jpg",
-    alt: "Bright and comfortable living room",
+    src: "/images/view.jpg",
+    alt: "Garden view from the apartment",
     span: "col-span-2 row-span-2",
-  },
-  {
-    src: "/images/kitchen.jpg",
-    alt: "Modern fully equipped kitchen",
-    span: "",
   },
   {
     src: "/images/bedroom.jpg",
     alt: "Double bedroom with wardrobe",
+    span: "",
+  },
+  {
+    src: "/images/kitchen.jpg",
+    alt: "Modern fully equipped kitchen",
     span: "",
   },
   {
@@ -22,8 +22,8 @@ const galleryImages = [
     span: "",
   },
   {
-    src: "/images/view.jpg",
-    alt: "Building entrance",
+    src: "/images/living-room.jpg",
+    alt: "Bright and comfortable living room",
     span: "",
   },
   {
