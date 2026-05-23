@@ -263,51 +263,77 @@ export default function Home() {
               <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">
                 Guest Reviews
               </p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-6">
+              <h2 className="font-serif text-3xl md:text-4xl mb-8">
                 What Our Guests Say
               </h2>
-              <div className="flex items-center justify-center gap-8 flex-wrap">
+
+              {/* Score badges */}
+              <div className="flex items-center justify-center gap-10 flex-wrap mb-10">
                 <div className="flex flex-col items-center">
-                  <span className="font-serif text-5xl font-bold">10.0</span>
-                  <span className="text-muted text-sm mt-1">Booking.com</span>
+                  <span className="font-serif text-5xl font-bold">9.8</span>
+                  <span className="text-sm font-medium mt-1">Exceptional</span>
+                  <span className="text-muted text-xs mt-0.5">Booking.com · 90 reviews</span>
                 </div>
-                <div className="w-px h-12 bg-border hidden sm:block" />
+                <div className="w-px h-14 bg-border hidden sm:block" />
                 <div className="flex flex-col items-center">
-                  <span className="font-serif text-5xl font-bold">10.0</span>
-                  <span className="text-muted text-sm mt-1">Airbnb</span>
+                  <span className="font-serif text-5xl font-bold">5★</span>
+                  <span className="text-sm font-medium mt-1">Top Rated</span>
+                  <span className="text-muted text-xs mt-0.5">Airbnb</span>
                 </div>
+              </div>
+
+              {/* Category scores */}
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-2xl mx-auto text-sm">
+                {[
+                  { label: "Cleanliness", score: "9.9" },
+                  { label: "Free Wi-Fi", score: "10" },
+                  { label: "Location", score: "9.7" },
+                  { label: "Comfort", score: "9.6" },
+                ].map(({ label, score }) => (
+                  <div key={label} className="bg-card rounded-xl px-4 py-3 border border-border">
+                    <p className="font-semibold text-lg">{score}</p>
+                    <p className="text-muted text-xs mt-0.5">{label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
+            {/* Review cards */}
             <div className="grid md:grid-cols-3 gap-6">
               {[
+                {
+                  quote: "Atmosphere of both neighbourhood and apartment.",
+                  author: "Christian",
+                  origin: "Kenya",
+                  score: "9.0",
+                },
                 {
                   quote: "Appartamento bellissimo, pulito e ben organizzato. Posizione ottima nel quartiere Carignano.",
                   author: "Marco",
                   origin: "Italia",
+                  score: "10",
                 },
                 {
                   quote: "Everything was perfect — the apartment is exactly as described, spacious and comfortable. Highly recommend!",
                   author: "Sarah",
                   origin: "United Kingdom",
+                  score: "10",
                 },
-                {
-                  quote: "Superbe appartement, très bien situé. Hôtes réactifs et accueillants. On reviendra!",
-                  author: "Lucie",
-                  origin: "France",
-                },
-              ].map(({ quote, author, origin }) => (
+              ].map(({ quote, author, origin, score }) => (
                 <div key={author} className="bg-card rounded-2xl p-6 border border-border">
-                  <p className="text-muted leading-relaxed mb-4">&ldquo;{quote}&rdquo;</p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-sm font-semibold text-accent">
-                      {author[0]}
+                  <div className="flex justify-between items-start mb-4">
+                    <div className="flex items-center gap-2">
+                      <div className="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-sm font-semibold text-accent">
+                        {author[0]}
+                      </div>
+                      <div>
+                        <p className="text-sm font-medium">{author}</p>
+                        <p className="text-xs text-muted">{origin}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm font-medium">{author}</p>
-                      <p className="text-xs text-muted">{origin}</p>
-                    </div>
+                    <span className="text-xs font-bold bg-foreground text-background rounded-lg px-2 py-1">{score}</span>
                   </div>
+                  <p className="text-muted leading-relaxed text-sm">&ldquo;{quote}&rdquo;</p>
                 </div>
               ))}
             </div>
