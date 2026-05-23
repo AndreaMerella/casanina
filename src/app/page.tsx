@@ -67,7 +67,7 @@ const checkinSteps = [
     icon: UserCheck,
     title: "Verify Your Identity",
     description:
-      "Upload your ID for the mandatory Italian Alloggiati Web registration — fast, secure, and fully automated.",
+      "Upload your ID for the mandatory Italian Alloggiati Web registration: fast, secure, and fully automated.",
   },
   {
     icon: DoorOpen,
@@ -91,7 +91,7 @@ export default function Home() {
         <section className="relative h-screen w-full overflow-hidden bg-stone-800">
           <Image
             src="/images/hero.jpg"
-            alt="Casa Nina Carignano — soggiorno"
+            alt="Casa Nina Carignano: soggiorno"
             fill
             priority
             className="object-cover"
@@ -107,7 +107,7 @@ export default function Home() {
               Casa Nina
             </h1>
             <p className="text-white/75 text-base md:text-lg max-w-md leading-relaxed mb-8">
-              Una casa spaziosa e accogliente nel cuore di Genova — per
+              Una casa spaziosa e accogliente nel cuore di Genova: per
               famiglie, coppie e viaggiatori di ogni tipo.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
@@ -146,7 +146,7 @@ export default function Home() {
             </h2>
             <p className="text-muted text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
               Casa Nina is a spacious, fully renovated apartment in the quiet
-              Carignano quarter — perfect for families, couples, solo travellers,
+              Carignano quarter: perfect for families, couples, solo travellers,
               and anyone who wants to experience Genoa like a local. Original
               arched doorways, warm oak floors, a fully equipped kitchen, and
               everything you need to settle in and feel at home. The old port,
@@ -174,7 +174,7 @@ export default function Home() {
                 Discover Genova
               </h2>
               <p className="text-muted leading-relaxed max-w-2xl mx-auto">
-                La Superba — one of Italy&apos;s most storied port cities.
+                La Superba: one of Italy&apos;s most storied port cities.
                 Medieval caruggi, the largest medieval city centre in Europe,
                 world-class pesto, and the sea always within reach.
               </p>
@@ -229,7 +229,7 @@ export default function Home() {
                   Book Your Stay
                 </h2>
                 <p className="text-muted leading-relaxed mb-6">
-                  Book directly for the best rate — no OTA commission, no
+                  Book directly for the best rate: no OTA commission, no
                   middleman. Secure payment and instant confirmation.
                 </p>
                 <div className="text-sm text-muted space-y-2">
@@ -334,7 +334,7 @@ export default function Home() {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 {
-                  quote: "Nice and clean apartment in a fabulous area of Genova. The host pays attention to details — toiletries, snacks, beverages, coffee, and even a parking permit. As we often travel to Genoa, we will choose to come back to this place.",
+                  quote: "Nice and clean apartment in a fabulous area of Genova. The host pays attention to details: toiletries, snacks, beverages, coffee, and even a parking permit. As we often travel to Genoa, we will choose to come back to this place.",
                   author: "Laura",
                   origin: "United Kingdom",
                   score: "10",
@@ -449,7 +449,7 @@ export default function Home() {
               <p className="text-background/60 max-w-2xl mx-auto leading-relaxed">
                 We use Vikey to automate the entire check-in process. Your
                 Italian legal registration (Alloggiati Web) and smart lock
-                access are handled digitally — no paperwork, no key handoff.
+                access are handled digitally: no paperwork, no key handoff.
               </p>
             </div>
             <div className="grid md:grid-cols-3 gap-8 md:gap-12">
@@ -495,7 +495,7 @@ export default function Home() {
                 width="100%"
                 height="400"
                 style={{ border: 0, display: "block" }}
-                title="Casa Nina Carignano — Mappa"
+                title="Casa Nina Carignano: Mappa"
                 loading="lazy"
               />
             </div>

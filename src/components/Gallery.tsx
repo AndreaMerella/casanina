@@ -28,7 +28,7 @@ const galleryImages = [
   },
   {
     src: "/images/workspace.jpg",
-    alt: "Living room — another angle",
+    alt: "Living room: another angle",
     span: "col-span-2",
   },
 ];
