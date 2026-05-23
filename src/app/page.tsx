@@ -36,6 +36,7 @@ import GenovaIntro from "@/components/GenovaIntro";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
+import BookingModal from "@/components/BookingModal";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -95,18 +96,24 @@ export default function Home() {
         </Suspense>
 
         {/* ─── Hero ─── */}
-        <section className="relative h-[80vh] w-full overflow-hidden bg-stone-800">
-          <Image
-            src="/images/hero.jpg"
-            alt="Casa Nina Carignano"
-            fill
-            priority
-            className="object-cover object-center"
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+        <section className="relative h-[85vh] w-full overflow-hidden bg-stone-900">
+          {/* Drone video background */}
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/images/hero.jpg"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="https://videos.pexels.com/video-files/32386611/13814563_1280_720_50fps.mp4"
+              type="video/mp4"
+            />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
 
-          {/* Weather badge top right */}
+          {/* Weather badge */}
           <div className="absolute top-20 right-4 md:right-6 z-10">
             <WeatherBadge />
           </div>
@@ -138,8 +145,8 @@ export default function Home() {
                   {[
                     { src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boccadasse.jpg", alt: "Boccadasse" },
                     { src: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/6/61/Genova-Caruggio_a_Sottoripa.jpg", alt: "Caruggi" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Genova_porto_antico_panorama.jpg/1280px-Genova_porto_antico_panorama.jpg", alt: "Porto Antico" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Canneto_il_Curto_Genova_01.JPG", alt: "Caruggi" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/7/77/Porto_Antico_Genova_varie_02.jpg", alt: "Porto Antico" },
                   ].map(({ src, alt }) => (
                     <div key={alt} className="relative overflow-hidden rounded-xl aspect-[4/3] bg-border">
                       <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="20vw" />
@@ -223,36 +230,7 @@ export default function Home() {
               </AnimateIn>
 
               <AnimateIn className="lg:col-span-3" delay={100}>
-                <div className="bg-card rounded-2xl border border-border p-8 shadow-sm">
-                  <div className="flex items-baseline gap-1.5 mb-2">
-                    <span className="font-serif text-3xl font-bold">&euro;{NIGHTLY_RATE}</span>
-                    <span className="text-muted text-sm">/ night</span>
-                  </div>
-                  <p className="text-xs text-muted mb-8">+ cleaning fee &middot; best rate guaranteed</p>
-
-                  <a
-                    href="https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full py-4 bg-foreground text-background rounded-xl font-medium text-sm hover:opacity-90 transition-opacity"
-                  >
-                    Check Availability &amp; Book
-                  </a>
-
-                  <div className="grid grid-cols-2 gap-3 mt-6 text-xs text-muted">
-                    {[
-                      { icon: "🔒", text: "Secure payment" },
-                      { icon: "✓", text: "Instant confirmation" },
-                      { icon: "📅", text: "Synced with Airbnb" },
-                      { icon: "💬", text: "Direct host contact" },
-                    ].map(({ icon, text }) => (
-                      <div key={text} className="flex items-center gap-1.5">
-                        <span>{icon}</span>
-                        <span>{text}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+                <BookingModal nightlyRate={NIGHTLY_RATE} />
               </AnimateIn>
 
             </div>
@@ -488,8 +466,8 @@ export default function Home() {
               </div>
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&auto=format&fit=crop&q=80"
-                  alt="E-bikes available at Casa Nina"
+                  src="https://images.unsplash.com/photo-1719942333151-dd37a8d803df?w=800&auto=format&fit=crop&q=80"
+                  alt="E-bikes by the sea at Casa Nina"
                   fill
                   className="object-cover hover:scale-105 transition-transform duration-700"
                   sizes="(max-width: 768px) 100vw, 50vw"
