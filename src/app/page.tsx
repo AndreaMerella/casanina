@@ -36,6 +36,7 @@ import AboutSection from "@/components/AboutSection";
 import GenovaIntro from "@/components/GenovaIntro";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
+import WeatherBadge from "@/components/WeatherBadge";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -97,14 +98,19 @@ export default function Home() {
         {/* ─── Hero ─── */}
         <section className="relative h-[80vh] w-full overflow-hidden bg-stone-800">
           <Image
-            src="/images/living-room.jpg"
-            alt="Casa Nina Carignano - living room"
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Genova_panorama_da_spianata_castelletto_2013.jpg/1280px-Genova_panorama_da_spianata_castelletto_2013.jpg"
+            alt="Genova panorama from Castelletto"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-bottom"
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
+
+          {/* Weather badge — top right */}
+          <div className="absolute top-20 right-4 md:right-6 z-10">
+            <WeatherBadge />
+          </div>
 
           <HeroContent />
         </section>

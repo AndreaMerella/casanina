@@ -7,96 +7,116 @@ const WA_LINK = "https://wa.me/393480048427?text=Hi%2C%20I%20have%20a%20question
 
 const QA: { keywords: string[]; answer: string }[] = [
   {
-    keywords: ["what to do", "things to do", "today", "activities", "visit", "see", "where to go", "tips", "recommend", "suggestion", "explore", "sightseeing", "must see", "must-see", "genova", "genoa"],
-    answer: "Top picks for Genova: walk the caruggi (medieval alleys), visit Porto Antico and the Aquarium, stroll Corso Italia at sunset, and end with a glass of Pigato wine in Boccadasse. Don't miss Palazzo Reale or the view from Castelletto. And eat focaccia for breakfast like a true Genovese!",
+    keywords: ["hello", "hi", "ciao", "hey", "buongiorno", "hola", "bonjour", "salve"],
+    answer: "Ciao! I'm Nina, your virtual host at Casa Nina Carignano. I can help with check-in, local tips, restaurants, transport and more. What would you like to know?",
   },
   {
-    keywords: ["check-in", "checkin", "arrive", "arrival", "key", "access", "enter", "door"],
-    answer: "Check-in is from 15:00. You'll receive a smart lock code by email before arrival. No key handover needed — arrive whenever you like after 15:00.",
+    keywords: ["check-in", "checkin", "arrive", "arrival", "key", "access", "enter", "door", "lock"],
+    answer: "Check-in is from 15:00. Before arrival you'll receive a secure smart lock code via email — no key handover, no waiting. Just walk in at your convenience. Early check-in may be possible on request.",
   },
   {
-    keywords: ["check-out", "checkout", "leave", "departure", "when do i leave"],
-    answer: "Check-out is by 10:00. Just leave the door closed — it locks automatically. No need to return any keys.",
+    keywords: ["check-out", "checkout", "leave", "departure", "when do i leave", "late checkout"],
+    answer: "Check-out is by 10:00. Just close the door (it locks automatically) and you're done. Late check-out may be available on request — message us in advance.",
   },
   {
-    keywords: ["wifi", "internet", "password", "wi-fi", "connection"],
-    answer: "Fast fibre Wi-Fi is included. You'll find the network name and password on the welcome card inside the apartment.",
+    keywords: ["wifi", "internet", "password", "wi-fi", "connection", "speed"],
+    answer: "1 Gbps fibre Wi-Fi is included — one of the fastest connections available. The network name and password are on the welcome card inside the apartment.",
   },
   {
-    keywords: ["parking", "car", "park", "parcheggio"],
-    answer: "The host provides a free parking permit for the neighbourhood. You'll receive it with your check-in details — no need to pay for street parking.",
+    keywords: ["parking", "car", "park", "parcheggio", "garage"],
+    answer: "The host provides a free ZTL parking permit for the Carignano neighbourhood — no street parking fees. You'll receive it with your check-in info. There's also a covered garage nearby at Piazza Brignole.",
   },
   {
     keywords: ["ebike", "e-bike", "bike", "bicycle", "cycle", "cycling"],
-    answer: "We have 2 e-bikes available for guests! Helmets and locks included. Just contact us to arrange. You can reach Boccadasse in 10 minutes along Corso Italia.",
+    answer: "Two e-bikes are available for guests — helmets and locks included! Request them when booking. You can reach Boccadasse in 10 min along the flat Corso Italia seafront, or explore Nervi to the east.",
   },
   {
     keywords: ["boccadasse"],
-    answer: "Boccadasse is a gorgeous little fishing village 2 km away. Walk there in 25 min along Corso Italia, or take bus 31. Beautiful at sunset — grab a gelato and watch the boats.",
+    answer: "Boccadasse is a magical little fishing village frozen in time, just 2 km from the apartment. Walk 25 min along Corso Italia or take bus 31. Go at sunset — the coloured houses reflect on the water. Get a gelato at Bar Gelateria Davide, a local institution since 1967.",
   },
   {
     keywords: ["porto antico", "old port", "acquario", "aquarium", "port"],
-    answer: "Porto Antico is about 2 km away — 10 min by bus or 25 min walk through the historic centre. The Aquarium of Genova is right there and is the largest in Italy.",
+    answer: "Porto Antico is the vibrant heart of Genova — about 2 km away, 10 min by bus or 25 min walk through the caruggi. The Aquarium of Genova is the largest in Italy and excellent for families. The Bigo crane offers a spectacular panoramic lift. Piazza Caricamento nearby has great aperitivo bars.",
   },
   {
-    keywords: ["corso italia", "promenade", "seafront", "sea walk"],
-    answer: "Corso Italia is Genova's gorgeous 5 km seafront promenade, just 10 min walk from the apartment. Perfect for morning runs, sunset walks, or cycling with the e-bikes.",
+    keywords: ["corso italia", "promenade", "seafront", "lungomare"],
+    answer: "Corso Italia is Genova's elegant 5 km seafront promenade, just 10 min walk from the apartment. Perfect for morning runs, sunset strolls, or cycling with the e-bikes. The Bagni Vittoria beach club is a local favourite in summer.",
   },
   {
-    keywords: ["caruggi", "old town", "historic", "centre", "center", "medieval", "alleys"],
-    answer: "The caruggi — Genova's medieval maze of alleyways — is one of the largest preserved historic centres in Europe. Take the bus 5 min from the apartment and get lost in there. Absolutely stunning.",
+    keywords: ["caruggi", "old town", "historic", "centre", "center", "medieval", "alleys", "centro storico"],
+    answer: "The caruggi — Genova's UNESCO-listed medieval labyrinth — is one of the largest and most intact historic centres in Europe. Take bus 35 (5 min) and get gloriously lost. Via San Luca, Via degli Orefici, and Piazza Matteotti are unmissable. Go off the tourist trail into Via del Campo, immortalised by De André.",
   },
   {
-    keywords: ["train", "station", "brignole", "principe", "airport", "taxi"],
-    answer: "Brignole station is 1.5 km away (20 min walk or 5 min by bus). Principe station is 3 km away. Cristoforo Colombo Airport is 10 km — about €25 by taxi or take the AMT Volabus.",
+    keywords: ["palazzo reale", "palazzo ducale", "rolli", "museum", "gallery", "art", "churches", "cattedrale"],
+    answer: "Genova has extraordinary art and architecture. Don't miss: Palazzo Reale (royal palace, stunning frescoes), Palazzo Ducale (great exhibitions), the Rolli palaces (UNESCO heritage), and Cattedrale di San Lorenzo. The Galata Museo del Mare is the best maritime museum in the Mediterranean.",
   },
   {
-    keywords: ["beach", "sea", "swim", "swimming", "sunbathe"],
-    answer: "The nearest beach is along Corso Italia, about 10-15 min walk. Boccadasse has a lovely little pebble cove. Further east, Nervi has beautiful rocky walks and coves accessible by train.",
+    keywords: ["castelletto", "spianata", "view", "panorama", "viewpoint", "belvedere"],
+    answer: "The Spianata di Castelletto is the finest viewpoint in Genova — free and magical at dusk. Take the historic Ascensore di Castelletto (lift) from Via Bixio, just a 10 min walk from the apartment. Highly recommended at golden hour.",
   },
   {
-    keywords: ["restaurant", "eat", "food", "dinner", "lunch", "trattoria", "ristorante"],
-    answer: "For pesto try Trattoria da Maria in the caruggi — iconic and cheap. For seafood, Boccadasse has wonderful spots by the water. For a special dinner, Il Marin at Porto Antico has stunning views.",
+    keywords: ["cinque terre", "portofino", "nervi", "day trip", "camogli", "riviera"],
+    answer: "Casa Nina is perfectly placed for day trips! Cinque Terre: 1h by train from Brignole. Portofino: 40 min by boat from Porto Antico or 1h by bus. Camogli (beautiful fishing village): 30 min by train. Nervi (seaside promenade + cliff walks): 20 min by train. All spectacular.",
   },
   {
-    keywords: ["pesto", "focaccia", "farinata", "typical", "local food", "genovese"],
-    answer: "Genova is the birthplace of pesto! Must-eats: focaccia genovese (eat it for breakfast!), farinata (chickpea flatbread), trofie al pesto, pansoti con salsa di noci. Find all of these in the caruggi.",
+    keywords: ["train", "station", "brignole", "principe", "airport", "taxi", "bus station", "transport"],
+    answer: "Brignole station is 1.5 km away — 20 min walk or 5 min by bus. Principe station is 3 km away. Cristoforo Colombo Airport (GOA) is 10 km — €25 by taxi or take the AMT Volabus directly to the city centre. Trains to Milan, Turin and Rome depart frequently from both stations.",
   },
   {
-    keywords: ["supermarket", "grocery", "shop", "market"],
-    answer: "There's a Carrefour Express 5 min walk from the apartment, and a larger Coop supermarket 10 min away. A small market happens on Tuesday mornings nearby.",
+    keywords: ["beach", "sea", "swim", "swimming", "sunbathe", "lido"],
+    answer: "The nearest beach is along Corso Italia, 10–15 min walk — several lidos with sun beds and bars. Boccadasse has a charming pebble cove. Further east, Nervi has beautiful rocky walks and crystal-clear water. In summer, Bagni Vittoria on Corso Italia is a superb beach club.",
   },
   {
-    keywords: ["bus", "transport", "public", "metro", "amt", "tram"],
-    answer: "Bus stops are 2 min walk away. Lines 31, 35 and 41 connect to the centre. Buy tickets at any tabacchi or use the AMT app. A single ticket costs €1.60.",
+    keywords: ["restaurant", "eat", "food", "dinner", "lunch", "trattoria", "ristorante", "osteria", "where to eat"],
+    answer: "Top picks: **Da Maria** (caruggi, iconic cheap trattoria, cash only), **Il Marin** (Porto Antico, seafood with harbour views), **Trattoria Rosmarino** (Carignano, excellent local cooking, very near the apartment), **Osteria del Vico Palla** (historic centre, traditional Genovese), **Sa Pesta** (farinata specialists, unmissable).",
+  },
+  {
+    keywords: ["pesto", "focaccia", "farinata", "typical", "local food", "genovese food", "trofie", "pansoti"],
+    answer: "Genova is the birthplace of pesto DOP! Must-eats: focaccia genovese (eat it warm for breakfast — try Panificio Mario), farinata (crispy chickpea flatbread, best at Sa Pesta), trofie al pesto, pansoti con salsa di noci (pasta in walnut cream sauce), acciughe (anchovies), and local Pigato white wine.",
+  },
+  {
+    keywords: ["aperitivo", "aperitif", "drinks", "bar", "wine", "cocktail", "nightlife"],
+    answer: "For aperitivo: Piazza delle Erbe in the caruggi gets lively from 18:00 — dozens of bars spill onto the square. Enoteca Sola (near Carignano) is excellent for Ligurian wines. Porto Antico has great bars with water views. In summer, the rooftop terrace of Hotel Bristol has a stunning panorama.",
+  },
+  {
+    keywords: ["supermarket", "grocery", "shop", "market", "supermercato"],
+    answer: "Carrefour Express: 5 min walk (open until 21:30). Coop supermarket: 10 min walk, better selection. Tuesday morning market in Via Carignano. For specialties — cured meats, cheese, pesto — try the historic Mercato Orientale, 15 min walk.",
+  },
+  {
+    keywords: ["bus", "transport", "public", "metro", "amt", "ticket", "how to get"],
+    answer: "Bus stops are 2 min walk. Lines 31, 35, and 41 connect to the centre in 5–10 min. Tickets: €1.60 single (90 min validity), €4.50 day pass — buy at any tabacchi or use the AMT app. Genova also has a small metro (1 line) and several historic funiculars and lifts worth riding.",
+  },
+  {
+    keywords: ["events", "what's on", "concert", "festival", "tonight", "this week", "live", "show", "happening"],
+    answer: "For current events in Genova: check **visitgenoa.it** (official tourism), **eventbrite.it**, and **comune.genova.it/turismo**. Genova Film Festival runs in October. Estate Genovese (summer open-air events) runs June–September along Porto Antico. Local neighbourhood festivals (sagre) happen throughout summer.",
   },
   {
     keywords: ["cancel", "refund", "cancellation", "change dates"],
-    answer: "Full refund if cancelled 7+ days before check-in. 50% refund 3 to 7 days before. No refund within 72 hours of check-in.",
+    answer: "Full refund if cancelled 7+ days before check-in. 50% refund for cancellations 3–7 days before. No refund within 72 hours of check-in. Contact us directly — we always try to be flexible for genuine situations.",
   },
   {
-    keywords: ["price", "cost", "rate", "night", "how much", "pricing"],
-    answer: "Check live availability and pricing directly on our booking page — just click 'Book Now' at the top. Best rate guaranteed by booking direct.",
+    keywords: ["price", "cost", "rate", "night", "how much", "pricing", "minimum stay"],
+    answer: "Prices vary by season — check live availability and best rates by clicking 'Book Now' at the top. Minimum stay is 2 nights. Booking direct guarantees the best rate with no OTA commission added.",
   },
   {
-    keywords: ["whatsapp", "call", "phone", "contact", "speak", "talk", "message", "chat", "human", "person", "real", "someone"],
+    keywords: ["whatsapp", "call", "phone", "contact", "speak", "talk", "message", "human", "person", "real", "someone", "help"],
     answer: "WHATSAPP",
   },
   {
     keywords: ["pet", "dog", "cat", "animal"],
-    answer: "Sorry, no pets at Casa Nina.",
+    answer: "Unfortunately, pets are not allowed at Casa Nina. Sorry about that!",
   },
   {
     keywords: ["smoke", "smoking"],
-    answer: "Casa Nina is strictly non-smoking. No smoking anywhere on the premises.",
+    answer: "Casa Nina is strictly non-smoking indoors and on-premises. Thank you for respecting this.",
   },
   {
-    keywords: ["guest", "people", "capacity", "max", "how many"],
-    answer: "The apartment sleeps up to 4 guests comfortably.",
+    keywords: ["guest", "people", "capacity", "max", "how many", "family"],
+    answer: "The apartment sleeps up to 4 guests comfortably — perfect for couples, families with children, or a small group of friends.",
   },
   {
-    keywords: ["hello", "hi", "ciao", "hey", "buongiorno", "hola", "bonjour"],
-    answer: "Ciao! I'm Nina, your virtual host at Casa Nina Carignano. Ask me anything about the apartment, check-in, or what to do in Genova. Or tap the WhatsApp button to reach us directly!",
+    keywords: ["amenities", "kitchen", "washing", "laundry", "ac", "air conditioning", "tv", "nespresso"],
+    answer: "Full kitchen with induction hob, oven, Nespresso machine and all equipment. Air conditioning. Smart TV. Washing machine. Premium furnishings throughout. Smart lock entry. Everything you need for a comfortable stay.",
   },
 ];
 
@@ -110,32 +130,41 @@ function getAnswer(input: string): string {
 
 type Message = { from: "user" | "bot"; text: string; isWA?: boolean };
 
+const SUGGESTIONS = [
+  "What to do in Genova?",
+  "Best restaurants nearby?",
+  "How do I check in?",
+  "Day trips from Genova?",
+];
+
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { from: "bot", text: "Ciao! I'm Nina. Ask me about the apartment, Genova, or anything else about your stay." },
+    { from: "bot", text: "Ciao! I'm Nina, your virtual host. Ask me about the apartment, Genova, restaurants, transport — anything for your stay!" },
   ]);
   const [input, setInput] = useState("");
+  const [showSuggestions, setShowSuggestions] = useState(true);
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, open]);
 
-  function send() {
-    const text = input.trim();
-    if (!text) return;
-    const raw = getAnswer(text);
+  function send(text?: string) {
+    const txt = (text ?? input).trim();
+    if (!txt) return;
+    setShowSuggestions(false);
+    const raw = getAnswer(txt);
     const isWA = raw === "WHATSAPP";
     const isUnknown = raw === "UNKNOWN";
     const botText = isUnknown
-      ? "I'm not sure, but you can ask us directly on WhatsApp!"
+      ? "I'm not sure about that one — but our host Arcangelo is always happy to help directly!"
       : isWA
-      ? "Of course! Tap below to message us on WhatsApp and we'll reply as soon as possible."
+      ? "Of course! Tap below to message us on WhatsApp and we'll get back to you quickly."
       : raw;
     setMessages((m) => [
       ...m,
-      { from: "user", text },
+      { from: "user", text: txt },
       { from: "bot", text: botText, isWA: isWA || isUnknown },
     ]);
     setInput("");
@@ -152,13 +181,14 @@ export default function Chatbot() {
       </button>
 
       {open && (
-        <div className="fixed bottom-44 right-5 z-50 w-80 bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden">
-          <div className="bg-foreground text-background px-4 py-3 flex items-center justify-between">
+        <div className="fixed bottom-44 right-5 z-50 w-80 bg-background border border-border rounded-2xl shadow-2xl flex flex-col overflow-hidden max-h-[70vh]">
+          {/* Header */}
+          <div className="bg-foreground text-background px-4 py-3 flex items-center justify-between shrink-0">
             <div className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold text-white">N</div>
+              <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-sm font-bold" style={{ color: "#0c1e2a" }}>N</div>
               <div>
                 <p className="text-sm font-semibold">Nina</p>
-                <p className="text-xs opacity-60">Casa Nina virtual host</p>
+                <p className="text-xs opacity-50">Casa Nina · virtual host</p>
               </div>
             </div>
             <a
@@ -171,10 +201,11 @@ export default function Chatbot() {
             </a>
           </div>
 
-          <div className="flex-1 overflow-y-auto p-4 space-y-3 max-h-72">
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-3">
             {messages.map((m, i) => (
               <div key={i} className={`flex flex-col ${m.from === "user" ? "items-end" : "items-start"}`}>
-                <div className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
+                <div className={`max-w-[88%] rounded-2xl px-3 py-2 text-sm leading-relaxed ${
                   m.from === "user"
                     ? "bg-foreground text-background rounded-br-sm"
                     : "bg-card text-foreground rounded-bl-sm"
@@ -194,18 +225,37 @@ export default function Chatbot() {
                 )}
               </div>
             ))}
+
+            {/* Quick suggestions */}
+            {showSuggestions && (
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {SUGGESTIONS.map(s => (
+                  <button
+                    key={s}
+                    onClick={() => send(s)}
+                    className="text-xs bg-card border border-border text-muted hover:text-foreground hover:border-accent rounded-xl px-2.5 py-1.5 transition-colors"
+                  >
+                    {s}
+                  </button>
+                ))}
+              </div>
+            )}
             <div ref={bottomRef} />
           </div>
 
-          <div className="border-t border-border p-3 flex gap-2">
+          {/* Input */}
+          <div className="border-t border-border p-3 flex gap-2 shrink-0">
             <input
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && send()}
-              placeholder="Ask me anything..."
-              className="flex-1 text-sm bg-card rounded-xl px-3 py-2 outline-none border border-border focus:border-accent"
+              placeholder="Ask anything about Genova..."
+              className="flex-1 text-sm bg-card rounded-xl px-3 py-2 outline-none border border-border focus:border-accent text-foreground placeholder:text-muted/50 transition-colors"
             />
-            <button onClick={send} className="w-9 h-9 rounded-xl bg-foreground text-background flex items-center justify-center hover:opacity-90 transition-opacity">
+            <button
+              onClick={() => send()}
+              className="w-9 h-9 rounded-xl bg-foreground text-background flex items-center justify-center hover:opacity-90 transition-opacity shrink-0"
+            >
               <Send className="w-4 h-4" />
             </button>
           </div>
