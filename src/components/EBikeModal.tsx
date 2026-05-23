@@ -26,7 +26,7 @@ export default function EBikeModal() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`E-bike request — ${name}`);
+    const subject = encodeURIComponent(`E-bike request - ${name}`);
     const body = encodeURIComponent(
       `Hi,\n\nI would like to request the e-bikes during my stay at Casa Nina.\n\nName: ${name}\nEmail: ${email}\nDates: ${dates}${notes ? `\nNotes: ${notes}` : ""}\n\nThank you!`
     );

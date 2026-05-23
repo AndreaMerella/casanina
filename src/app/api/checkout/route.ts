@@ -48,8 +48,8 @@ export async function POST(req: NextRequest) {
           price_data: {
             currency: "eur",
             product_data: {
-              name: `Casa Nina Carignano — ${nights} night${nights > 1 ? "s" : ""}`,
-              description: `${checkInDate.toLocaleDateString("en-GB")} — ${checkOutDate.toLocaleDateString("en-GB")}`,
+              name: `Casa Nina Carignano - ${nights} night${nights > 1 ? "s" : ""}`,
+              description: `${checkInDate.toLocaleDateString("en-GB")} - ${checkOutDate.toLocaleDateString("en-GB")}`,
             },
             unit_amount: nightlyRateCents * nights,
           },

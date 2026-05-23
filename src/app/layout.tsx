@@ -12,13 +12,13 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Casa Nina Carignano — Appartamento a Genova",
+  title: "Casa Nina Carignano | Appartamento a Genova",
   description:
     "Un appartamento spazioso e accogliente nel quartiere Carignano di Genova. Perfetto per famiglie, coppie e viaggiatori. Prenota direttamente al miglior prezzo.",
   openGraph: {
     title: "Casa Nina Carignano",
     description:
-      "Un appartamento spazioso nel cuore di Genova — per famiglie, coppie e viaggiatori di ogni tipo. Prenota direttamente.",
+      "Un appartamento spazioso nel cuore di Genova | per famiglie, coppie e viaggiatori di ogni tipo. Prenota direttamente.",
     type: "website",
     images: [{ url: "/images/hero.jpg", width: 1920, height: 1080, alt: "Casa Nina Carignano" }],
   },

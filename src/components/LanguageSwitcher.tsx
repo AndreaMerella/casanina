@@ -12,7 +12,7 @@ export const t: Record<string, Record<string, string>> = {
   en: {
     tagline: "Carignano, Genova",
     heroTitle: "Casa Nina",
-    heroSub: "A spacious, welcoming home in the heart of Genova — for families, couples and travellers of every kind.",
+    heroSub: "A spacious, welcoming home in the heart of Genova for families, couples and travellers of every kind.",
     bookNow: "Book Now",
     exploreApt: "Explore the apartment",
     navAbout: "About",

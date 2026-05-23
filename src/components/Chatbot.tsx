@@ -12,31 +12,31 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["check-in", "checkin", "arrive", "arrival", "key", "access", "enter", "door", "lock"],
-    answer: "Check-in is from 15:00. Before arrival you'll receive a secure smart lock code via email — no key handover, no waiting. Just walk in at your convenience. Early check-in may be possible on request.",
+    answer: "Check-in is from 15:00. Before arrival you'll receive a secure smart lock code via email: no key handover, no waiting. Just walk in at your convenience. Early check-in may be possible on request.",
   },
   {
     keywords: ["check-out", "checkout", "leave", "departure", "when do i leave", "late checkout"],
-    answer: "Check-out is by 10:00. Just close the door (it locks automatically) and you're done. Late check-out may be available on request — message us in advance.",
+    answer: "Check-out is by 10:00. Just close the door (it locks automatically) and you're done. Late check-out may be available on request: message us in advance.",
   },
   {
     keywords: ["wifi", "internet", "password", "wi-fi", "connection", "speed"],
-    answer: "1 Gbps fibre Wi-Fi is included — one of the fastest connections available. The network name and password are on the welcome card inside the apartment.",
+    answer: "1 Gbps fibre Wi-Fi is included: one of the fastest connections available. The network name and password are on the welcome card inside the apartment.",
   },
   {
     keywords: ["parking", "car", "park", "parcheggio", "garage"],
-    answer: "The host provides a free ZTL parking permit for the Carignano neighbourhood — no street parking fees. You'll receive it with your check-in info. There's also a covered garage nearby at Piazza Brignole.",
+    answer: "The host provides a free ZTL parking permit for the Carignano neighbourhood: no street parking fees. You'll receive it with your check-in info. There's also a covered garage nearby at Piazza Brignole.",
   },
   {
     keywords: ["ebike", "e-bike", "bike", "bicycle", "cycle", "cycling"],
-    answer: "Two e-bikes are available for guests — helmets and locks included! Request them when booking. You can reach Boccadasse in 10 min along the flat Corso Italia seafront, or explore Nervi to the east.",
+    answer: "Two e-bikes are available for guests: helmets and locks included! Request them when booking. You can reach Boccadasse in 10 min along the flat Corso Italia seafront, or explore Nervi to the east.",
   },
   {
     keywords: ["boccadasse"],
-    answer: "Boccadasse is a magical little fishing village frozen in time, just 2 km from the apartment. Walk 25 min along Corso Italia or take bus 31. Go at sunset — the coloured houses reflect on the water. Get a gelato at Bar Gelateria Davide, a local institution since 1967.",
+    answer: "Boccadasse is a magical little fishing village frozen in time, just 2 km from the apartment. Walk 25 min along Corso Italia or take bus 31. Go at sunset: the coloured houses reflect on the water. Get a gelato at Bar Gelateria Davide, a local institution since 1967.",
   },
   {
     keywords: ["porto antico", "old port", "acquario", "aquarium", "port"],
-    answer: "Porto Antico is the vibrant heart of Genova — about 2 km away, 10 min by bus or 25 min walk through the caruggi. The Aquarium of Genova is the largest in Italy and excellent for families. The Bigo crane offers a spectacular panoramic lift. Piazza Caricamento nearby has great aperitivo bars.",
+    answer: "Porto Antico is the vibrant heart of Genova: about 2 km away, 10 min by bus or 25 min walk through the caruggi. The Aquarium of Genova is the largest in Italy and excellent for families. The Bigo crane offers a spectacular panoramic lift. Piazza Caricamento nearby has great aperitivo bars.",
   },
   {
     keywords: ["corso italia", "promenade", "seafront", "lungomare"],
@@ -44,7 +44,7 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["caruggi", "old town", "historic", "centre", "center", "medieval", "alleys", "centro storico"],
-    answer: "The caruggi — Genova's UNESCO-listed medieval labyrinth — is one of the largest and most intact historic centres in Europe. Take bus 35 (5 min) and get gloriously lost. Via San Luca, Via degli Orefici, and Piazza Matteotti are unmissable. Go off the tourist trail into Via del Campo, immortalised by De André.",
+    answer: "The caruggi: Genova's UNESCO-listed medieval labyrinth: is one of the largest and most intact historic centres in Europe. Take bus 35 (5 min) and get gloriously lost. Via San Luca, Via degli Orefici, and Piazza Matteotti are unmissable. Go off the tourist trail into Via del Campo, immortalised by De André.",
   },
   {
     keywords: ["palazzo reale", "palazzo ducale", "rolli", "museum", "gallery", "art", "churches", "cattedrale"],
@@ -52,7 +52,7 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["castelletto", "spianata", "view", "panorama", "viewpoint", "belvedere"],
-    answer: "The Spianata di Castelletto is the finest viewpoint in Genova — free and magical at dusk. Take the historic Ascensore di Castelletto (lift) from Via Bixio, just a 10 min walk from the apartment. Highly recommended at golden hour.",
+    answer: "The Spianata di Castelletto is the finest viewpoint in Genova: free and magical at dusk. Take the historic Ascensore di Castelletto (lift) from Via Bixio, just a 10 min walk from the apartment. Highly recommended at golden hour.",
   },
   {
     keywords: ["cinque terre", "portofino", "nervi", "day trip", "camogli", "riviera"],
@@ -60,11 +60,11 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["train", "station", "brignole", "principe", "airport", "taxi", "bus station", "transport"],
-    answer: "Brignole station is 1.5 km away — 20 min walk or 5 min by bus. Principe station is 3 km away. Cristoforo Colombo Airport (GOA) is 10 km — €25 by taxi or take the AMT Volabus directly to the city centre. Trains to Milan, Turin and Rome depart frequently from both stations.",
+    answer: "Brignole station is 1.5 km away: 20 min walk or 5 min by bus. Principe station is 3 km away. Cristoforo Colombo Airport (GOA) is 10 km: €25 by taxi or take the AMT Volabus directly to the city centre. Trains to Milan, Turin and Rome depart frequently from both stations.",
   },
   {
     keywords: ["beach", "sea", "swim", "swimming", "sunbathe", "lido"],
-    answer: "The nearest beach is along Corso Italia, 10–15 min walk — several lidos with sun beds and bars. Boccadasse has a charming pebble cove. Further east, Nervi has beautiful rocky walks and crystal-clear water. In summer, Bagni Vittoria on Corso Italia is a superb beach club.",
+    answer: "The nearest beach is along Corso Italia, 10–15 min walk: several lidos with sun beds and bars. Boccadasse has a charming pebble cove. Further east, Nervi has beautiful rocky walks and crystal-clear water. In summer, Bagni Vittoria on Corso Italia is a superb beach club.",
   },
   {
     keywords: ["restaurant", "eat", "food", "dinner", "lunch", "trattoria", "ristorante", "osteria", "where to eat"],
@@ -72,19 +72,19 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["pesto", "focaccia", "farinata", "typical", "local food", "genovese food", "trofie", "pansoti"],
-    answer: "Genova is the birthplace of pesto DOP! Must-eats: focaccia genovese (eat it warm for breakfast — try Panificio Mario), farinata (crispy chickpea flatbread, best at Sa Pesta), trofie al pesto, pansoti con salsa di noci (pasta in walnut cream sauce), acciughe (anchovies), and local Pigato white wine.",
+    answer: "Genova is the birthplace of pesto DOP! Must-eats: focaccia genovese (eat it warm for breakfast: try Panificio Mario), farinata (crispy chickpea flatbread, best at Sa Pesta), trofie al pesto, pansoti con salsa di noci (pasta in walnut cream sauce), acciughe (anchovies), and local Pigato white wine.",
   },
   {
     keywords: ["aperitivo", "aperitif", "drinks", "bar", "wine", "cocktail", "nightlife"],
-    answer: "For aperitivo: Piazza delle Erbe in the caruggi gets lively from 18:00 — dozens of bars spill onto the square. Enoteca Sola (near Carignano) is excellent for Ligurian wines. Porto Antico has great bars with water views. In summer, the rooftop terrace of Hotel Bristol has a stunning panorama.",
+    answer: "For aperitivo: Piazza delle Erbe in the caruggi gets lively from 18:00: dozens of bars spill onto the square. Enoteca Sola (near Carignano) is excellent for Ligurian wines. Porto Antico has great bars with water views. In summer, the rooftop terrace of Hotel Bristol has a stunning panorama.",
   },
   {
     keywords: ["supermarket", "grocery", "shop", "market", "supermercato"],
-    answer: "Carrefour Express: 5 min walk (open until 21:30). Coop supermarket: 10 min walk, better selection. Tuesday morning market in Via Carignano. For specialties — cured meats, cheese, pesto — try the historic Mercato Orientale, 15 min walk.",
+    answer: "Carrefour Express: 5 min walk (open until 21:30). Coop supermarket: 10 min walk, better selection. Tuesday morning market in Via Carignano. For specialties: cured meats, cheese, pesto: try the historic Mercato Orientale, 15 min walk.",
   },
   {
     keywords: ["bus", "transport", "public", "metro", "amt", "ticket", "how to get"],
-    answer: "Bus stops are 2 min walk. Lines 31, 35, and 41 connect to the centre in 5–10 min. Tickets: €1.60 single (90 min validity), €4.50 day pass — buy at any tabacchi or use the AMT app. Genova also has a small metro (1 line) and several historic funiculars and lifts worth riding.",
+    answer: "Bus stops are 2 min walk. Lines 31, 35, and 41 connect to the centre in 5–10 min. Tickets: €1.60 single (90 min validity), €4.50 day pass: buy at any tabacchi or use the AMT app. Genova also has a small metro (1 line) and several historic funiculars and lifts worth riding.",
   },
   {
     keywords: ["events", "what's on", "concert", "festival", "tonight", "this week", "live", "show", "happening"],
@@ -92,11 +92,11 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["cancel", "refund", "cancellation", "change dates"],
-    answer: "Full refund if cancelled 7+ days before check-in. 50% refund for cancellations 3–7 days before. No refund within 72 hours of check-in. Contact us directly — we always try to be flexible for genuine situations.",
+    answer: "Full refund if cancelled 7+ days before check-in. 50% refund for cancellations 3–7 days before. No refund within 72 hours of check-in. Contact us directly: we always try to be flexible for genuine situations.",
   },
   {
     keywords: ["price", "cost", "rate", "night", "how much", "pricing", "minimum stay"],
-    answer: "Prices vary by season — check live availability and best rates by clicking 'Book Now' at the top. Minimum stay is 2 nights. Booking direct guarantees the best rate with no OTA commission added.",
+    answer: "Prices vary by season: check live availability and best rates by clicking 'Book Now' at the top. Minimum stay is 2 nights. Booking direct guarantees the best rate with no OTA commission added.",
   },
   {
     keywords: ["whatsapp", "call", "phone", "contact", "speak", "talk", "message", "human", "person", "real", "someone", "help"],
@@ -112,7 +112,7 @@ const QA: { keywords: string[]; answer: string }[] = [
   },
   {
     keywords: ["guest", "people", "capacity", "max", "how many", "family"],
-    answer: "The apartment sleeps up to 4 guests comfortably — perfect for couples, families with children, or a small group of friends.",
+    answer: "The apartment sleeps up to 4 guests comfortably: perfect for couples, families with children, or a small group of friends.",
   },
   {
     keywords: ["amenities", "kitchen", "washing", "laundry", "ac", "air conditioning", "tv", "nespresso"],
@@ -140,7 +140,7 @@ const SUGGESTIONS = [
 export default function Chatbot() {
   const [open, setOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { from: "bot", text: "Ciao! I'm Nina, your virtual host. Ask me about the apartment, Genova, restaurants, transport — anything for your stay!" },
+    { from: "bot", text: "Ciao! I'm Nina, your virtual host. Ask me about the apartment, Genova, restaurants, transport: anything for your stay!" },
   ]);
   const [input, setInput] = useState("");
   const [showSuggestions, setShowSuggestions] = useState(true);
@@ -158,7 +158,7 @@ export default function Chatbot() {
     const isWA = raw === "WHATSAPP";
     const isUnknown = raw === "UNKNOWN";
     const botText = isUnknown
-      ? "I'm not sure about that one — but our host Arcangelo is always happy to help directly!"
+      ? "I'm not sure about that one: but our host Arcangelo is always happy to help directly!"
       : isWA
       ? "Of course! Tap below to message us on WhatsApp and we'll get back to you quickly."
       : raw;

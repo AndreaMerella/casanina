@@ -97,16 +97,16 @@ export default function Home() {
         {/* ─── Hero ─── */}
         <section className="relative h-[80vh] w-full overflow-hidden bg-stone-800">
           <Image
-            src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Genova_panorama_da_spianata_castelletto_2013.jpg/1280px-Genova_panorama_da_spianata_castelletto_2013.jpg"
-            alt="Genova panorama from Castelletto"
+            src="/images/hero.jpg"
+            alt="Casa Nina Carignano"
             fill
             priority
-            className="object-cover object-bottom"
+            className="object-cover object-center"
             sizes="100vw"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/35 to-black/10" />
 
-          {/* Weather badge — top right */}
+          {/* Weather badge top right */}
           <div className="absolute top-20 right-4 md:right-6 z-10">
             <WeatherBadge />
           </div>
@@ -203,31 +203,57 @@ export default function Home() {
 
         {/* ─── Booking ─── */}
         <section id="booking" className="py-12 md:py-16 px-4 sm:px-6">
-          <div className="max-w-4xl mx-auto">
-            <AnimateIn className="text-center mb-8">
-              <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">Reserve</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-3">Book Your Stay</h2>
-              <p className="text-muted text-sm max-w-md mx-auto">
-                Book direct for the best rate &mdash; no OTA fees, instant confirmation.
-              </p>
-            </AnimateIn>
+          <div className="max-w-5xl mx-auto">
+            <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
 
-            {/* Inline Vikey booking engine */}
-            <div className="rounded-2xl overflow-hidden border border-border shadow-xl bg-card">
-              <iframe
-                src="https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4"
-                title="Book Casa Nina"
-                width="100%"
-                height="700"
-                style={{ border: 0, display: "block", minHeight: 600 }}
-                loading="lazy"
-                allow="payment"
-              />
+              <AnimateIn className="lg:col-span-2 lg:sticky lg:top-24">
+                <p className="text-accent text-xs uppercase tracking-[0.2em] font-medium mb-4">Reserve</p>
+                <h2 className="font-serif text-3xl md:text-4xl mb-4">Book Your Stay</h2>
+                <p className="text-muted leading-relaxed mb-6">
+                  Book directly for the best rate. No OTA commission, no middleman. Secure payment and instant confirmation.
+                </p>
+                <div className="text-sm text-muted space-y-2">
+                  <p><strong className="text-foreground">From:</strong> &euro;{NIGHTLY_RATE} / night</p>
+                  <p><strong className="text-foreground">Minimum stay:</strong> 2 nights</p>
+                  <p><strong className="text-foreground">Check-in:</strong> from 15:00</p>
+                  <p><strong className="text-foreground">Check-out:</strong> by 10:00</p>
+                </div>
+              </AnimateIn>
+
+              <AnimateIn className="lg:col-span-3" delay={100}>
+                <div className="bg-card rounded-2xl border border-border p-8 shadow-sm">
+                  <div className="flex items-baseline gap-1.5 mb-2">
+                    <span className="font-serif text-3xl font-bold">&euro;{NIGHTLY_RATE}</span>
+                    <span className="text-muted text-sm">/ night</span>
+                  </div>
+                  <p className="text-xs text-muted mb-8">+ cleaning fee &middot; best rate guaranteed</p>
+
+                  <a
+                    href="https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full py-4 bg-foreground text-background rounded-xl font-medium text-sm hover:opacity-90 transition-opacity"
+                  >
+                    Check Availability &amp; Book
+                  </a>
+
+                  <div className="grid grid-cols-2 gap-3 mt-6 text-xs text-muted">
+                    {[
+                      { icon: "🔒", text: "Secure payment" },
+                      { icon: "✓", text: "Instant confirmation" },
+                      { icon: "📅", text: "Synced with Airbnb" },
+                      { icon: "💬", text: "Direct host contact" },
+                    ].map(({ icon, text }) => (
+                      <div key={text} className="flex items-center gap-1.5">
+                        <span>{icon}</span>
+                        <span>{text}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </AnimateIn>
+
             </div>
-
-            <p className="text-center text-xs text-muted mt-4">
-              Secure payment &middot; Instant confirmation &middot; Powered by Vikey
-            </p>
           </div>
         </section>
 
@@ -285,7 +311,7 @@ export default function Home() {
               <p className="text-muted text-[11px]">Airbnb category scores</p>
             </div>
 
-            {/* Review cards — 2 col on md+, 1 col on mobile */}
+            {/* Review cards 2 col on md+, 1 col on mobile */}
             <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-10">
               {[
                 {
@@ -313,13 +339,13 @@ export default function Home() {
                   date: "August 2024",
                 },
                 {
-                  quote: "The apartment is a wedding favor all carefully matched with taste — sophisticated decor, everything new, very clean. In the fridge, drinks and water that is not obvious. A real attention to detail.",
+                  quote: "The apartment is a wedding favor all carefully matched with taste sophisticated decor, everything new, very clean. In the fridge, drinks and water that is not obvious. A real attention to detail.",
                   author: "Elena",
                   tenure: "2 years on Airbnb",
                   date: "August 2024",
                 },
                 {
-                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best — very clean, great location, and a wonderful host.",
+                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best very clean, great location, and a wonderful host.",
                   author: "Tuan",
                   tenure: "11 years on Airbnb",
                   date: "August 2024",
