@@ -10,20 +10,17 @@ export default function GenovaSails() {
     <div className="w-full overflow-hidden select-none" aria-hidden="true">
       <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg"
            className="w-full" style={{ display: "block", overflow: "hidden" }}>
+        <defs>
+          {/* Hard clip to SVG viewport — prevents ships/waves escaping into adjacent sections in Safari */}
+          <clipPath id="sails-viewport">
+            <rect x="0" y="0" width="900" height="200"/>
+          </clipPath>
+        </defs>
         <style>{`
-          @keyframes sails-wave-back {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-900px); }
-          }
-          @keyframes sails-wave-fore {
-            from { transform: translateX(0); }
-            to   { transform: translateX(-900px); }
-          }
           @keyframes shimmer {
             0%, 100% { opacity: 0.15; }
             50%      { opacity: 0.35; }
           }
-          /* waves use SVG animateTransform — not CSS translateX — so tiling is correct at any viewport width */
           .shimmer-line { animation: shimmer 4s ease-in-out infinite; }
         `}</style>
 
@@ -45,6 +42,9 @@ export default function GenovaSails() {
           <rect x="43" y="66" width="2" height="2" fill="#faf8f4" opacity="0.7"/>
           <rect x="45" y="66" width="2" height="2" fill="#b5263c" opacity="0.7"/>
         </g>
+
+        {/* Everything that moves is wrapped in the viewport clipPath */}
+        <g clipPath="url(#sails-viewport)">
 
         {/* ── Background sea layer ── */}
         <g>
@@ -167,6 +167,8 @@ export default function GenovaSails() {
             style={{ animationDelay: `${i * 0.7}s` }}
           />
         ))}
+
+        </g>{/* end sails-viewport clip */}
 
         {/* ── Label ── */}
         <text x="450" y="192" textAnchor="middle" fontSize="7" fill="#746a5e"
