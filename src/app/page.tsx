@@ -45,6 +45,7 @@ import WeatherBadge from "@/components/WeatherBadge";
 import BookingModal from "@/components/BookingModal";
 import ScrollReset from "@/components/ScrollReset";
 import QRCodeDownload from "@/components/QRCodeDownload";
+import ReviewsSection from "@/components/ReviewsSection";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -277,216 +278,9 @@ export default function Home() {
         {/* ─── Palazzi dei Rolli ─── */}
         <GenovaRolli />
 
-        {/* ─── Reviews ─── */}
-        <section className="py-12 md:py-16 px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto">
-
-            {/* Header */}
-            <div className="text-center mb-10">
-              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">Guest Reviews</p>
-              <h2 className="font-serif text-3xl md:text-4xl mb-8">What Our Guests Say</h2>
-
-              {/* Platform scores */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-10 mb-10">
-                {/* Airbnb */}
-                <div className="flex flex-col items-center">
-                  <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FF5A5F] mb-1">
-                    <svg width="14" height="14" viewBox="0 0 32 32" fill="#FF5A5F"><path d="M16 1C9.9 1 5 5.9 5 12c0 7.7 11 19 11 19s11-11.3 11-19c0-6.1-4.9-11-11-11zm0 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
-                    Airbnb
-                  </div>
-                  <span className="font-serif text-5xl font-bold leading-none">4.98</span>
-                  <span className="text-xs font-semibold mt-1">Guest Favorite</span>
-                  <span className="text-muted text-[11px] mt-0.5">363 reviews · Top 5%</span>
-                </div>
-
-                <div className="w-px h-14 bg-border hidden sm:block" />
-
-                {/* Booking.com */}
-                <div className="flex flex-col items-center">
-                  <div className="inline-flex items-center gap-1.5 bg-foreground text-background text-xs font-semibold px-3 py-1.5 rounded-lg mb-2">
-                    🏆 Traveller Award 2026
-                  </div>
-                  <span className="font-serif text-5xl font-bold leading-none">9.8</span>
-                  <span className="text-xs font-semibold mt-1">Exceptional</span>
-                  <span className="text-muted text-[11px] mt-0.5">Booking.com · 90 reviews</span>
-                </div>
-              </div>
-
-              {/* Airbnb category scores */}
-              <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3 max-w-2xl mx-auto text-sm mb-2">
-                {[
-                  { label: "Cleanliness", score: "5.0" },
-                  { label: "Accuracy", score: "5.0" },
-                  { label: "Check-in", score: "4.9" },
-                  { label: "Communication", score: "5.0" },
-                  { label: "Location", score: "4.9" },
-                  { label: "Value", score: "4.9" },
-                ].map(({ label, score }) => (
-                  <div key={label} className="bg-card rounded-xl px-2 py-3 border border-border flex flex-col items-center">
-                    <p className="font-bold text-base">{score}</p>
-                    <p className="text-muted text-[10px] mt-0.5 leading-tight text-center">{label}</p>
-                  </div>
-                ))}
-              </div>
-              <p className="text-muted text-[11px]">Airbnb category scores</p>
-            </div>
-
-            {/* Airbnb reviews */}
-            <div className="flex items-center gap-2 mb-4">
-              <svg width="13" height="13" viewBox="0 0 32 32" fill="#FF5A5F"><path d="M16 1C9.9 1 5 5.9 5 12c0 7.7 11 19 11 19s11-11.3 11-19c0-6.1-4.9-11-11-11zm0 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
-              <span className="text-xs font-semibold text-[#FF5A5F] uppercase tracking-[0.1em]">Airbnb</span>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-10">
-              {[
-                {
-                  quote: "Arcangelo's apartment is located in the Carignano district, in a strategic position, close to the center and the old port, easily reachable on foot. We were welcomed in an impeccably clean and well-equipped home.",
-                  author: "Claudia",
-                  tenure: "3 years on Airbnb",
-                  date: "May 2025",
-                },
-                {
-                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best: very clean, great location, and a wonderful host.",
-                  author: "Tuan",
-                  tenure: "11 years on Airbnb",
-                  date: "August 2024",
-                },
-                {
-                  quote: "The apartment is a wedding favor: all carefully matched with taste, sophisticated decor, everything new, very clean. In the fridge, drinks and water, which is not obvious. A real attention to detail.",
-                  author: "Elena",
-                  tenure: "2 years on Airbnb",
-                  date: "August 2024",
-                },
-                {
-                  quote: "Great apartment in a very peaceful location. Within easy reach of city centre and waterfront. Really enjoyed our time here and would definitely stay again.",
-                  author: "Trudi",
-                  tenure: "9 years on Airbnb",
-                  date: "October 2024",
-                },
-                {
-                  quote: "For a short stay it was perfecto. Arcangelo was very responsive and the apartment was quiet with comfy beds to rest. Thanks!!",
-                  author: "Stephen",
-                  tenure: "4 years on Airbnb",
-                  date: "August 2024",
-                },
-                {
-                  quote: "A great stay, nothing to say. Check-in directions are very clear. Even if you don't have internet, there's a solution. The accommodation is in new condition and has all the amenities you need.",
-                  author: "Yann",
-                  tenure: "12 years on Airbnb",
-                  date: "August 2024",
-                },
-              ].map(({ quote, author, tenure, date }) => (
-                <div key={author} className="bg-card rounded-2xl p-5 border border-border">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center text-sm font-bold text-accent shrink-0">
-                      {author[0]}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold">{author}</p>
-                      <p className="text-[11px] text-muted">{tenure}</p>
-                    </div>
-                    <div className="ml-auto shrink-0 text-right">
-                      <p className="text-yellow-500 text-sm leading-none">★★★★★</p>
-                      <p className="text-[10px] text-muted mt-0.5">{date}</p>
-                    </div>
-                  </div>
-                  <p className="text-muted leading-relaxed text-sm">&ldquo;{quote}&rdquo;</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Booking.com reviews */}
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 rounded-sm bg-[#003580] flex items-center justify-center">
-                <span className="text-white font-bold" style={{ fontSize: "7px", lineHeight: 1 }}>B</span>
-              </div>
-              <span className="text-xs font-semibold text-[#003580] uppercase tracking-[0.1em]">Booking.com</span>
-            </div>
-            <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-10">
-              {[
-                {
-                  quote: "Il top per la famiglia. L'appartamento è bellissimo, pulitissimo e con tutto il necessario. Abbiamo trovato colazione, parcheggio pass e tantissimi libri per bambini e adulti.",
-                  author: "Alessandro",
-                  origin: "Italy · Family",
-                  date: "Feb 2026",
-                  score: "10",
-                },
-                {
-                  quote: "Oltre le aspettative. Tutto ha superato le aspettative. Frigo rifornito con prodotti di qualità, pass parcheggio incluso. A 20 minuti dal centro, un valore aggiunto enorme.",
-                  author: "Fabio",
-                  origin: "Italy · Family",
-                  date: "Feb 2026",
-                  score: "10",
-                },
-                {
-                  quote: "Appartamento perfetto con dotazioni eccellenti. Tutto ciò che ci aspettavamo e molto di più.",
-                  author: "Federico",
-                  origin: "Italy · Couple",
-                  date: "Apr 2026",
-                  score: "10",
-                },
-                {
-                  quote: "Exceptional. Tutto bellissimo.",
-                  author: "Giulia",
-                  origin: "Italy · Couple",
-                  date: "Apr 2026",
-                  score: "10",
-                },
-                {
-                  quote: "Schöne, grosse Wohnung mit allem was man braucht. Snacks bei der Ankunft, sehr aufmerksame Gastgeber. Angelo hat uns sogar bei einem Autoproblem geholfen.",
-                  author: "Valentin",
-                  origin: "Switzerland · Family",
-                  date: "Mar 2026",
-                  score: "10",
-                },
-                {
-                  quote: "Angenehm ruhige Wohnung, sehr gut ausgestattet, Mineralwasser und Säfte vorhanden. Ruhige Gegend, 20 Minuten Fußweg ins Zentrum.",
-                  author: "Frank",
-                  origin: "Germany · Couple",
-                  date: "May 2026",
-                  score: "10",
-                },
-                {
-                  quote: "Wonderful. The atmosphere of the neighbourhood and the apartment made for a truly memorable stay.",
-                  author: "Christian",
-                  origin: "Kenya · Family",
-                  date: "May 2026",
-                  score: "9",
-                },
-                {
-                  quote: "Posizione e appartamento super. Ottima posizione, appartamento curato e ben attrezzato.",
-                  author: "Piero",
-                  origin: "Italy",
-                  date: "May 2026",
-                  score: "10",
-                },
-              ].map(({ quote, author, origin, date, score }) => (
-                <div key={author} className="bg-card rounded-2xl p-5 border border-border">
-                  <div className="flex items-start gap-3 mb-3">
-                    <div className="w-9 h-9 rounded-full bg-[#003580]/10 flex items-center justify-center text-sm font-bold text-[#003580] shrink-0">
-                      {author[0]}
-                    </div>
-                    <div className="min-w-0">
-                      <p className="text-sm font-semibold">{author}</p>
-                      <p className="text-[11px] text-muted">{origin}</p>
-                    </div>
-                    <div className="ml-auto shrink-0 text-right">
-                      <p className="text-sm font-bold text-[#003580] leading-none">{score}/10</p>
-                      <p className="text-[10px] text-muted mt-0.5">{date}</p>
-                    </div>
-                  </div>
-                  <p className="text-muted leading-relaxed text-sm">&ldquo;{quote}&rdquo;</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="text-center pt-2">
-              <p className="text-muted text-sm mb-3">Stayed with us? We&apos;d love to hear from you.</p>
-              <a href="#guestbook" className="inline-flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-xl font-medium text-sm hover:opacity-90 transition-opacity">
-                Write in our guestbook &darr;
-              </a>
-            </div>
-          </div>
-        </section>
+        {/* ─── Reviews + Guestbook ─── */}
+        <ReviewsSection />
+        <Guestbook />
 
         {/* ─── House Rules ─── */}
         <section className="py-12 md:py-16 px-6 bg-card">
@@ -610,9 +404,6 @@ export default function Home() {
 
         {/* ─── Stadio Luigi Ferraris ─── */}
         <GenovaFerraris />
-
-        {/* ─── Reviews + Guestbook ─── */}
-        <Guestbook />
 
         {/* ─── Footer ─── */}
         <footer className="border-t border-border py-12 px-6">
