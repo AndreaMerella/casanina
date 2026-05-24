@@ -42,7 +42,7 @@ export default function Guestbook() {
           Leave Your Mark
         </h2>
         <p className="text-muted leading-relaxed mb-10">
-          In the apartment there is a book — guests have been filling it since the very beginning.
+          In the apartment there is a book: guests have been filling it since the very beginning.
           A few of their words, in their own hand.
         </p>
 

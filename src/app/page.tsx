@@ -146,7 +146,7 @@ export default function Home() {
                 Your Home in Genova
               </h2>
               <p className="text-muted text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-                130 m² across the Carignano hill — garden view, double bedroom,
+                90 m² across the Carignano hill: garden view, double bedroom,
                 full kitchen, and all the space you need to feel at home.
               </p>
             </AnimateIn>
@@ -334,14 +334,14 @@ export default function Home() {
                   platform: "airbnb",
                 },
                 {
-                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best — very clean, great location, and a wonderful host.",
+                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best: very clean, great location, and a wonderful host.",
                   author: "Tuan",
                   tenure: "11 years on Airbnb",
                   date: "August 2024",
                   platform: "airbnb",
                 },
                 {
-                  quote: "The apartment is a wedding favor — all carefully matched with taste, sophisticated decor, everything new, very clean. In the fridge, drinks and water, which is not obvious. A real attention to detail.",
+                  quote: "The apartment is a wedding favor: all carefully matched with taste, sophisticated decor, everything new, very clean. In the fridge, drinks and water, which is not obvious. A real attention to detail.",
                   author: "Elena",
                   tenure: "2 years on Airbnb",
                   date: "August 2024",
@@ -376,7 +376,7 @@ export default function Home() {
               {/* Booking.com reviews */}
               {[
                 {
-                  quote: "The apartment is close both to the centre and the sea and is looking better than in the pictures — so it was a very good surprise. Absolutely clean, owner responding fast in case of need.",
+                  quote: "The apartment is close both to the centre and the sea and is looking better than in the pictures, so it was a very good surprise. Absolutely clean, owner responding fast in case of need.",
                   origin: "Verified guest",
                 },
                 {

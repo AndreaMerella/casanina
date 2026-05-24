@@ -13,8 +13,6 @@
  * Colors pulled from site design tokens.
  */
 
-const TRACK = "M 148 177 L 818 53";
-
 export default function GenovaVignette() {
   return (
     <div className="w-full overflow-hidden select-none" aria-hidden="true">
@@ -24,26 +22,7 @@ export default function GenovaVignette() {
         className="w-full"
         style={{ display: "block", overflow: "hidden" }}
       >
-        <style>{`
-          @keyframes zecca-righi-up {
-            from { offset-distance: 3%; }
-            to   { offset-distance: 97%; }
-          }
-          @keyframes zecca-righi-down {
-            from { offset-distance: 97%; }
-            to   { offset-distance: 3%; }
-          }
-          .car-up {
-            offset-path: path('${TRACK}');
-            offset-rotate: auto;
-            animation: zecca-righi-up 9s linear infinite;
-          }
-          .car-down {
-            offset-path: path('${TRACK}');
-            offset-rotate: auto;
-            animation: zecca-righi-down 9s linear infinite;
-          }
-        `}</style>
+        {/* No CSS animations — all motion via SVG animateTransform so cars are clipped by SVG viewport */}
 
         {/* ── Hill / terrain ── */}
         <path
@@ -210,41 +189,44 @@ export default function GenovaVignette() {
         </text>
 
         {/* ── Car — ascending (Zecca → Righi) ── */}
-        <g className="car-up">
-          {/* Body — Genovese red */}
-          <rect x="-22" y="-13" width="44" height="20" rx="3" fill="#c0302a" />
-          {/* Windows */}
-          <rect x="-17" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
-          <rect x="-3" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
-          <rect x="11" y="-9" width="7" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
-          {/* White band below windows */}
-          <rect x="-20" y="5" width="40" height="4" rx="1" fill="#faf8f4" opacity="0.3" />
-          {/* Undercarriage */}
-          <rect x="-18" y="10" width="36" height="4" rx="1" fill="#8a1f1a" />
-          {/* Wheels */}
-          <circle cx="-11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
-          <circle cx="11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
-          <circle cx="-11" cy="14" r="2" fill="#c0302a" />
-          <circle cx="11" cy="14" r="2" fill="#c0302a" />
-          {/* Cable grip on roof */}
-          <rect x="-4" y="-20" width="8" height="9" rx="1.5" fill="#8a1f1a" />
-          <rect x="-2" y="-23" width="4" height="5" rx="1" fill="#5a1410" />
+        {/* Track: (148,177)→(818,53). 3%=(168,173) 97%=(798,57). angle≈-10.49° */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="168 173" to="798 57" dur="9s" repeatCount="indefinite"/>
+          <g transform="rotate(-10.49)">
+            <rect x="-22" y="-13" width="44" height="20" rx="3" fill="#c0302a" />
+            <rect x="-17" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
+            <rect x="-3" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
+            <rect x="11" y="-9" width="7" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
+            <rect x="-20" y="5" width="40" height="4" rx="1" fill="#faf8f4" opacity="0.3" />
+            <rect x="-18" y="10" width="36" height="4" rx="1" fill="#8a1f1a" />
+            <circle cx="-11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
+            <circle cx="11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
+            <circle cx="-11" cy="14" r="2" fill="#c0302a" />
+            <circle cx="11" cy="14" r="2" fill="#c0302a" />
+            <rect x="-4" y="-20" width="8" height="9" rx="1.5" fill="#8a1f1a" />
+            <rect x="-2" y="-23" width="4" height="5" rx="1" fill="#5a1410" />
+          </g>
         </g>
 
         {/* ── Car — descending (Righi → Zecca) ── */}
-        <g className="car-down">
-          <rect x="-22" y="-13" width="44" height="20" rx="3" fill="#c0302a" />
-          <rect x="-17" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
-          <rect x="-3" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
-          <rect x="11" y="-9" width="7" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
-          <rect x="-20" y="5" width="40" height="4" rx="1" fill="#faf8f4" opacity="0.3" />
-          <rect x="-18" y="10" width="36" height="4" rx="1" fill="#8a1f1a" />
-          <circle cx="-11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
-          <circle cx="11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
-          <circle cx="-11" cy="14" r="2" fill="#c0302a" />
-          <circle cx="11" cy="14" r="2" fill="#c0302a" />
-          <rect x="-4" y="-20" width="8" height="9" rx="1.5" fill="#8a1f1a" />
-          <rect x="-2" y="-23" width="4" height="5" rx="1" fill="#5a1410" />
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="798 57" to="168 173" dur="9s" repeatCount="indefinite" begin="-4.5s"/>
+          <g transform="rotate(-10.49)">
+            <rect x="-22" y="-13" width="44" height="20" rx="3" fill="#c0302a" />
+            <rect x="-17" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
+            <rect x="-3" y="-9" width="10" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
+            <rect x="11" y="-9" width="7" height="8" rx="1.5" fill="#faf8f4" opacity="0.9" />
+            <rect x="-20" y="5" width="40" height="4" rx="1" fill="#faf8f4" opacity="0.3" />
+            <rect x="-18" y="10" width="36" height="4" rx="1" fill="#8a1f1a" />
+            <circle cx="-11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
+            <circle cx="11" cy="14" r="5" fill="#3a1512" stroke="#8a1f1a" strokeWidth="1.5" />
+            <circle cx="-11" cy="14" r="2" fill="#c0302a" />
+            <circle cx="11" cy="14" r="2" fill="#c0302a" />
+            <rect x="-4" y="-20" width="8" height="9" rx="1.5" fill="#8a1f1a" />
+            <rect x="-2" y="-23" width="4" height="5" rx="1" fill="#5a1410" />
+          </g>
         </g>
       </svg>
     </div>
