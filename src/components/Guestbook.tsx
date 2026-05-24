@@ -2,12 +2,28 @@
 
 import { useState } from "react";
 import { Star } from "lucide-react";
+import Image from "next/image";
+
+const PAGES = [
+  { src: "/images/guestbook/page-01.jpg", rotate: -2.5 },
+  { src: "/images/guestbook/page-02.jpg", rotate: 1.8 },
+  { src: "/images/guestbook/page-03.jpg", rotate: -1.2 },
+  { src: "/images/guestbook/page-04.jpg", rotate: 2.4 },
+  { src: "/images/guestbook/page-05.jpg", rotate: -3.0 },
+  { src: "/images/guestbook/page-06.jpg", rotate: 1.5 },
+  { src: "/images/guestbook/page-07.jpg", rotate: -1.8 },
+  { src: "/images/guestbook/page-08.jpg", rotate: 2.8 },
+  { src: "/images/guestbook/page-09.jpg", rotate: -2.1 },
+  { src: "/images/guestbook/page-10.jpg", rotate: 1.2 },
+  { src: "/images/guestbook/page-11.jpg", rotate: -3.2 },
+];
 
 export default function Guestbook() {
   const [rating, setRating] = useState(0);
   const [hover, setHover] = useState(0);
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
+  const [lightbox, setLightbox] = useState<number | null>(null);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -18,7 +34,7 @@ export default function Guestbook() {
 
   return (
     <section id="guestbook" className="py-12 md:py-16 px-6 bg-card">
-      <div className="max-w-2xl mx-auto text-center">
+      <div className="max-w-3xl mx-auto text-center">
         <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
           Our Guestbook
         </p>
@@ -26,11 +42,110 @@ export default function Guestbook() {
           Leave Your Mark
         </h2>
         <p className="text-muted leading-relaxed mb-10">
-          Just like the book in the apartment, we love hearing from our guests.
-          Share your experience and let future visitors know what made your stay special.
+          In the apartment there is a book — guests have been filling it since the very beginning.
+          A few of their words, in their own hand.
         </p>
 
-        <form onSubmit={handleSubmit} className="bg-background rounded-2xl border border-border p-6 md:p-8 text-left space-y-5">
+        {/* ── Photo gallery ── */}
+        <div className="relative mb-14 overflow-x-auto">
+          <div className="flex gap-4 pb-4 px-2" style={{ width: "max-content", margin: "0 auto" }}>
+            {PAGES.map((page, i) => (
+              <button
+                key={i}
+                onClick={() => setLightbox(i)}
+                className="relative flex-shrink-0 focus:outline-none group"
+                style={{
+                  transform: `rotate(${page.rotate}deg)`,
+                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.transform = "rotate(0deg) scale(1.04)";
+                  (e.currentTarget as HTMLElement).style.zIndex = "10";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.transform = `rotate(${page.rotate}deg) scale(1)`;
+                  (e.currentTarget as HTMLElement).style.zIndex = "1";
+                }}
+              >
+                <div
+                  className="rounded-sm overflow-hidden"
+                  style={{
+                    width: 140,
+                    height: 186,
+                    boxShadow: "0 4px 16px rgba(24,18,12,0.18), 0 1px 3px rgba(24,18,12,0.10)",
+                    background: "#f3f0e9",
+                  }}
+                >
+                  <Image
+                    src={page.src}
+                    alt={`Guestbook page ${i + 1}`}
+                    width={140}
+                    height={186}
+                    className="w-full h-full object-cover"
+                    sizes="140px"
+                  />
+                </div>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Lightbox ── */}
+        {lightbox !== null && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70"
+            onClick={() => setLightbox(null)}
+          >
+            <div
+              className="relative max-w-lg w-full mx-4"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={PAGES[lightbox].src}
+                alt={`Guestbook page ${lightbox + 1}`}
+                width={600}
+                height={800}
+                className="rounded-sm shadow-2xl w-full h-auto"
+                style={{ maxHeight: "85vh", objectFit: "contain" }}
+              />
+              {/* Prev / Next */}
+              <button
+                onClick={() => setLightbox((lightbox - 1 + PAGES.length) % PAGES.length)}
+                className="absolute left-[-44px] top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-2xl font-light px-2"
+                aria-label="Previous"
+              >
+                ‹
+              </button>
+              <button
+                onClick={() => setLightbox((lightbox + 1) % PAGES.length)}
+                className="absolute right-[-44px] top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-2xl font-light px-2"
+                aria-label="Next"
+              >
+                ›
+              </button>
+              <button
+                onClick={() => setLightbox(null)}
+                className="absolute top-2 right-2 text-white/70 hover:text-white text-lg leading-none px-2 py-1"
+                aria-label="Close"
+              >
+                ✕
+              </button>
+              <p className="text-center text-white/50 text-xs mt-3 tracking-widest">
+                {lightbox + 1} / {PAGES.length}
+              </p>
+            </div>
+          </div>
+        )}
+
+        {/* ── Divider ── */}
+        <div className="flex items-center gap-4 mb-10 max-w-2xl mx-auto">
+          <div className="flex-1 h-px bg-border" />
+          <p className="text-muted text-xs uppercase tracking-[0.14em]">Write yours</p>
+          <div className="flex-1 h-px bg-border" />
+        </div>
+
+        {/* ── Submission form ── */}
+        <form onSubmit={handleSubmit} className="bg-background rounded-2xl border border-border p-6 md:p-8 text-left space-y-5 max-w-2xl mx-auto">
           {/* Star rating */}
           <div>
             <label className="block text-sm font-medium mb-2">Your rating</label>
