@@ -44,6 +44,7 @@ import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
 import BookingModal from "@/components/BookingModal";
 import ScrollReset from "@/components/ScrollReset";
+import QRCodeDownload from "@/components/QRCodeDownload";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -263,6 +264,9 @@ export default function Home() {
 
               <AnimateIn className="lg:col-span-3" delay={100}>
                 <BookingModal nightlyRate={NIGHTLY_RATE} />
+                <div className="mt-5">
+                  <QRCodeDownload />
+                </div>
               </AnimateIn>
 
             </div>
