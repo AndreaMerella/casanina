@@ -424,8 +424,7 @@ export default function Home() {
                 <div className="text-sm text-muted space-y-1.5">
                   <p>
                     <strong className="text-foreground">CIN:</strong>{" "}
-                    {/* TODO: Replace with your actual CIN code */}
-                    <span className="font-mono text-xs">IT-010025-XXXXXXXXXX</span>
+                    <span className="font-mono text-xs">IT010025C2LWNJBQEM</span>
                   </p>
                   <p>Struttura ricettiva extralberghiera</p>
                   <p>Genova (GE), Liguria, Italia</p>
