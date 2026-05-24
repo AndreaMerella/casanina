@@ -38,10 +38,12 @@ import GenovaVicoli from "@/components/GenovaVicoli";
 import GenovaVignette from "@/components/GenovaVignette";
 import GenovaBoccadasse from "@/components/GenovaBoccadasse";
 import GenovaRolli from "@/components/GenovaRolli";
+import GenovaFerraris from "@/components/GenovaFerraris";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
 import BookingModal from "@/components/BookingModal";
+import ScrollReset from "@/components/ScrollReset";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
@@ -93,6 +95,7 @@ const checkinSteps = [
 export default function Home() {
   return (
     <>
+      <ScrollReset />
       <Header />
       <FloatingBar nightlyRate={NIGHTLY_RATE} />
       <main className="bg-background text-foreground">
@@ -182,6 +185,7 @@ export default function Home() {
                     { label: "Boccadasse", value: "25 min walk" },
                     { label: "Porto Antico", value: "10 min by bus" },
                     { label: "Brignole station", value: "20 min walk" },
+                    { label: "Stadio Ferraris", value: "30 min walk" },
                   ].map(({ label, value }) => (
                     <div key={label} className="bg-background rounded-xl px-4 py-3">
                       <p className="font-medium">{label}</p>
@@ -509,6 +513,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ─── Stadio Luigi Ferraris ─── */}
+        <GenovaFerraris />
 
         {/* ─── Reviews + Guestbook ─── */}
         <Guestbook />
