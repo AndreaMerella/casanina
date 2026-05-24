@@ -102,9 +102,9 @@ export default function ReviewsSection() {
               <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#FF5A5F] mb-1">
                 {AIRBNB_ICON} Airbnb
               </div>
-              <span className="font-serif text-5xl font-bold leading-none">4.98</span>
+              <span className="font-serif text-5xl font-bold leading-none">5.0</span>
               <span className="text-xs font-semibold mt-1">Guest Favorite</span>
-              <span className="text-muted text-[11px] mt-0.5">363 reviews · Top 5%</span>
+              <span className="text-muted text-[11px] mt-0.5">25 reviews</span>
             </div>
 
             <div className="w-px h-14 bg-border hidden sm:block" />
