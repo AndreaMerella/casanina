@@ -142,9 +142,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Vicoli ─── */}
-        <GenovaVicoli />
-
         {/* ─── Funicolare Zecca-Righi ─── */}
         <GenovaVignette />
 
@@ -196,6 +193,9 @@ export default function Home() {
             </div>
           </div>
         </section>
+
+        {/* ─── Vicoli ─── */}
+        <GenovaVicoli />
 
         {/* ─── Amenities ─── */}
         <section id="amenities" className="py-12 md:py-16 px-6 bg-card">

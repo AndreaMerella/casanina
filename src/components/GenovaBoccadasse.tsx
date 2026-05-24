@@ -14,7 +14,7 @@ export default function GenovaBoccadasse() {
     <div
       className="w-full overflow-hidden select-none"
       aria-hidden="true"
-      style={{ maxHeight: 240 }}
+      style={{ maxHeight: 'none' }}
     >
       <svg
         viewBox="0 0 900 200"

@@ -7,7 +7,7 @@
  */
 export default function GenovaSails() {
   return (
-    <div className="w-full overflow-hidden select-none" aria-hidden="true" style={{ maxHeight: 240 }}>
+    <div className="w-full overflow-hidden select-none" aria-hidden="true">
       <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg"
            className="w-full" style={{ display: "block", overflow: "hidden" }}>
         <style>{`
