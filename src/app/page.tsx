@@ -136,8 +136,20 @@ export default function Home() {
         <GenovaSails />
 
         {/* ─── Gallery ─── */}
-        <section id="gallery" className="px-4 md:px-8 pb-20 md:pb-28">
+        <section id="gallery" className="py-16 md:py-24 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
+            <AnimateIn className="text-center mb-10 md:mb-14">
+              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
+                The Apartment
+              </p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-3">
+                Your Home in Genova
+              </h2>
+              <p className="text-muted text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+                130 m² across the Carignano hill — garden view, double bedroom,
+                full kitchen, and all the space you need to feel at home.
+              </p>
+            </AnimateIn>
             <Gallery />
           </div>
         </section>
@@ -273,9 +285,9 @@ export default function Home() {
                     <svg width="14" height="14" viewBox="0 0 32 32" fill="#FF5A5F"><path d="M16 1C9.9 1 5 5.9 5 12c0 7.7 11 19 11 19s11-11.3 11-19c0-6.1-4.9-11-11-11zm0 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
                     Airbnb
                   </div>
-                  <span className="font-serif text-5xl font-bold leading-none">5.0</span>
+                  <span className="font-serif text-5xl font-bold leading-none">4.98</span>
                   <span className="text-xs font-semibold mt-1">Guest Favorite</span>
-                  <span className="text-muted text-[11px] mt-0.5">Top 5% of all listings</span>
+                  <span className="text-muted text-[11px] mt-0.5">363 reviews · Top 5%</span>
                 </div>
 
                 <div className="w-px h-14 bg-border hidden sm:block" />
@@ -312,44 +324,37 @@ export default function Home() {
 
             {/* Review cards 2 col on md+, 1 col on mobile */}
             <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-10">
+              {/* Airbnb reviews */}
               {[
                 {
-                  quote: "For a short stay it was perfecto. Arcangelo was very responsive and the apartment was quiet with comfy beds to rest. Thanks!!",
-                  author: "Stephen",
-                  tenure: "4 years on Airbnb",
+                  quote: "Arcangelo's apartment is located in the Carignano district, in a strategic position, close to the center and the old port, easily reachable on foot. We were welcomed in an impeccably clean and well-equipped home.",
+                  author: "Claudia",
+                  tenure: "3 years on Airbnb",
+                  date: "May 2025",
+                  platform: "airbnb",
+                },
+                {
+                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best — very clean, great location, and a wonderful host.",
+                  author: "Tuan",
+                  tenure: "11 years on Airbnb",
                   date: "August 2024",
+                  platform: "airbnb",
+                },
+                {
+                  quote: "The apartment is a wedding favor — all carefully matched with taste, sophisticated decor, everything new, very clean. In the fridge, drinks and water, which is not obvious. A real attention to detail.",
+                  author: "Elena",
+                  tenure: "2 years on Airbnb",
+                  date: "August 2024",
+                  platform: "airbnb",
                 },
                 {
                   quote: "Great apartment in a very peaceful location. Within easy reach of city centre and waterfront. Really enjoyed our time here and would definitely stay again.",
                   author: "Trudi",
                   tenure: "9 years on Airbnb",
                   date: "October 2024",
+                  platform: "airbnb",
                 },
-                {
-                  quote: "Arcangelo's apartment is located in the Carignano district, in a strategic position, close to the center and the old port, easily reachable on foot. We were welcomed in an impeccably clean and well-equipped home.",
-                  author: "Claudia",
-                  tenure: "3 years on Airbnb",
-                  date: "May 2025",
-                },
-                {
-                  quote: "A great stay, nothing to say. Check-in directions are very clear. Even if you don't have internet, there's a solution. The accommodation is in new condition and has all the amenities you need.",
-                  author: "Yann",
-                  tenure: "12 years on Airbnb",
-                  date: "August 2024",
-                },
-                {
-                  quote: "The apartment is a wedding favor all carefully matched with taste sophisticated decor, everything new, very clean. In the fridge, drinks and water that is not obvious. A real attention to detail.",
-                  author: "Elena",
-                  tenure: "2 years on Airbnb",
-                  date: "August 2024",
-                },
-                {
-                  quote: "Passing through Genova, Arcangelo so kindly welcomed us at Casa Nina. Having done a lot of Airbnbs, this one is one of the best very clean, great location, and a wonderful host.",
-                  author: "Tuan",
-                  tenure: "11 years on Airbnb",
-                  date: "August 2024",
-                },
-              ].map(({ quote, author, tenure, date }) => (
+              ].map(({ quote, author, tenure, date, platform }) => (
                 <div key={author} className="bg-card rounded-2xl p-5 border border-border">
                   <div className="flex items-start gap-3 mb-3">
                     <div className="w-9 h-9 rounded-full bg-accent/10 flex items-center justify-center text-sm font-bold text-accent shrink-0">
@@ -361,7 +366,38 @@ export default function Home() {
                     </div>
                     <div className="ml-auto shrink-0 text-right">
                       <p className="text-yellow-500 text-sm leading-none">★★★★★</p>
-                      <p className="text-[10px] text-muted mt-0.5">{date}</p>
+                      <p className="text-[10px] text-muted mt-0.5">{date} · {platform === "airbnb" ? "Airbnb" : "Booking.com"}</p>
+                    </div>
+                  </div>
+                  <p className="text-muted leading-relaxed text-sm">&ldquo;{quote}&rdquo;</p>
+                </div>
+              ))}
+
+              {/* Booking.com reviews */}
+              {[
+                {
+                  quote: "The apartment is close both to the centre and the sea and is looking better than in the pictures — so it was a very good surprise. Absolutely clean, owner responding fast in case of need.",
+                  origin: "Verified guest",
+                },
+                {
+                  quote: "Feeling that you are in a good home of a wealthy family. Everything you might need is there, and even more. Very well equipped with quality furniture and breakfast cookies in the kitchen.",
+                  origin: "Verified guest",
+                },
+              ].map(({ quote, origin }) => (
+                <div key={quote.slice(0, 20)} className="bg-card rounded-2xl p-5 border border-border">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-full bg-blue-500/10 flex items-center justify-center shrink-0">
+                      <svg width="14" height="12" viewBox="0 0 28 20" fill="#003580">
+                        <path d="M0 0h12v12H0zm16 0h12v12H16zM4 8h4v12H4zm16 0h4v12h-4z"/>
+                      </svg>
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold">{origin}</p>
+                      <p className="text-[11px] text-muted">Booking.com</p>
+                    </div>
+                    <div className="ml-auto shrink-0 text-right">
+                      <p className="text-blue-600 text-xs font-bold leading-none">10 / 10</p>
+                      <p className="text-[10px] text-muted mt-0.5">Exceptional</p>
                     </div>
                   </div>
                   <p className="text-muted leading-relaxed text-sm">&ldquo;{quote}&rdquo;</p>
