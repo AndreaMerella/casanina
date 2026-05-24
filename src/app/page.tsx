@@ -23,6 +23,7 @@ import {
   Dog,
   Flame,
 } from "lucide-react";
+import IntroScreen from "@/components/IntroScreen";
 import Header from "@/components/Header";
 import FloatingBar from "@/components/FloatingBar";
 import Gallery from "@/components/Gallery";
@@ -98,6 +99,7 @@ export default function Home() {
   return (
     <>
       <ScrollReset />
+      <IntroScreen />
       <Header />
       <FloatingBar nightlyRate={NIGHTLY_RATE} />
       <main className="bg-background text-foreground">
@@ -107,15 +109,20 @@ export default function Home() {
 
         {/* ─── Hero ─── */}
         <section className="relative h-[85vh] w-full overflow-hidden bg-stone-900">
-          {/* Drone video background */}
+          {/* Drone video — Genova old town & harbour aerial */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            poster="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1280&auto=format&fit=crop&q=60"
+            poster="https://images.unsplash.com/photo-1555993539-1732b0258235?w=1280&auto=format&fit=crop&q=60"
             className="absolute inset-0 w-full h-full object-cover"
           >
+            <source
+              src="https://videos.pexels.com/video-files/6769886/6769886-uhd_2560_1440_25fps.mp4"
+              type="video/mp4"
+            />
+            {/* Fallback: Italian coastal town aerial */}
             <source
               src="https://videos.pexels.com/video-files/32386611/13814563_1280_720_50fps.mp4"
               type="video/mp4"
