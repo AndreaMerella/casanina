@@ -88,7 +88,7 @@ export function useLang(): [LangCode, (l: LangCode) => void] {
 function GenovaFlag({ active }: { active: boolean }) {
   return (
     <svg width="24" height="16" viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"
-      style={{ display: "block", borderRadius: 2, outline: active ? "2px solid white" : "none" }}>
+      style={{ display: "block", borderRadius: 2, outline: active ? "2px solid currentColor" : "none" }}>
       <rect width="24" height="16" fill="white" />
       <rect x="10" y="0" width="4" height="16" fill="#C8102E" />
       <rect x="0" y="6" width="24" height="4" fill="#C8102E" />
@@ -106,7 +106,7 @@ export default function LanguageSwitcher() {
           key={code}
           onClick={() => switchLang(code as LangCode)}
           className={`flex items-center justify-center w-7 h-5 rounded transition-all ${
-            lang === code ? "ring-2 ring-white" : "opacity-60 hover:opacity-100"
+            lang === code ? "ring-2 ring-foreground" : "opacity-50 hover:opacity-100"
           }`}
           title={code.toUpperCase()}
         >

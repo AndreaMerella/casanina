@@ -94,10 +94,13 @@ export default function Header() {
               {label}
             </a>
           ))}
+          <div className="pt-3 pb-1">
+            <LanguageSwitcher />
+          </div>
           <a
             href="#booking"
             onClick={() => setOpen(false)}
-            className="block text-center py-3 bg-foreground text-background rounded-xl text-sm font-medium mt-3"
+            className="block text-center py-3 bg-foreground text-background rounded-xl text-sm font-medium mt-1"
           >
             {tx.bookNow}
           </a>
