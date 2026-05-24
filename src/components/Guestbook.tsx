@@ -47,46 +47,43 @@ export default function Guestbook() {
         </p>
 
         {/* ── Photo gallery ── */}
-        <div className="relative mb-14 overflow-x-auto">
-          <div className="flex gap-4 pb-4 px-2" style={{ width: "max-content", margin: "0 auto" }}>
-            {PAGES.map((page, i) => (
-              <button
-                key={i}
-                onClick={() => setLightbox(i)}
-                className="relative flex-shrink-0 focus:outline-none group"
-                style={{
-                  transform: `rotate(${page.rotate}deg)`,
-                  transition: "transform 0.2s ease, box-shadow 0.2s ease",
-                }}
-                onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = "rotate(0deg) scale(1.04)";
-                  (e.currentTarget as HTMLElement).style.zIndex = "10";
-                }}
-                onMouseLeave={(e) => {
-                  (e.currentTarget as HTMLElement).style.transform = `rotate(${page.rotate}deg) scale(1)`;
-                  (e.currentTarget as HTMLElement).style.zIndex = "1";
-                }}
-              >
-                <div
-                  className="rounded-sm overflow-hidden"
-                  style={{
-                    width: 140,
-                    height: 186,
-                    boxShadow: "0 4px 16px rgba(24,18,12,0.18), 0 1px 3px rgba(24,18,12,0.10)",
-                    background: "#f3f0e9",
-                  }}
+        {/* Outer div clips only vertically; inner div handles horizontal scroll */}
+        <div className="relative mb-14 -mx-6">
+          <div
+            className="overflow-x-auto"
+            style={{ paddingTop: 20, paddingBottom: 20, paddingLeft: 24, paddingRight: 24 }}
+          >
+            <div className="flex gap-5" style={{ width: "max-content" }}>
+              {PAGES.map((page, i) => (
+                <button
+                  key={i}
+                  onClick={() => setLightbox(i)}
+                  className="flex-shrink-0 focus:outline-none transition-all duration-200 hover:scale-105"
+                  style={{ transform: `rotate(${page.rotate}deg)` }}
+                  aria-label={`View guestbook page ${i + 1}`}
                 >
-                  <Image
-                    src={page.src}
-                    alt={`Guestbook page ${i + 1}`}
-                    width={140}
-                    height={186}
-                    className="w-full h-full object-cover"
-                    sizes="140px"
-                  />
-                </div>
-              </button>
-            ))}
+                  <div
+                    style={{
+                      width: 130,
+                      height: 173,
+                      borderRadius: 2,
+                      overflow: "hidden",
+                      boxShadow: "0 4px 18px rgba(24,18,12,0.18), 0 1px 3px rgba(24,18,12,0.10)",
+                      background: "#f3f0e9",
+                    }}
+                  >
+                    <Image
+                      src={page.src}
+                      alt={`Guestbook page ${i + 1}`}
+                      width={130}
+                      height={173}
+                      className="w-full h-full object-cover"
+                      sizes="130px"
+                    />
+                  </div>
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

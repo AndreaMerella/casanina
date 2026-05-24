@@ -37,7 +37,7 @@ import GenovaSails from "@/components/GenovaSails";
 import GenovaVicoli from "@/components/GenovaVicoli";
 import GenovaVignette from "@/components/GenovaVignette";
 import GenovaBoccadasse from "@/components/GenovaBoccadasse";
-import GenovaMontagne from "@/components/GenovaMontagne";
+import GenovaRolli from "@/components/GenovaRolli";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
@@ -253,8 +253,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─── Montagne ─── */}
-        <GenovaMontagne />
+        {/* ─── Palazzi dei Rolli ─── */}
+        <GenovaRolli />
 
         {/* ─── Reviews ─── */}
         <section className="py-12 md:py-16 px-4 sm:px-6">
