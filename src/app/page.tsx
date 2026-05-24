@@ -112,6 +112,7 @@ export default function Home() {
             muted
             loop
             playsInline
+            poster="https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=1280&auto=format&fit=crop&q=60"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source
@@ -330,7 +331,11 @@ export default function Home() {
               <p className="text-muted text-[11px]">Airbnb category scores</p>
             </div>
 
-            {/* Review cards 2 col on md+, 1 col on mobile */}
+            {/* Airbnb reviews */}
+            <div className="flex items-center gap-2 mb-4">
+              <svg width="13" height="13" viewBox="0 0 32 32" fill="#FF5A5F"><path d="M16 1C9.9 1 5 5.9 5 12c0 7.7 11 19 11 19s11-11.3 11-19c0-6.1-4.9-11-11-11zm0 15a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/></svg>
+              <span className="text-xs font-semibold text-[#FF5A5F] uppercase tracking-[0.1em]">Airbnb</span>
+            </div>
             <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-10">
               {[
                 {
@@ -381,6 +386,91 @@ export default function Home() {
                     </div>
                     <div className="ml-auto shrink-0 text-right">
                       <p className="text-yellow-500 text-sm leading-none">★★★★★</p>
+                      <p className="text-[10px] text-muted mt-0.5">{date}</p>
+                    </div>
+                  </div>
+                  <p className="text-muted leading-relaxed text-sm">&ldquo;{quote}&rdquo;</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Booking.com reviews */}
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-3 h-3 rounded-sm bg-[#003580] flex items-center justify-center">
+                <span className="text-white font-bold" style={{ fontSize: "7px", lineHeight: 1 }}>B</span>
+              </div>
+              <span className="text-xs font-semibold text-[#003580] uppercase tracking-[0.1em]">Booking.com</span>
+            </div>
+            <div className="grid sm:grid-cols-2 gap-4 md:gap-6 mb-10">
+              {[
+                {
+                  quote: "Il top per la famiglia. L'appartamento è bellissimo, pulitissimo e con tutto il necessario. Abbiamo trovato colazione, parcheggio pass e tantissimi libri per bambini e adulti.",
+                  author: "Alessandro",
+                  origin: "Italy · Family",
+                  date: "Feb 2026",
+                  score: "10",
+                },
+                {
+                  quote: "Oltre le aspettative. Tutto ha superato le aspettative. Frigo rifornito con prodotti di qualità, pass parcheggio incluso. A 20 minuti dal centro, un valore aggiunto enorme.",
+                  author: "Fabio",
+                  origin: "Italy · Family",
+                  date: "Feb 2026",
+                  score: "10",
+                },
+                {
+                  quote: "Appartamento perfetto con dotazioni eccellenti. Tutto ciò che ci aspettavamo e molto di più.",
+                  author: "Federico",
+                  origin: "Italy · Couple",
+                  date: "Apr 2026",
+                  score: "10",
+                },
+                {
+                  quote: "Exceptional. Tutto bellissimo.",
+                  author: "Giulia",
+                  origin: "Italy · Couple",
+                  date: "Apr 2026",
+                  score: "10",
+                },
+                {
+                  quote: "Schöne, grosse Wohnung mit allem was man braucht. Snacks bei der Ankunft, sehr aufmerksame Gastgeber. Angelo hat uns sogar bei einem Autoproblem geholfen.",
+                  author: "Valentin",
+                  origin: "Switzerland · Family",
+                  date: "Mar 2026",
+                  score: "10",
+                },
+                {
+                  quote: "Angenehm ruhige Wohnung, sehr gut ausgestattet, Mineralwasser und Säfte vorhanden. Ruhige Gegend, 20 Minuten Fußweg ins Zentrum.",
+                  author: "Frank",
+                  origin: "Germany · Couple",
+                  date: "May 2026",
+                  score: "10",
+                },
+                {
+                  quote: "Wonderful. The atmosphere of the neighbourhood and the apartment made for a truly memorable stay.",
+                  author: "Christian",
+                  origin: "Kenya · Family",
+                  date: "May 2026",
+                  score: "9",
+                },
+                {
+                  quote: "Posizione e appartamento super. Ottima posizione, appartamento curato e ben attrezzato.",
+                  author: "Piero",
+                  origin: "Italy",
+                  date: "May 2026",
+                  score: "10",
+                },
+              ].map(({ quote, author, origin, date, score }) => (
+                <div key={author} className="bg-card rounded-2xl p-5 border border-border">
+                  <div className="flex items-start gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-full bg-[#003580]/10 flex items-center justify-center text-sm font-bold text-[#003580] shrink-0">
+                      {author[0]}
+                    </div>
+                    <div className="min-w-0">
+                      <p className="text-sm font-semibold">{author}</p>
+                      <p className="text-[11px] text-muted">{origin}</p>
+                    </div>
+                    <div className="ml-auto shrink-0 text-right">
+                      <p className="text-sm font-bold text-[#003580] leading-none">{score}/10</p>
                       <p className="text-[10px] text-muted mt-0.5">{date}</p>
                     </div>
                   </div>

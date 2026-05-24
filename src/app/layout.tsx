@@ -61,6 +61,10 @@ export default function RootLayout({
   return (
     <html lang="it">
       <head>
+        {/* Preconnect to video/image CDNs so the hero loads faster */}
+        <link rel="preconnect" href="https://videos.pexels.com" />
+        <link rel="preconnect" href="https://images.unsplash.com" />
+        <link rel="dns-prefetch" href="https://upload.wikimedia.org" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
