@@ -109,110 +109,128 @@ export default function GenovaFerraris() {
 
         {/* ══ STADIO LUIGI FERRARIS ══ */}
 
-        {/* Perimeter wall — the external envelope, concrete */}
-        <rect x="185" y="112" width="490" height="68" rx="2" fill="#c0b8a8" />
-        {/* Wall texture / horizontal joints */}
-        {[122, 132, 142, 152, 162].map(y => (
+        {/* Lower perimeter arcade — iconic sandy ochre yellow */}
+        <rect x="185" y="118" width="490" height="62" rx="2" fill="#d4ac68" />
+        {/* Horizontal masonry joints */}
+        {[126, 135, 144, 153, 162, 171].map(y => (
           <line key={y} x1="185" y1={y} x2="675" y2={y}
-            stroke="#b0a898" strokeWidth="0.6" opacity="0.5" />
+            stroke="#bf9a52" strokeWidth="0.6" opacity="0.55" />
         ))}
 
-        {/* Arcaded entrance portals at street level */}
-        {[210, 265, 320, 395, 465, 520, 575, 630].map(x => (
-          <path key={x}
-            d={`M${x} 180 L${x} 148 Q${x+14} 138 ${x+28} 148 L${x+28} 180 Z`}
-            fill="#18120c" opacity="0.22" />
+        {/* Arcaded entrance portals — cream arches on ochre wall */}
+        {[208, 255, 302, 368, 432, 498, 552, 606].map(x => (
+          <g key={x}>
+            {/* Arch opening */}
+            <path d={`M${x} 180 L${x} 152 Q${x+14} 140 ${x+28} 152 L${x+28} 180 Z`}
+              fill="#1a120a" opacity="0.28" />
+            {/* Arch surround (cream keystone) */}
+            <path d={`M${x-1} 180 L${x-1} 151 Q${x+14} 138 ${x+29} 151 L${x+29} 180`}
+              fill="none" stroke="#e8d9b0" strokeWidth="2" opacity="0.6" />
+          </g>
         ))}
 
-        {/* Corner buttresses */}
-        <rect x="183" y="108" width="18" height="72" fill="#b0a898" />
-        <rect x="659" y="108" width="18" height="72" fill="#b0a898" />
+        {/* Corner buttresses — slightly deeper terracotta */}
+        <rect x="183" y="114" width="20" height="66" fill="#c86830" />
+        <rect x="657" y="114" width="20" height="66" fill="#c86830" />
 
-        {/* ── Upper bowl (stands rising above perimeter wall) ── */}
-        {/* Back wall of upper tier */}
-        <rect x="190" y="60" width="480" height="54" fill="#b8b0a0" />
-        {/* Upper tier facade texture */}
-        {[65, 75, 85, 95, 105].map(y => (
-          <line key={y} x1="190" y1={y} x2="670" y2={y}
-            stroke="#a8a098" strokeWidth="0.5" opacity="0.45" />
+        {/* ── Upper bowl — iconic terracotta brick orange ── */}
+        {/* Main facade */}
+        <rect x="188" y="62" width="484" height="58" fill="#c96840" />
+
+        {/* Grid of recessed panels — darker brick for the window bays */}
+        {Array.from({ length: 19 }, (_, col) => [0, 1].map(row => {
+          const px = 196 + col * 25;
+          const py = 68 + row * 24;
+          return (
+            <rect key={`p-${col}-${row}`} x={px} y={py} width="18" height="18" rx="1"
+              fill="#a04828" opacity="0.55" />
+          );
+        }))}
+
+        {/* Horizontal belt courses */}
+        {[64, 90, 114].map(y => (
+          <line key={y} x1="188" y1={y} x2="672" y2={y}
+            stroke="#b05830" strokeWidth="1" opacity="0.5" />
         ))}
-        {/* Vertical column lines */}
-        {Array.from({ length: 20 }, (_, i) => 190 + i * 25).map(x => (
-          <line key={x} x1={x} y1="60" x2={x} y2="112"
-            stroke="#a8a098" strokeWidth="0.7" opacity="0.4" />
-        ))}
 
-        {/* Stand sections — glimpsed over the parapet */}
-        {/* Genoa Nord (red) — left side */}
-        <rect x="194" y="78" width="130" height="34" fill="#b82020" opacity="0.55" />
-        {/* Central (green pitch visible) */}
-        <rect x="324" y="72" width="212" height="40" fill="#3a6830" opacity="0.50" />
-        {/* Samp Sud (blue) — right side */}
-        <rect x="536" y="78" width="130" height="34" fill="#1a3070" opacity="0.50" />
+        {/* Stand sections glimpsed over parapet */}
+        {/* Genoa Nord (red) — left */}
+        <rect x="192" y="80" width="110" height="34" fill="#b82020" opacity="0.50" />
+        {/* Central (green pitch) */}
+        <rect x="302" y="74" width="256" height="40" fill="#3a6830" opacity="0.45" />
+        {/* Samp Sud (blue) — right */}
+        <rect x="558" y="80" width="110" height="34" fill="#1a3070" opacity="0.50" />
 
-        {/* Pitch marking hint */}
-        <ellipse cx="430" cy="91" rx="55" ry="16" fill="none"
+        {/* Pitch centre circle hint */}
+        <ellipse cx="430" cy="93" rx="50" ry="14" fill="none"
           stroke="#4a7840" strokeWidth="1.5" opacity="0.35" />
-        <line x1="430" y1="75" x2="430" y2="112" stroke="#4a7840" strokeWidth="1" opacity="0.3" />
+        <line x1="430" y1="78" x2="430" y2="114" stroke="#4a7840" strokeWidth="1" opacity="0.3" />
 
         {/* Crowd dots — Genoa red end */}
         {Array.from({ length: 18 }, (_, i) => ({
-          cx: 200 + (i % 9) * 14,
-          cy: 82 + Math.floor(i / 9) * 10,
+          cx: 198 + (i % 9) * 12,
+          cy: 84 + Math.floor(i / 9) * 10,
         })).map(({ cx, cy }, i) => (
-          <circle key={i} cx={cx} cy={cy} r="2.5" fill={i % 3 === 0 ? "#d83030" : "#e8e0d4"} opacity="0.7" />
+          <circle key={i} cx={cx} cy={cy} r="2.5" fill={i % 3 === 0 ? "#d83030" : "#f0e8d8"} opacity="0.75" />
         ))}
         {/* Crowd dots — Samp blue end */}
         {Array.from({ length: 18 }, (_, i) => ({
-          cx: 540 + (i % 9) * 14,
-          cy: 82 + Math.floor(i / 9) * 10,
+          cx: 562 + (i % 9) * 12,
+          cy: 84 + Math.floor(i / 9) * 10,
         })).map(({ cx, cy }, i) => (
-          <circle key={i} cx={cx} cy={cy} r="2.5" fill={i % 3 === 0 ? "#2040a0" : "#e8e0d4"} opacity="0.7" />
+          <circle key={i} cx={cx} cy={cy} r="2.5" fill={i % 3 === 0 ? "#2040a0" : "#f0e8d8"} opacity="0.75" />
         ))}
 
-        {/* ── Cantilevered roof (1990 renovation) ── */}
-        {/* Roof underside — slightly darker */}
-        <rect x="178" y="50" width="504" height="12" fill="#888880" />
-        {/* Roof top surface */}
-        <rect x="174" y="44" width="512" height="8"  fill="#949890" />
-        {/* Roof front fascia / leading edge */}
-        <rect x="174" y="52" width="512" height="4"  fill="#707870" />
-        {/* Roof support columns visible at front */}
-        {[190, 245, 300, 355, 410, 465, 520, 575, 630].map(x => (
-          <rect key={x} x={x} y="52" width="5" height="60" fill="#787870" opacity="0.5" />
+        {/* ── Cantilevered white roof (1990 renovation) ── */}
+        {/* Roof underside shadow */}
+        <rect x="176" y="52" width="508" height="12" fill="#c8c4bc" />
+        {/* Roof deck — off-white */}
+        <rect x="172" y="44" width="516" height="10" fill="#e8e4dc" />
+        {/* Leading edge fascia */}
+        <rect x="172" y="54" width="516" height="3"  fill="#d0ccc4" />
+        {/* Roof support struts */}
+        {[192, 248, 304, 360, 416, 472, 528, 584, 636].map(x => (
+          <rect key={x} x={x} y="54" width="4" height="60" fill="#c0bcb4" opacity="0.45" />
+        ))}
+        {/* Roof truss diagonals (white steel, iconic) */}
+        {[200, 310, 420, 530, 620].map(x => (
+          <g key={x}>
+            <line x1={x} y1="44" x2={x-20} y2="20" stroke="#e0dcd4" strokeWidth="2" opacity="0.7" />
+            <line x1={x} y1="44" x2={x+20} y2="20" stroke="#e0dcd4" strokeWidth="2" opacity="0.7" />
+            <line x1={x-20} y1="20" x2={x+20} y2="20" stroke="#e0dcd4" strokeWidth="1.5" opacity="0.6" />
+          </g>
         ))}
 
         {/* ── Floodlight pylons ── */}
         {/* Left-front */}
-        <rect x="186" y="12" width="7" height="100" fill="#a8a098" />
-        <rect x="178" y="8"  width="22" height="6"  fill="#989088" />
-        <rect x="173" y="2"  width="32" height="8"  rx="1" fill="#686058" />
-        {/* lamp heads */}
+        <rect x="186" y="14" width="7" height="98" fill="#b8b4ac" />
+        <rect x="178" y="10" width="22" height="6"  fill="#a8a49c" />
+        <rect x="173" y="4"  width="32" height="8"  rx="1" fill="#787470" />
         {[174,183,192,201].map(lx => (
-          <rect key={lx} x={lx} y="0" width="7" height="4" fill="#f0e8c0" opacity="0.8" />
+          <rect key={lx} x={lx} y="2" width="7" height="4" fill="#f8f0d0" opacity="0.85" />
         ))}
-
         {/* Right-front */}
-        <rect x="667" y="12" width="7" height="100" fill="#a8a098" />
-        <rect x="660" y="8"  width="22" height="6"  fill="#989088" />
-        <rect x="655" y="2"  width="32" height="8"  rx="1" fill="#686058" />
+        <rect x="667" y="14" width="7" height="98" fill="#b8b4ac" />
+        <rect x="660" y="10" width="22" height="6"  fill="#a8a49c" />
+        <rect x="655" y="4"  width="32" height="8"  rx="1" fill="#787470" />
         {[656,665,674,683].map(lx => (
-          <rect key={lx} x={lx} y="0" width="7" height="4" fill="#f0e8c0" opacity="0.8" />
+          <rect key={lx} x={lx} y="2" width="7" height="4" fill="#f8f0d0" opacity="0.85" />
         ))}
 
-        {/* ── Gate / entrance detail at base ── */}
-        <rect x="390" y="150" width="80" height="30" fill="#d8d0c0" />
-        <path d="M390 180 L390 158 Q430 146 470 158 L470 180 Z" fill="#18120c" opacity="0.25" />
-        <rect x="407" y="152" width="18" height="22" fill="#18120c" opacity="0.18" />
-        <rect x="435" y="152" width="18" height="22" fill="#18120c" opacity="0.18" />
+        {/* ── Main entrance gate ── */}
+        <rect x="390" y="148" width="80" height="32" fill="#c8a458" />
+        <path d="M390 180 L390 156 Q430 144 470 156 L470 180 Z" fill="#1a120a" opacity="0.28" />
+        <rect x="408" y="150" width="16" height="24" fill="#1a120a" opacity="0.2" />
+        <rect x="436" y="150" width="16" height="24" fill="#1a120a" opacity="0.2" />
+        {/* "STADIO COMUNALE LUIGI FERRARIS" sign above gate */}
+        <rect x="378" y="144" width="104" height="6" fill="#f0eada" opacity="0.8" />
 
-        {/* Genoa CFC crest colour bar (subtle, left parapet) */}
-        <rect x="185" y="108" width="16" height="6" fill="#c02020" opacity="0.7" />
-        <rect x="185" y="106" width="16" height="3" fill="#1830a0" opacity="0.6" />
-
-        {/* Sampdoria colour bar (right parapet) */}
-        <rect x="659" y="108" width="16" height="6" fill="#1830a0" opacity="0.7" />
-        <rect x="659" y="106" width="16" height="3" fill="#c02020" opacity="0.5" />
+        {/* Genoa CFC colour flash — left buttress */}
+        <rect x="183" y="112" width="20" height="4" fill="#c02020" opacity="0.8" />
+        <rect x="183" y="110" width="20" height="3" fill="#1830a0" opacity="0.7" />
+        {/* Sampdoria colour flash — right buttress */}
+        <rect x="657" y="112" width="20" height="4" fill="#1830a0" opacity="0.8" />
+        <rect x="657" y="110" width="20" height="3" fill="#c02020" opacity="0.6" />
 
         {/* ── Street / forecourt ── */}
         <rect x="0" y="180" width="900" height="20" fill="#c0b8a8" />
