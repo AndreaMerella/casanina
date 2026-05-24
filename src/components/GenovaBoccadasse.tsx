@@ -23,30 +23,16 @@ export default function GenovaBoccadasse() {
         style={{ display: "block", overflow: "hidden" }}
       >
         <defs>
+          {/* Hard clip for the entire scene — prevents Safari animation bleed */}
+          <clipPath id="bocca-viewport">
+            <rect x="0" y="0" width="900" height="200"/>
+          </clipPath>
           <clipPath id="bocca-sea-clip">
             <rect x="0" y="0" width="446" height="200"/>
           </clipPath>
         </defs>
 
-        <style>{`
-          @keyframes bocca-boat-a {
-            0%,100% { transform: rotate(-4deg); }
-            50%     { transform: rotate(4deg); }
-          }
-          @keyframes bocca-boat-b {
-            0%,100% { transform: rotate(3deg); }
-            50%     { transform: rotate(-4deg); }
-          }
-          @keyframes bocca-boat-c {
-            0%,100% { transform: rotate(-3deg); }
-            50%     { transform: rotate(3deg); }
-          }
-          .bocca-a { animation: bocca-boat-a 4s ease-in-out infinite; transform-origin: 0px 0px; }
-          .bocca-b { animation: bocca-boat-b 5s ease-in-out infinite; transform-origin: 0px 0px; animation-delay:-1.5s; }
-          .bocca-c { animation: bocca-boat-c 3.5s ease-in-out infinite; transform-origin: 0px 0px; animation-delay:-0.8s; }
-          .bocca-d { animation: bocca-boat-a 4.8s ease-in-out infinite; transform-origin: 0px 0px; animation-delay:-2.2s; }
-        `}</style>
-
+        <g clipPath="url(#bocca-viewport)">
         {/* ── Sky ── */}
         <rect x="0" y="0" width="900" height="200" fill="#faf8f4" />
         <rect x="0" y="70" width="900" height="24" fill="#dce8ee" opacity="0.35" />
@@ -171,30 +157,55 @@ export default function GenovaBoccadasse() {
           return <ellipse key={i} cx={x} cy={y} rx={r} ry={r * 0.55} fill="#b0a494" opacity="0.5" />;
         })}
 
-        {/* ── Boats on the beach ── */}
-        <g transform="translate(65,166)" className="bocca-a">
-          <path d="M-28 0 Q-30 6 -24 10 L24 10 Q30 6 28 0 Z" fill="#3a5878" />
-          <rect x="-24" y="-2" width="48" height="4" fill="#4a6888" />
-          <line x1="0" y1="-2" x2="0" y2="-20" stroke="#2a1810" strokeWidth="1.5" />
-          <path d="M0 -20 L16 -12 L0 -4 Z" fill="#e8d4a0" opacity="0.8" />
+        {/* ── Boats on the beach — SVG animateTransform to avoid Safari CSS bleed ── */}
+        <g transform="translate(65,166)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-4 0 0;4 0 0;-4 0 0" dur="4s" repeatCount="indefinite"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <path d="M-28 0 Q-30 6 -24 10 L24 10 Q30 6 28 0 Z" fill="#3a5878" />
+            <rect x="-24" y="-2" width="48" height="4" fill="#4a6888" />
+            <line x1="0" y1="-2" x2="0" y2="-20" stroke="#2a1810" strokeWidth="1.5" />
+            <path d="M0 -20 L16 -12 L0 -4 Z" fill="#e8d4a0" opacity="0.8" />
+          </g>
         </g>
-        <g transform="translate(162,164)" className="bocca-b">
-          <path d="M-22 0 Q-24 5 -18 8 L18 8 Q24 5 22 0 Z" fill="#b83820" />
-          <rect x="-18" y="-1" width="36" height="3" fill="#c84830" />
-          <line x1="0" y1="-1" x2="0" y2="-16" stroke="#2a1810" strokeWidth="1.2" />
-          <path d="M0 -16 L12 -10 L0 -3 Z" fill="#e8d4a0" opacity="0.75" />
+        <g transform="translate(162,164)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="3 0 0;-4 0 0;3 0 0" dur="5s" repeatCount="indefinite" begin="-1.5s"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <path d="M-22 0 Q-24 5 -18 8 L18 8 Q24 5 22 0 Z" fill="#b83820" />
+            <rect x="-18" y="-1" width="36" height="3" fill="#c84830" />
+            <line x1="0" y1="-1" x2="0" y2="-16" stroke="#2a1810" strokeWidth="1.2" />
+            <path d="M0 -16 L12 -10 L0 -3 Z" fill="#e8d4a0" opacity="0.75" />
+          </g>
         </g>
-        <g transform="translate(248,166)" className="bocca-c">
-          <path d="M-20 0 Q-22 5 -17 8 L17 8 Q22 5 20 0 Z" fill="#7a9840" />
-          <rect x="-17" y="-1" width="34" height="3" fill="#8aaa50" />
+        <g transform="translate(248,166)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-3 0 0;3 0 0;-3 0 0" dur="3.5s" repeatCount="indefinite" begin="-0.8s"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <path d="M-20 0 Q-22 5 -17 8 L17 8 Q22 5 20 0 Z" fill="#7a9840" />
+            <rect x="-17" y="-1" width="34" height="3" fill="#8aaa50" />
+          </g>
         </g>
-        <g transform="translate(322,165)" className="bocca-d">
-          <path d="M-16 0 Q-18 4 -14 7 L14 7 Q18 4 16 0 Z" fill="#7a5830" />
-          <rect x="-14" y="-1" width="28" height="3" fill="#8a6840" />
+        <g transform="translate(322,165)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-4 0 0;4 0 0;-4 0 0" dur="4.8s" repeatCount="indefinite" begin="-2.2s"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <path d="M-16 0 Q-18 4 -14 7 L14 7 Q18 4 16 0 Z" fill="#7a5830" />
+            <rect x="-14" y="-1" width="28" height="3" fill="#8a6840" />
+          </g>
         </g>
-        <g transform="translate(375,167)" className="bocca-a" style={{ animationDelay: "-3s" }}>
-          <path d="M-13 0 Q-15 4 -11 6 L11 6 Q15 4 13 0 Z" fill="#884858" />
-          <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
+        <g transform="translate(375,167)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-4 0 0;4 0 0;-4 0 0" dur="4s" repeatCount="indefinite" begin="-3s"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <path d="M-13 0 Q-15 4 -11 6 L11 6 Q15 4 13 0 Z" fill="#884858" />
+            <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
+          </g>
         </g>
 
         {/* ── Foreground wave — clipped to sea area only ── */}
@@ -226,6 +237,7 @@ export default function GenovaBoccadasse() {
           fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.65">
           BOCCADASSE
         </text>
+        </g>{/* end bocca-viewport clip */}
       </svg>
     </div>
   );
