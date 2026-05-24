@@ -13,13 +13,25 @@ export default function IntroScreen() {
 
   useEffect(() => {
     if (sessionStorage.getItem("intro-seen")) return;
+
+    // Lock scroll so the page can't drift while the intro covers it
+    document.body.style.overflow = "hidden";
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+
     setPhase("in");
     const t1 = setTimeout(() => setPhase("out"), 1400);
     const t2 = setTimeout(() => {
       setPhase("hidden");
+      document.body.style.overflow = "";
+      // Ensure we're at the top when the drone view is revealed
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
       sessionStorage.setItem("intro-seen", "1");
     }, 2000);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+      document.body.style.overflow = "";
+    };
   }, []);
 
   if (phase === "hidden") return null;

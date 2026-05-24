@@ -8,10 +8,13 @@ import { useEffect } from "react";
  */
 export default function ScrollReset() {
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      history.scrollRestoration = "manual";
-      window.scrollTo(0, 0);
-    }
+    history.scrollRestoration = "manual";
+    // Fire immediately and again after browser paint to override any late restoration
+    window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+    const raf = requestAnimationFrame(() =>
+      window.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior })
+    );
+    return () => cancelAnimationFrame(raf);
   }, []);
   return null;
 }
