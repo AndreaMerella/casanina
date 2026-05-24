@@ -17,28 +17,7 @@ export default function GenovaVicoli() {
         className="w-full"
         style={{ display: "block", overflow: "hidden" }}
       >
-        <style>{`
-          @keyframes vicoli-sway-a {
-            0%,100% { transform: rotate(-6deg); }
-            50%     { transform: rotate(6deg); }
-          }
-          @keyframes vicoli-sway-b {
-            0%,100% { transform: rotate(5deg); }
-            50%     { transform: rotate(-7deg); }
-          }
-          @keyframes vicoli-sway-c {
-            0%,100% { transform: rotate(-4deg); }
-            50%     { transform: rotate(5deg); }
-          }
-          @keyframes vicoli-sway-sheet {
-            0%,100% { transform: rotate(-2deg) skewX(-0.5deg); }
-            50%     { transform: rotate(2deg) skewX(0.5deg); }
-          }
-          .v-a { animation: vicoli-sway-a 3.4s ease-in-out infinite; transform-origin: 50% 0; }
-          .v-b { animation: vicoli-sway-b 4.2s ease-in-out infinite; transform-origin: 50% 0; }
-          .v-c { animation: vicoli-sway-c 3.8s ease-in-out infinite; transform-origin: 50% 0; }
-          .v-s { animation: vicoli-sway-sheet 5.5s ease-in-out infinite; transform-origin: 50% 0; }
-        `}</style>
+        {/* All laundry animations use SVG animateTransform — CSS transform-origin % is broken in Safari */}
 
         {/* ── Sky ── */}
         <rect x="0" y="0" width="900" height="140" fill="#edf2ee"/>
@@ -269,67 +248,107 @@ export default function GenovaVicoli() {
         <line x1="0" y1="68" x2="900" y2="68" stroke="#5a4030" strokeWidth="0.9" opacity="0.55"/>
 
         {/* White shirt */}
-        <g transform="translate(48,68)" className="v-a">
+        <g transform="translate(48,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-6 0 0;6 0 0;-6 0 0" dur="3.4s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <path d="M-8 0 L-10 4 L-10 17 L10 17 L10 4 L8 0 Z" fill="#ede8df"/>
           <path d="M-10 4 L-15 4 L-15 10 L-10 10 Z M10 4 L15 4 L15 10 L10 10 Z" fill="#ede8df"/>
           <rect x="-10" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="6"   y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Terracotta bed sheet */}
-        <g transform="translate(155,68)" className="v-s" style={{ animationDelay: "-1.8s" }}>
+        <g transform="translate(155,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-2 0 0;2 0 0;-2 0 0" dur="5.5s" begin="-1.8s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <rect x="-22" y="0" width="44" height="28" fill="#c87858" opacity="0.75"/>
           <rect x="-22" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="18"  y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Dark blue pants */}
-        <g transform="translate(238,68)" className="v-b" style={{ animationDelay: "-0.8s" }}>
+        <g transform="translate(238,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="5 0 0;-7 0 0;5 0 0" dur="4.2s" begin="-0.8s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <path d="M-7 0 L-9 20 L-2 18 L0 20 L2 18 L9 20 L7 0 Z" fill="#486080"/>
           <rect x="-7" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="3"  y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Sage green shirt */}
-        <g transform="translate(315,68)" className="v-a" style={{ animationDelay: "-2.5s" }}>
+        <g transform="translate(315,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-6 0 0;6 0 0;-6 0 0" dur="3.4s" begin="-2.5s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <path d="M-8 0 L-10 4 L-10 17 L10 17 L10 4 L8 0 Z" fill="#6a8858"/>
           <path d="M-10 4 L-15 4 L-15 10 L-10 10 Z M10 4 L15 4 L15 10 L10 10 Z" fill="#6a8858"/>
           <rect x="-10" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="6"   y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Cream sheet */}
-        <g transform="translate(418,68)" className="v-s" style={{ animationDelay: "-3.2s" }}>
+        <g transform="translate(418,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-2 0 0;2 0 0;-2 0 0" dur="5.5s" begin="-3.2s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <rect x="-20" y="0" width="40" height="26" fill="#e8dcc8" opacity="0.82"/>
           <rect x="-20" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="16"  y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Brick red undershirt */}
-        <g transform="translate(502,68)" className="v-c" style={{ animationDelay: "-0.5s" }}>
+        <g transform="translate(502,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-4 0 0;5 0 0;-4 0 0" dur="3.8s" begin="-0.5s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <rect x="-6" y="0" width="12" height="14" fill="#a03828"/>
           <rect x="-6" y="0" width="3"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="3"  y="0" width="3"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Yellow-ochre towel */}
-        <g transform="translate(578,68)" className="v-b" style={{ animationDelay: "-1.5s" }}>
+        <g transform="translate(578,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="5 0 0;-7 0 0;5 0 0" dur="4.2s" begin="-1.5s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <rect x="-10" y="0" width="20" height="22" fill="#c8a840" opacity="0.85"/>
           <rect x="-10" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="6"   y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Off-white shirt */}
-        <g transform="translate(670,68)" className="v-a" style={{ animationDelay: "-4s" }}>
+        <g transform="translate(670,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-6 0 0;6 0 0;-6 0 0" dur="3.4s" begin="-4s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <path d="M-8 0 L-10 4 L-10 17 L10 17 L10 4 L8 0 Z" fill="#f0ebe3"/>
           <path d="M-10 4 L-15 4 L-15 10 L-10 10 Z M10 4 L15 4 L15 10 L10 10 Z" fill="#f0ebe3"/>
           <rect x="-10" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="6"   y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Dusty rose sheet */}
-        <g transform="translate(774,68)" className="v-s" style={{ animationDelay: "-2s" }}>
+        <g transform="translate(774,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-2 0 0;2 0 0;-2 0 0" dur="5.5s" begin="-2s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <rect x="-18" y="0" width="36" height="26" fill="#c8a0a0" opacity="0.75"/>
           <rect x="-18" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="14"  y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
         {/* Dark trousers */}
-        <g transform="translate(856,68)" className="v-c" style={{ animationDelay: "-3s" }}>
+        <g transform="translate(856,68)">
+          <g><animateTransform attributeName="transform" type="rotate"
+            values="-4 0 0;5 0 0;-4 0 0" dur="3.8s" begin="-3s" repeatCount="indefinite"
+            calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
           <path d="M-7 0 L-9 20 L-2 18 L0 20 L2 18 L9 20 L7 0 Z" fill="#3a3020"/>
           <rect x="-7" y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
           <rect x="3"  y="0" width="4"  height="1.5" fill="#5a4030" opacity="0.5"/>
+          </g>
         </g>
 
         {/* ── Label ── */}
