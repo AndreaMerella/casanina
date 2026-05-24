@@ -22,7 +22,7 @@ export default function GenovaVignette() {
         viewBox="0 0 900 200"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full"
-        style={{ maxHeight: "148px", display: "block" }}
+        style={{ display: "block" }}
       >
         <style>{`
           @keyframes zecca-righi-up {

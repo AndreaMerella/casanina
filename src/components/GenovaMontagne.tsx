@@ -9,7 +9,7 @@ export default function GenovaMontagne() {
   return (
     <div className="w-full overflow-hidden select-none" aria-hidden="true">
       <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg"
-           className="w-full" style={{ maxHeight: "180px", display: "block" }}>
+           className="w-full" style={{ display: "block" }}>
         <style>{`
           @keyframes cloud1-drift {
             from { transform: translateX(-20px); }
@@ -50,21 +50,21 @@ export default function GenovaMontagne() {
 
         {/* ── Clouds ── */}
         <g className="cloud1" opacity="0.7">
-          <ellipse cx="0"  cy="32" rx="38" ry="14" fill="#f0ece3"/>
-          <ellipse cx="28" cy="26" rx="28" ry="16" fill="#f0ece3"/>
-          <ellipse cx="55" cy="30" rx="32" ry="13" fill="#f0ece3"/>
-          <ellipse cx="80" cy="34" rx="22" ry="11" fill="#f0ece3"/>
+          <ellipse cx="0"  cy="32" rx="38" ry="14" fill="#f5f4f0"/>
+          <ellipse cx="28" cy="26" rx="28" ry="16" fill="#f5f4f0"/>
+          <ellipse cx="55" cy="30" rx="32" ry="13" fill="#f5f4f0"/>
+          <ellipse cx="80" cy="34" rx="22" ry="11" fill="#f5f4f0"/>
         </g>
         <g className="cloud2" opacity="0.55">
-          <ellipse cx="0"  cy="20" rx="30" ry="11" fill="#e8e4dc"/>
-          <ellipse cx="22" cy="15" rx="24" ry="13" fill="#e8e4dc"/>
-          <ellipse cx="46" cy="18" rx="28" ry="11" fill="#e8e4dc"/>
-          <ellipse cx="68" cy="22" rx="20" ry="10" fill="#e8e4dc"/>
+          <ellipse cx="0"  cy="20" rx="30" ry="11" fill="#eeecea"/>
+          <ellipse cx="22" cy="15" rx="24" ry="13" fill="#eeecea"/>
+          <ellipse cx="46" cy="18" rx="28" ry="11" fill="#eeecea"/>
+          <ellipse cx="68" cy="22" rx="20" ry="10" fill="#eeecea"/>
         </g>
         <g className="cloud3" opacity="0.45">
-          <ellipse cx="0"  cy="28" rx="25" ry="9"  fill="#ede8e0"/>
-          <ellipse cx="18" cy="22" rx="20" ry="11" fill="#ede8e0"/>
-          <ellipse cx="38" cy="25" rx="24" ry="9"  fill="#ede8e0"/>
+          <ellipse cx="0"  cy="28" rx="25" ry="9"  fill="#edecea"/>
+          <ellipse cx="18" cy="22" rx="20" ry="11" fill="#edecea"/>
+          <ellipse cx="38" cy="25" rx="24" ry="9"  fill="#edecea"/>
         </g>
 
         {/* ── Hill layers — back to front ── */}

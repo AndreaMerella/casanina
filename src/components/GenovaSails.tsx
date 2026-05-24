@@ -9,7 +9,7 @@ export default function GenovaSails() {
   return (
     <div className="w-full overflow-hidden select-none" aria-hidden="true">
       <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg"
-           className="w-full" style={{ maxHeight: "180px", display: "block" }}>
+           className="w-full" style={{ display: "block" }}>
         <style>{`
           @keyframes sails-wave-back {
             from { transform: translateX(0); }
@@ -39,8 +39,7 @@ export default function GenovaSails() {
             0%, 100% { opacity: 0.15; }
             50%      { opacity: 0.35; }
           }
-          .sails-wave-back { animation: sails-wave-back 14s linear infinite; }
-          .sails-wave-fore { animation: sails-wave-fore 8s linear infinite; }
+          /* waves use SVG animateTransform — not CSS translateX — so tiling is correct at any viewport width */
           .ship1-move {
             offset-path: path('M 1060 128 L -160 128');
             offset-rotate: 0deg;
@@ -77,7 +76,9 @@ export default function GenovaSails() {
         </g>
 
         {/* ── Background sea layer ── */}
-        <g className="sails-wave-back">
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="0 0" to="-900 0" dur="14s" repeatCount="indefinite"/>
           <path
             d="M0 112 Q112 106 225 112 Q337 118 450 112 Q562 106 675 112 Q787 118 900 112
                Q1012 106 1125 112 Q1237 118 1350 112 Q1462 106 1575 112 Q1687 118 1800 112
@@ -165,7 +166,9 @@ export default function GenovaSails() {
         </g>
 
         {/* ── Foreground waves — in front of ships ── */}
-        <g className="sails-wave-fore">
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="0 0" to="-900 0" dur="8s" repeatCount="indefinite"/>
           <path
             d="M0 150 Q75 143 150 150 Q225 157 300 150 Q375 143 450 150 Q525 157 600 150
                Q675 143 750 150 Q825 157 900 150 Q975 143 1050 150 Q1125 157 1200 150
