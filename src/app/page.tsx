@@ -45,7 +45,6 @@ import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
 import BookingModal from "@/components/BookingModal";
 import ScrollReset from "@/components/ScrollReset";
-import QRCodeDownload from "@/components/QRCodeDownload";
 import ReviewsSection from "@/components/ReviewsSection";
 
 const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
@@ -115,7 +114,7 @@ export default function Home() {
             muted
             loop
             playsInline
-            poster="https://images.unsplash.com/photo-1555993539-1732b0258235?w=1280&auto=format&fit=crop&q=60"
+            poster="https://images.unsplash.com/photo-1499678329028-101435549a4e?w=1280&auto=format&fit=crop&q=60"
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source
@@ -195,7 +194,6 @@ export default function Home() {
                     { label: "Boccadasse", value: "25 min walk" },
                     { label: "Porto Antico", value: "10 min by bus" },
                     { label: "Brignole station", value: "20 min walk" },
-                    { label: "Stadio Ferraris", value: "30 min walk" },
                   ].map(({ label, value }) => (
                     <div key={label} className="bg-background rounded-xl px-4 py-3">
                       <p className="font-medium">{label}</p>
@@ -273,9 +271,6 @@ export default function Home() {
 
               <AnimateIn className="lg:col-span-3" delay={100}>
                 <BookingModal nightlyRate={NIGHTLY_RATE} />
-                <div className="mt-5">
-                  <QRCodeDownload />
-                </div>
               </AnimateIn>
 
             </div>
