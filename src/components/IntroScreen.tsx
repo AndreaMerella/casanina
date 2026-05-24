@@ -3,63 +3,55 @@
 import { useEffect, useState } from "react";
 
 /**
- * Fullscreen branded intro that fades out after ~1.8s.
- * Gives the hero video time to buffer so there's no black flash.
- * Only shows once per session (sessionStorage flag).
+ * Minimal branded intro — covers the hero while the video buffers.
+ * Dark bg matches bg-stone-900 hero, so the transition is seamless.
+ * Fades out after 1.4s, removed from DOM at 2s.
+ * Only on first visit per session.
  */
 export default function IntroScreen() {
-  const [visible, setVisible] = useState(false);
-  const [fading, setFading]   = useState(false);
+  const [phase, setPhase] = useState<"hidden" | "in" | "out">("hidden");
 
   useEffect(() => {
-    // Skip on repeat visits within the same session
     if (sessionStorage.getItem("intro-seen")) return;
-    setVisible(true);
-
-    const fadeTimer  = setTimeout(() => setFading(true),  1600);
-    const hideTimer  = setTimeout(() => {
-      setVisible(false);
+    setPhase("in");
+    const t1 = setTimeout(() => setPhase("out"), 1400);
+    const t2 = setTimeout(() => {
+      setPhase("hidden");
       sessionStorage.setItem("intro-seen", "1");
-    }, 2400);
-
-    return () => { clearTimeout(fadeTimer); clearTimeout(hideTimer); };
+    }, 2000);
+    return () => { clearTimeout(t1); clearTimeout(t2); };
   }, []);
 
-  if (!visible) return null;
+  if (phase === "hidden") return null;
 
   return (
     <div
-      className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-[#18120c]"
+      className="fixed inset-0 z-[200] flex flex-col items-center justify-center bg-stone-900"
       style={{
-        transition: "opacity 0.8s ease-out",
-        opacity: fading ? 0 : 1,
-        pointerEvents: fading ? "none" : "auto",
+        opacity: phase === "out" ? 0 : 1,
+        transition: "opacity 0.6s ease-in-out",
+        pointerEvents: phase === "out" ? "none" : "auto",
       }}
     >
-      {/* Anchor / anchor rope icon */}
-      <div className="mb-6 text-5xl select-none" style={{ lineHeight: 1 }}>⚓</div>
-
-      {/* Wordmark */}
       <h1
-        className="font-serif text-3xl md:text-4xl text-[#faf8f4] tracking-[0.06em]"
-        style={{ letterSpacing: "0.08em" }}
+        className="font-serif text-[2.2rem] md:text-5xl text-[#faf8f4]/90 tracking-wide"
+        style={{
+          opacity: phase === "out" ? 0 : 1,
+          transform: phase === "out" ? "translateY(-6px)" : "translateY(0)",
+          transition: "opacity 0.5s ease-in-out, transform 0.5s ease-in-out",
+        }}
       >
         Casa Nina
       </h1>
-      <p className="mt-2 text-xs text-[#faf8f4]/40 uppercase tracking-[0.22em] font-light">
+      <p
+        className="mt-2 text-[10px] uppercase tracking-[0.28em] text-[#faf8f4]/35 font-light"
+        style={{
+          opacity: phase === "out" ? 0 : 1,
+          transition: "opacity 0.5s ease-in-out 0.05s",
+        }}
+      >
         Carignano · Genova
       </p>
-
-      {/* Thin loading bar */}
-      <div className="mt-10 w-24 h-px bg-[#faf8f4]/15 overflow-hidden rounded-full">
-        <div
-          className="h-full bg-[#b5703a] rounded-full"
-          style={{
-            width: fading ? "100%" : "0%",
-            transition: "width 1.6s ease-in-out",
-          }}
-        />
-      </div>
     </div>
   );
 }
