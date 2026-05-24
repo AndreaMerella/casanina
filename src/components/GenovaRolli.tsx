@@ -17,45 +17,27 @@
 
 export default function GenovaRolli() {
   return (
-    <div
-      className="w-full overflow-hidden select-none"
-      aria-hidden="true"
-      style={{ maxHeight: 240 }}
-    >
+    <div className="w-full select-none" aria-hidden="true">
       <svg
         viewBox="0 0 900 200"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full"
         style={{ display: "block", overflow: "hidden" }}
       >
+        <defs>
+          <clipPath id="rolli-viewport">
+            <rect x="0" y="0" width="900" height="200"/>
+          </clipPath>
+        </defs>
         <style>{`
-          @keyframes rolli-bird1 {
-            0%   { transform: translate(-60px, 50px); opacity: 0; }
-            4%   { opacity: 1; }
-            96%  { opacity: 1; }
-            100% { transform: translate(980px, 30px); opacity: 0; }
-          }
-          @keyframes rolli-bird2 {
-            0%   { transform: translate(-40px, 38px); opacity: 0; }
-            4%   { opacity: 1; }
-            96%  { opacity: 1; }
-            100% { transform: translate(980px, 58px); opacity: 0; }
-          }
           @keyframes rolli-win {
-            0%, 100% { opacity: 0.12; }
-            50%      { opacity: 0.28; }
-          }
-          .rolli-bird1 {
-            animation: rolli-bird1 26s linear infinite;
-            animation-delay: -8s;
-          }
-          .rolli-bird2 {
-            animation: rolli-bird2 34s linear infinite;
-            animation-delay: -20s;
+            0%, 100% { opacity: 0.10; }
+            50%      { opacity: 0.26; }
           }
           .rolli-win { animation: rolli-win 6s ease-in-out infinite; }
         `}</style>
 
+        <g clipPath="url(#rolli-viewport)">
         {/* ── Sky — warm Ligurian afternoon ── */}
         <rect x="0" y="0" width="900" height="200" fill="#f6f1e8" />
 
@@ -300,13 +282,17 @@ export default function GenovaRolli() {
         <line x1="0" y1="194" x2="900" y2="194" stroke="#5a5250" strokeWidth="0.5" opacity="0.4" />
         <line x1="0" y1="198" x2="900" y2="198" stroke="#5a5250" strokeWidth="0.5" opacity="0.3" />
 
-        {/* ── Pigeons drifting across the street ── */}
-        <g className="rolli-bird1">
+        {/* ── Pigeons — SVG animateTransform so clipPath contains them ── */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="-60 50" to="980 30" dur="26s" repeatCount="indefinite" begin="-8s"/>
           <path d="M0 0 Q5 -4 10 0" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" />
           <path d="M13 -1 Q18 -5 23 -1" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" />
           <path d="M28 0 Q33 -3 38 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
         </g>
-        <g className="rolli-bird2">
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="-40 38" to="980 58" dur="34s" repeatCount="indefinite" begin="-20s"/>
           <path d="M0 0 Q4 -3 8 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
           <path d="M11 -1 Q15 -4 19 -1" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
         </g>
@@ -316,7 +302,19 @@ export default function GenovaRolli() {
           fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.6">
           PALAZZI DEI ROLLI · VIA GARIBALDI · UNESCO 2006
         </text>
+        </g>{/* end rolli-viewport clip */}
       </svg>
+
+      {/* Description */}
+      <div className="bg-card border-t border-border px-6 py-5 text-center">
+        <p className="text-xs text-muted leading-relaxed max-w-2xl mx-auto">
+          <span className="font-semibold text-foreground">Palazzi dei Rolli</span> — Via Garibaldi (Strada Nuova), Genova.
+          Five grand Renaissance-Baroque palaces built for the city&apos;s noble families in the 16th–17th century.
+          Palazzo Rosso (1671), Palazzo Bianco (1565), and Palazzo Doria-Tursi (1565) now house the{" "}
+          <em>Civici Musei di Strada Nuova</em>.
+          Designated <span className="font-medium text-foreground">UNESCO World Heritage Site</span> in 2006.
+        </p>
+      </div>
     </div>
   );
 }

@@ -93,8 +93,10 @@ export default function GenovaSails() {
               {/* Rigging */}
               <line x1="4" y1="-72" x2="-42" y2="-2" stroke="#2a1810" strokeWidth="0.6" opacity="0.35"/>
               <line x1="4" y1="-72" x2="42" y2="-2"  stroke="#2a1810" strokeWidth="0.6" opacity="0.35"/>
-              {/* Flag */}
-              <path d="M4 -72 L16 -67 L4 -62 Z" fill="#c0302a" opacity="0.8"/>
+              {/* Flag — Genovese cross (red cross on white), matches Ship 1 */}
+              <rect x="2"   y="-77" width="14" height="10" fill="#faf8f4" opacity="0.92"/>
+              <rect x="6.5" y="-77" width="3"  height="10" fill="#c0302a"/>
+              <rect x="2"   y="-73" width="14" height="3"  fill="#c0302a"/>
             </g>
           </g>
         </g>
