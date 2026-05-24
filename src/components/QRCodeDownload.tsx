@@ -13,7 +13,7 @@ const DIRECT_URL = "https://casanina.vercel.app?promo=NINA10";
 const PROMO_CODE = "NINA10";
 
 export default function QRCodeDownload() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const canvasRef = useRef<HTMLDivElement>(null);
 
   function download() {
     const canvas = canvasRef.current?.querySelector("canvas") as HTMLCanvasElement | null;
