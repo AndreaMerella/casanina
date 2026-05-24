@@ -19,40 +19,11 @@ export default function GenovaSails() {
             from { transform: translateX(0); }
             to   { transform: translateX(-900px); }
           }
-          @keyframes ship1-sail {
-            from { offset-distance: 0%; }
-            to   { offset-distance: 100%; }
-          }
-          @keyframes ship2-sail {
-            from { offset-distance: 100%; }
-            to   { offset-distance: 0%; }
-          }
-          @keyframes ship-bob {
-            0%, 100% { transform: translateY(0px); }
-            50%      { transform: translateY(-4px); }
-          }
-          @keyframes ship-bob-slow {
-            0%, 100% { transform: translateY(0px); }
-            50%      { transform: translateY(-3px); }
-          }
           @keyframes shimmer {
             0%, 100% { opacity: 0.15; }
             50%      { opacity: 0.35; }
           }
           /* waves use SVG animateTransform — not CSS translateX — so tiling is correct at any viewport width */
-          .ship1-move {
-            offset-path: path('M 1060 128 L -160 128');
-            offset-rotate: 0deg;
-            animation: ship1-sail 48s linear infinite;
-          }
-          .ship2-move {
-            offset-path: path('M -100 116 L 1000 116');
-            offset-rotate: 0deg;
-            animation: ship2-sail 65s linear infinite;
-            animation-delay: -30s;
-          }
-          .ship-bob    { animation: ship-bob      3.8s ease-in-out infinite; }
-          .ship-bob-slow { animation: ship-bob-slow 5.2s ease-in-out infinite; animation-delay: -1.5s; }
           .shimmer-line { animation: shimmer 4s ease-in-out infinite; }
         `}</style>
 
@@ -88,8 +59,13 @@ export default function GenovaSails() {
         </g>
 
         {/* ── Ship 2 — smaller, further, L→R ── */}
-        <g className="ship2-move">
-          <g className="ship-bob-slow" style={{ transformOrigin: "0px 0px" }}>
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="-100 116" to="1000 116" dur="65s" repeatCount="indefinite" begin="-30s"/>
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -3;0 0" dur="5.2s" repeatCount="indefinite"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
             {/* scale down for distance — wrap in another g */}
             <g transform="scale(0.58)">
               {/* Hull */}
@@ -124,8 +100,13 @@ export default function GenovaSails() {
         </g>
 
         {/* ── Ship 1 — large, near, R→L ── */}
-        <g className="ship1-move">
-          <g className="ship-bob" style={{ transformOrigin: "0px 0px" }}>
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="1060 128" to="-160 128" dur="48s" repeatCount="indefinite"/>
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -4;0 0" dur="3.8s" repeatCount="indefinite"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1"/>
             {/* Hull — mirrored (bow faces left, direction of travel) */}
             <path d="M-55 3 Q-62 -4 -55 -12 L55 -12 Q62 -4 55 3 Z" fill="#3a2010"/>
             <rect x="-50" y="-11" width="100" height="3" fill="#5a3820" opacity="0.5"/>

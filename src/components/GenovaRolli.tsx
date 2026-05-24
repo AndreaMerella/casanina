@@ -30,16 +30,16 @@ export default function GenovaRolli() {
       >
         <style>{`
           @keyframes rolli-bird1 {
-            0%   { transform: translate(-60px, 0px); opacity: 0; }
+            0%   { transform: translate(-60px, 50px); opacity: 0; }
             4%   { opacity: 1; }
             96%  { opacity: 1; }
-            100% { transform: translate(980px, -25px); opacity: 0; }
+            100% { transform: translate(980px, 30px); opacity: 0; }
           }
           @keyframes rolli-bird2 {
-            0%   { transform: translate(-40px, 0px); opacity: 0; }
+            0%   { transform: translate(-40px, 38px); opacity: 0; }
             4%   { opacity: 1; }
             96%  { opacity: 1; }
-            100% { transform: translate(980px, 18px); opacity: 0; }
+            100% { transform: translate(980px, 58px); opacity: 0; }
           }
           @keyframes rolli-win {
             0%, 100% { opacity: 0.12; }
@@ -301,12 +301,12 @@ export default function GenovaRolli() {
         <line x1="0" y1="198" x2="900" y2="198" stroke="#5a5250" strokeWidth="0.5" opacity="0.3" />
 
         {/* ── Pigeons drifting across the street ── */}
-        <g className="rolli-bird1" style={{ transform: "translate(60px, 60px)" }}>
+        <g className="rolli-bird1">
           <path d="M0 0 Q5 -4 10 0" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" />
           <path d="M13 -1 Q18 -5 23 -1" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" />
           <path d="M28 0 Q33 -3 38 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
         </g>
-        <g className="rolli-bird2" style={{ transform: "translate(220px, 40px)" }}>
+        <g className="rolli-bird2">
           <path d="M0 0 Q4 -3 8 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
           <path d="M11 -1 Q15 -4 19 -1" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
         </g>

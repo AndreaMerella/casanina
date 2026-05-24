@@ -22,6 +22,12 @@ export default function GenovaBoccadasse() {
         className="w-full"
         style={{ display: "block", overflow: "hidden" }}
       >
+        <defs>
+          <clipPath id="bocca-sea-clip">
+            <rect x="0" y="0" width="446" height="200"/>
+          </clipPath>
+        </defs>
+
         <style>{`
           @keyframes bocca-boat-a {
             0%,100% { transform: rotate(-4deg); }
@@ -35,15 +41,10 @@ export default function GenovaBoccadasse() {
             0%,100% { transform: rotate(-3deg); }
             50%     { transform: rotate(3deg); }
           }
-          @keyframes bocca-gull {
-            0%   { transform: translate(0px,0px); }
-            100% { transform: translate(820px,-10px); }
-          }
           .bocca-a { animation: bocca-boat-a 4s ease-in-out infinite; transform-origin: 0px 0px; }
           .bocca-b { animation: bocca-boat-b 5s ease-in-out infinite; transform-origin: 0px 0px; animation-delay:-1.5s; }
           .bocca-c { animation: bocca-boat-c 3.5s ease-in-out infinite; transform-origin: 0px 0px; animation-delay:-0.8s; }
           .bocca-d { animation: bocca-boat-a 4.8s ease-in-out infinite; transform-origin: 0px 0px; animation-delay:-2.2s; }
-          .bocca-gull { animation: bocca-gull 18s linear infinite; animation-delay:-6s; }
         `}</style>
 
         {/* ── Sky ── */}
@@ -56,44 +57,48 @@ export default function GenovaBoccadasse() {
 
         {/* ══ WAVES — drawn BEFORE cliff so cliff occludes them ══ */}
 
-        {/* Background sea (deep blue-grey) */}
-        <g>
-          <animateTransform attributeName="transform" type="translate"
-            from="0 0" to="-900 0" dur="16s" repeatCount="indefinite" />
-          <path
-            d="M0 108 Q112 103 225 108 Q337 113 450 108 Q562 103 675 108 Q787 113 900 108
-               Q1012 103 1125 108 Q1237 113 1350 108 Q1462 103 1575 108 Q1687 113 1800 108
-               L1800 185 L0 185 Z"
-            fill="#8fa8b8" opacity="0.75"
-          />
+        {/* Background sea (deep blue-grey) — clipped to sea area only */}
+        <g clipPath="url(#bocca-sea-clip)">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              from="0 0" to="-900 0" dur="16s" repeatCount="indefinite" />
+            <path
+              d="M0 108 Q112 103 225 108 Q337 113 450 108 Q562 103 675 108 Q787 113 900 108
+                 Q1012 103 1125 108 Q1237 113 1350 108 Q1462 103 1575 108 Q1687 113 1800 108
+                 L1800 185 L0 185 Z"
+              fill="#8fa8b8" opacity="0.75"
+            />
+          </g>
         </g>
 
-        {/* Mid sea */}
-        <g>
-          <animateTransform attributeName="transform" type="translate"
-            from="0 0" to="-900 0" dur="10s" repeatCount="indefinite" />
-          <path
-            d="M0 132 Q75 126 150 132 Q225 138 300 132 Q375 126 450 132 Q525 138 600 132
-               Q675 126 750 132 Q825 138 900 132 Q975 126 1050 132 Q1125 138 1200 132
-               Q1275 126 1350 132 Q1425 138 1500 132 Q1575 126 1650 132 Q1725 138 1800 132
-               L1800 185 L0 185 Z"
-            fill="#7a9eae"
-          />
+        {/* Mid sea — clipped to sea area only */}
+        <g clipPath="url(#bocca-sea-clip)">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              from="0 0" to="-900 0" dur="10s" repeatCount="indefinite" />
+            <path
+              d="M0 132 Q75 126 150 132 Q225 138 300 132 Q375 126 450 132 Q525 138 600 132
+                 Q675 126 750 132 Q825 138 900 132 Q975 126 1050 132 Q1125 138 1200 132
+                 Q1275 126 1350 132 Q1425 138 1500 132 Q1575 126 1650 132 Q1725 138 1800 132
+                 L1800 185 L0 185 Z"
+              fill="#7a9eae"
+            />
+          </g>
         </g>
 
         {/* ══ CLIFF — drawn AFTER waves, occludes them on right side ══ */}
-        {/* Curved shore edge (natural, not boxy straight line) */}
+        {/* Main cliff body: covers x=436-900 from curved top down to y=200 */}
         <path
-          d="M900 200 L900 54 Q860 55 820 58 Q740 62 660 55 Q600 50 540 52
-             Q490 54 460 66 Q448 72 444 88 Q441 104 442 120 Q442 138 448 155
-             Q454 168 462 176 Q470 182 490 186 L900 186 Z"
+          d="M436 200 L436 90 Q450 72 470 64 Q510 54 580 48 Q660 43 750 40 Q820 38 900 36 L900 200 Z"
           fill="#b8a888"
         />
-        {/* Cliff depth / shadow on near face */}
+        {/* Cliff shadow/depth */}
         <path
-          d="M442 120 Q448 110 460 105 Q490 98 530 100 Q570 102 620 108 L620 200 L442 200 Z"
-          fill="#a89878" opacity="0.45"
+          d="M436 200 L436 120 Q460 108 500 104 Q540 102 580 104 L580 200 Z"
+          fill="#a89878" opacity="0.4"
         />
+        {/* Safety belt — ensures full coverage at the bottom strip */}
+        <rect x="435" y="184" width="465" height="16" fill="#b8a888"/>
 
         {/* ══ HOUSES stacked on cliff ══ */}
 
@@ -192,22 +197,26 @@ export default function GenovaBoccadasse() {
           <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
         </g>
 
-        {/* ── Foreground wave ── */}
-        <g>
-          <animateTransform attributeName="transform" type="translate"
-            from="-60 0" to="-960 0" dur="6s" repeatCount="indefinite" />
-          <path
-            d="M0 158 Q60 153 120 158 Q180 163 240 158 Q300 153 360 158 Q420 163 480 158
-               Q540 153 600 158 Q660 163 720 158 Q780 153 840 158 Q900 163 960 158
-               Q1020 153 1080 158 Q1140 163 1200 158 Q1260 153 1320 158 Q1380 163 1440 158
-               Q1500 153 1560 158 Q1620 163 1680 158 Q1740 153 1800 158
-               L1800 185 L0 185 Z"
-            fill="#5a8898" opacity="0.5"
-          />
+        {/* ── Foreground wave — clipped to sea area only ── */}
+        <g clipPath="url(#bocca-sea-clip)">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              from="-60 0" to="-960 0" dur="6s" repeatCount="indefinite" />
+            <path
+              d="M0 158 Q60 153 120 158 Q180 163 240 158 Q300 153 360 158 Q420 163 480 158
+                 Q540 153 600 158 Q660 163 720 158 Q780 153 840 158 Q900 163 960 158
+                 Q1020 153 1080 158 Q1140 163 1200 158 Q1260 153 1320 158 Q1380 163 1440 158
+                 Q1500 153 1560 158 Q1620 163 1680 158 Q1740 153 1800 158
+                 L1800 185 L0 185 Z"
+              fill="#5a8898" opacity="0.5"
+            />
+          </g>
         </g>
 
-        {/* ── Seagull ── */}
-        <g className="bocca-gull" style={{ transform: "translate(40px, 52px)" }}>
+        {/* ── Seagull — SVG-native animation so it's clipped by viewport ── */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="40 52" to="860 42" dur="18s" repeatCount="indefinite" begin="-6s"/>
           <path d="M0 0 Q5 -4 10 0" fill="none" stroke="#746a5e" strokeWidth="1.5" strokeLinecap="round" />
           <path d="M12 0 Q17 -4 22 0" fill="none" stroke="#746a5e" strokeWidth="1.5" strokeLinecap="round" />
         </g>
