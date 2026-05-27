@@ -1,3 +1,12 @@
+/**
+ * © 2026 Andrea Merella. All rights reserved.
+ * https://casaninacarignano.com
+ *
+ * This source code is the exclusive intellectual property of Andrea Merella.
+ * Unauthorised copying, reproduction, modification, distribution or use
+ * of any part of this work — in whole or in part — is strictly prohibited
+ * without prior written permission from the author.
+ */
 import { Suspense } from "react";
 import Image from "next/image";
 import {
