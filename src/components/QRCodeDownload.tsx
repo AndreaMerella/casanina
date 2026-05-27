@@ -9,7 +9,7 @@ import { Download, QrCode } from "lucide-react";
  * Update DIRECT_URL once your custom domain is connected.
  * Use code NINA10 in the URL so guests see the discount pre-filled.
  */
-const DIRECT_URL = "https://casanina.vercel.app?promo=NINA10";
+const DIRECT_URL = "https://casaninacarignano.com?promo=NINA10";
 const PROMO_CODE = "NINA10";
 
 export default function QRCodeDownload() {
