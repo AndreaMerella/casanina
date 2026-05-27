@@ -123,7 +123,7 @@ export default function BookingModal({ nightlyRate }: Props) {
         {[
           { icon: Lock,          text: "Secure payment" },
           { icon: CalendarCheck, text: "Instant confirmation" },
-          { icon: BadgeCheck,    text: "Synced with Airbnb" },
+          { icon: BadgeCheck,    text: "Best rate guaranteed" },
           { icon: MessageCircle, text: "Direct host contact" },
         ].map(({ icon: Icon, text }) => (
           <div key={text} className="flex items-center gap-2">
