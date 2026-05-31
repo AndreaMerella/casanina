@@ -66,28 +66,15 @@ export default function OGImage() {
           </div>
 
           {/* Wall */}
-          <div style={{ flex: 1, background: PINK, display: "flex", flexDirection: "column", padding: "0 0" }}>
+          <div style={{ flex: 1, background: PINK, display: "flex", flexDirection: "column", padding: "0 28px" }}>
 
-            {/* Trompe-l'œil 3D cornice — layered strips for depth illusion */}
-            <div style={{ width: 460, height: 4, background: "#f4c0b0" }} />{/* highlight top */}
-            <div style={{ width: 460, height: 8, background: "#c8887a" }} />{/* main cornice */}
-            <div style={{ width: 460, height: 3, background: "#a06858" }} />{/* shadow */}
-            <div style={{ width: 460, height: 2, background: "#c8887a", opacity: 0.5 }} />
-
-            {/* Trompe-l'œil pilasters — flanking columns painted on wall */}
-            <div style={{ display: "flex", flex: 1 }}>
-              {/* Left pilaster */}
-              <div style={{ display: "flex" }}>
-                <div style={{ width: 14, height: "100%", background: "#f0b4a0" }} />{/* highlight face */}
-                <div style={{ width: 3, height: "100%", background: "#a86858" }} />{/* shadow edge */}
-              </div>
-
-              {/* Main wall content */}
-              <div style={{ flex: 1, display: "flex", flexDirection: "column", padding: "12px 12px 0 12px" }}>
+            {/* Trompe-l'œil 3D cornice */}
+            <div style={{ width: 404, height: 3, background: "#f4c0b0" }} />
+            <div style={{ width: 404, height: 8, background: "#c8887a" }} />
+            <div style={{ width: 404, height: 3, background: "#a06858" }} />
 
             {/* Windows */}
-            <div style={{ display: "flex", gap: 16, marginTop: 12 }}>
-              {/* Window 1 full */}
+            <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex" }}>
                   <Shutter />
@@ -96,7 +83,6 @@ export default function OGImage() {
                 </div>
                 <div style={{ width: 156, height: 8, background: SILL }} />
               </div>
-              {/* Window 2 partial */}
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex" }}>
                   <Shutter />
@@ -106,8 +92,8 @@ export default function OGImage() {
               </div>
             </div>
 
-            {/* Flower box */}
-            <div style={{ display: "flex", flexDirection: "column", marginTop: 0 }}>
+            {/* Flower box + balcony rail */}
+            <div style={{ display: "flex", flexDirection: "column" }}>
               <div style={{ display: "flex", gap: 5, paddingLeft: 4 }}>
                 {[0,1,2,3,4,5,6,7,8,9].map(i => (
                   <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
@@ -117,7 +103,6 @@ export default function OGImage() {
                 ))}
               </div>
               <div style={{ width: 270, height: 16, background: BROWN, borderRadius: 2 }} />
-              {/* Balcony railing */}
               <div style={{ width: 270, height: 3, background: "#c0a880", marginTop: 5 }} />
               <div style={{ display: "flex", gap: 16, paddingLeft: 10, marginTop: 3 }}>
                 {[0,1,2,3,4,5,6,7,8,9,10,11,12].map(i => (
@@ -127,62 +112,54 @@ export default function OGImage() {
               <div style={{ width: 270, height: 3, background: "#c0a880" }} />
             </div>
 
-            {/* Trompe-l'œil painted arch niche — classic Ligurian wall painting */}
-            <div style={{ display: "flex", gap: 18, marginTop: 14, alignItems: "flex-start" }}>
-              {/* Painted niche: arch + recessed interior + urn */}
+            {/* Trompe-l'œil row: painted arch niche + faded closed window */}
+            <div style={{ display: "flex", gap: 20, marginTop: 12, alignItems: "flex-start" }}>
+
+              {/* Painted arch niche with urn */}
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                {/* Arch shadow frame (outer) */}
-                <div style={{ width: 58, height: 28, borderTopLeftRadius: 29, borderTopRightRadius: 29, background: "#a06858" }}>
-                  {/* Arch highlight (inner) */}
-                  <div style={{ width: 48, height: 24, borderTopLeftRadius: 24, borderTopRightRadius: 24, background: "#c8887a", margin: "2px auto 0" }}>
-                    {/* Arch interior — deep recessed colour */}
-                    <div style={{ width: 40, height: 20, borderTopLeftRadius: 20, borderTopRightRadius: 20, background: "#9a5848", margin: "2px auto 0" }} />
+                <div style={{ width: 58, height: 28, borderTopLeftRadius: 29, borderTopRightRadius: 29, background: "#a06858", display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
+                  <div style={{ width: 44, height: 22, borderTopLeftRadius: 22, borderTopRightRadius: 22, background: "#9a5848", marginTop: 3 }} />
+                </div>
+                <div style={{ width: 58, height: 55, background: "#a06858", display: "flex", justifyContent: "center" }}>
+                  <div style={{ width: 44, height: 55, background: "#9a5848", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 8, gap: 3 }}>
+                    <div style={{ width: 20, height: 7, background: "#c89060", borderRadius: 4 }} />
+                    <div style={{ width: 26, height: 22, background: "#c89060", borderRadius: "0 0 13px 13px" }} />
+                    <div style={{ width: 12, height: 5, background: "#b07850" }} />
                   </div>
                 </div>
-                {/* Niche body */}
-                <div style={{ width: 58, height: 52, background: "#a06858", display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
-                  <div style={{ width: 48, height: 52, background: "#c8887a", display: "flex", justifyContent: "center", alignItems: "flex-start" }}>
-                    <div style={{ width: 40, height: 52, background: "#9a5848", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 6, gap: 4 }}>
-                      {/* Urn / vase shape */}
-                      <div style={{ width: 18, height: 8, background: "#c89060", borderRadius: 4 }} />{/* rim */}
-                      <div style={{ width: 24, height: 20, background: "#c89060", borderRadius: "0 0 12px 12px" }} />{/* body */}
-                      <div style={{ width: 10, height: 6, background: "#b07850" }} />{/* base */}
-                    </div>
-                  </div>
-                </div>
-                {/* Niche base shelf — trompe-l'œil shadow */}
-                <div style={{ width: 58, height: 5, background: "#a06858" }} />
-                <div style={{ width: 64, height: 3, background: "#c8887a" }} />{/* shelf highlight */}
-                <div style={{ width: 64, height: 2, background: "#884840" }} />{/* shelf shadow */}
+                <div style={{ width: 66, height: 3, background: "#f0b8a0" }} />
+                <div style={{ width: 66, height: 4, background: "#c8887a" }} />
+                <div style={{ width: 66, height: 2, background: "#884840" }} />
               </div>
 
-              {/* Painted fake window (trompe-l'œil, slightly faded) — shutter closed */}
-              <div style={{ display: "flex", flexDirection: "column", opacity: 0.55 }}>
-                {/* Frame */}
-                <div style={{ width: 72, height: 88, background: "#c8887a", display: "flex", padding: 3 }}>
-                  <div style={{ flex: 1, background: "#2d5a3a", display: "flex", flexDirection: "column", gap: 8, padding: "8px 0" }}>
-                    {[0,1,2,3,4,5].map(i => (
-                      <div key={i} style={{ width: "100%", height: 2, background: "#1a3822" }} />
+              {/* Painted fake window — shutters closed, faded = painted look */}
+              <div style={{ display: "flex", flexDirection: "column", opacity: 0.5 }}>
+                <div style={{ width: 6, height: 90, background: "#c8887a" }} />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", opacity: 0.5 }}>
+                <div style={{ display: "flex" }}>
+                  <div style={{ width: 34, height: 88, background: SHUTTER, display: "flex", flexDirection: "column", gap: 10, padding: "8px 0" }}>
+                    {[0,1,2,3,4,5,6].map(i => (
+                      <div key={i} style={{ width: 34, height: 2, background: SLAT }} />
                     ))}
                   </div>
-                  <div style={{ width: 3, background: "#c8887a" }} />
-                  <div style={{ flex: 1, background: "#2d5a3a", display: "flex", flexDirection: "column", gap: 8, padding: "8px 0" }}>
-                    {[0,1,2,3,4,5].map(i => (
-                      <div key={i} style={{ width: "100%", height: 2, background: "#1a3822" }} />
+                  <div style={{ width: 34, height: 88, background: SHUTTER, display: "flex", flexDirection: "column", gap: 10, padding: "8px 0" }}>
+                    {[0,1,2,3,4,5,6].map(i => (
+                      <div key={i} style={{ width: 34, height: 2, background: SLAT }} />
                     ))}
                   </div>
                 </div>
-                <div style={{ width: 72, height: 5, background: SILL }} />
+                <div style={{ width: 68, height: 5, background: SILL }} />
               </div>
             </div>
 
-            {/* String course with trompe-l'œil 3D shadow */}
-            <div style={{ width: 404, height: 2, background: "#f0b8a0", marginTop: 12 }} />{/* highlight */}
+            {/* 3D string course */}
+            <div style={{ width: 404, height: 2, background: "#f0b8a0", marginTop: 10 }} />
             <div style={{ width: 404, height: 4, background: "#c8887a" }} />
-            <div style={{ width: 404, height: 2, background: "#a06858" }} />{/* shadow */}
+            <div style={{ width: 404, height: 2, background: "#a06858" }} />
 
             {/* Awning + door + flowers */}
-            <div style={{ display: "flex", gap: 20, marginTop: 14 }}>
+            <div style={{ display: "flex", gap: 20, marginTop: 12 }}>
 
               {/* Door group */}
               <div style={{ display: "flex", flexDirection: "column" }}>
@@ -225,15 +202,6 @@ export default function OGImage() {
               </div>
 
             </div>
-
-              </div>{/* end main wall content */}
-
-              {/* Right pilaster */}
-              <div style={{ display: "flex" }}>
-                <div style={{ width: 3, height: "100%", background: "#a86858" }} />{/* shadow edge */}
-                <div style={{ width: 14, height: "100%", background: "#f0b4a0" }} />{/* highlight face */}
-              </div>
-            </div>{/* end pilaster row */}
 
           </div>
 
