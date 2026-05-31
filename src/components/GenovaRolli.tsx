@@ -282,19 +282,25 @@ export default function GenovaRolli() {
         <line x1="0" y1="194" x2="900" y2="194" stroke="#5a5250" strokeWidth="0.5" opacity="0.4" />
         <line x1="0" y1="198" x2="900" y2="198" stroke="#5a5250" strokeWidth="0.5" opacity="0.3" />
 
-        {/* ── Pigeons — SVG animateTransform so clipPath contains them ── */}
+        {/* ── Seagulls — SVG animateTransform so clipPath contains them ── */}
+        {/* Each seagull: two wing arches forming an M shape */}
         <g>
           <animateTransform attributeName="transform" type="translate"
             from="-60 50" to="980 30" dur="26s" repeatCount="indefinite" begin="-8s"/>
-          <path d="M0 0 Q5 -4 10 0" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" />
-          <path d="M13 -1 Q18 -5 23 -1" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" />
-          <path d="M28 0 Q33 -3 38 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
+          {/* Seagull 1 */}
+          <path d="M0 0 Q5 -5 10 0 Q15 -5 20 0" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          {/* Seagull 2 */}
+          <path d="M28 -1 Q33 -6 38 -1 Q43 -6 48 -1" fill="none" stroke="#746a5e" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+          {/* Seagull 3 */}
+          <path d="M58 0 Q62 -4 66 0 Q70 -4 74 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
         </g>
         <g>
           <animateTransform attributeName="transform" type="translate"
             from="-40 38" to="980 58" dur="34s" repeatCount="indefinite" begin="-20s"/>
-          <path d="M0 0 Q4 -3 8 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
-          <path d="M11 -1 Q15 -4 19 -1" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" />
+          {/* Seagull 1 */}
+          <path d="M0 0 Q5 -5 10 0 Q15 -5 20 0" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
+          {/* Seagull 2 */}
+          <path d="M28 -1 Q33 -5 38 -1 Q43 -5 48 -1" fill="none" stroke="#746a5e" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" />
         </g>
 
         {/* ── Label ── */}
