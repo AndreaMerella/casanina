@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     description:
       "Un appartamento spazioso nel cuore di Genova | per famiglie, coppie e viaggiatori di ogni tipo. Prenota direttamente.",
     type: "website",
-    images: [{ url: "/opengraph-image", width: 1200, height: 630, alt: "Casa Nina Carignano — Genova" }],
+    url: "https://casaninacarignano.com",
   },
 };
 
