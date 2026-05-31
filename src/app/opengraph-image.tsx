@@ -14,8 +14,10 @@ const RED     = "#cc2233";
 const GREEN   = "#3a7040";
 const BROWN   = "#8a6040";
 const BRASS   = "#c89828";
-const DARK    = "#292524";
+const WARM    = "#f5efe6";
 const CREAM   = "#faf8f4";
+const INK     = "#2d2820";
+const SKY     = "#6a9ab8";
 
 function Shutter({ height = 118 }: { height?: number }) {
   return (
@@ -51,17 +53,19 @@ export default function OGImage() {
       <div style={{ display: "flex", width: "100%", height: "100%" }}>
 
         {/* ══ LEFT — facade ══ */}
-        <div style={{ width: 460, height: 630, background: "#1e1c1a", display: "flex", flexDirection: "column", overflow: "hidden" }}>
+        <div style={{ width: 460, height: 630, background: SKY, display: "flex", flexDirection: "column", overflow: "hidden" }}>
 
           {/* Sky */}
-          <div style={{ width: 460, height: 44, background: "#1e1c1a", display: "flex", alignItems: "center", paddingLeft: 170, gap: 28 }}>
+          <div style={{ width: 460, height: 44, background: SKY, display: "flex", alignItems: "center", paddingLeft: 170, gap: 28 }}>
+            {/* seagull large */}
             <div style={{ display: "flex", gap: 0 }}>
-              <div style={{ width: 13, height: 7, borderRadius: "50% 50% 0 0", background: "#1e1c1a", boxShadow: "0 -2px 0 #8a7870" }} />
-              <div style={{ width: 13, height: 7, borderRadius: "50% 50% 0 0", background: "#1e1c1a", boxShadow: "0 -2px 0 #8a7870" }} />
+              <div style={{ width: 10, height: 5, borderTopLeftRadius: 10, borderTopRightRadius: 10, background: SKY, borderTop: "2px solid #c8c0b0" }} />
+              <div style={{ width: 10, height: 5, borderTopLeftRadius: 10, borderTopRightRadius: 10, background: SKY, borderTop: "2px solid #c8c0b0" }} />
             </div>
+            {/* seagull small */}
             <div style={{ display: "flex", gap: 0 }}>
-              <div style={{ width: 9, height: 5, borderRadius: "50% 50% 0 0", background: "#1e1c1a", boxShadow: "0 -1.5px 0 #8a7870" }} />
-              <div style={{ width: 9, height: 5, borderRadius: "50% 50% 0 0", background: "#1e1c1a", boxShadow: "0 -1.5px 0 #8a7870" }} />
+              <div style={{ width: 7, height: 4, borderTopLeftRadius: 7, borderTopRightRadius: 7, background: SKY, borderTop: "1.5px solid #c8c0b0" }} />
+              <div style={{ width: 7, height: 4, borderTopLeftRadius: 7, borderTopRightRadius: 7, background: SKY, borderTop: "1.5px solid #c8c0b0" }} />
             </div>
           </div>
 
@@ -75,6 +79,7 @@ export default function OGImage() {
 
             {/* Windows */}
             <div style={{ display: "flex", gap: 16, marginTop: 10 }}>
+              {/* Window 1 — both shutters */}
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex" }}>
                   <Shutter />
@@ -83,12 +88,14 @@ export default function OGImage() {
                 </div>
                 <div style={{ width: 156, height: 8, background: SILL }} />
               </div>
+              {/* Window 2 — both shutters */}
               <div style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ display: "flex" }}>
                   <Shutter />
                   <Glass width={62} />
+                  <Shutter />
                 </div>
-                <div style={{ width: 104, height: 8, background: SILL }} />
+                <div style={{ width: 146, height: 8, background: SILL }} />
               </div>
             </div>
 
@@ -112,31 +119,41 @@ export default function OGImage() {
               <div style={{ width: 270, height: 3, background: "#c0a880" }} />
             </div>
 
-            {/* Trompe-l'œil row: painted arch niche + faded closed window */}
-            <div style={{ display: "flex", gap: 20, marginTop: 12, alignItems: "flex-start" }}>
+            {/* Trompe-l'œil botanical fresco panel */}
+            <div style={{ display: "flex", gap: 18, marginTop: 12, alignItems: "flex-start" }}>
 
-              {/* Painted arch niche with urn */}
-              <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <div style={{ width: 58, height: 28, borderTopLeftRadius: 29, borderTopRightRadius: 29, background: "#a06858", display: "flex", alignItems: "flex-start", justifyContent: "center" }}>
-                  <div style={{ width: 44, height: 22, borderTopLeftRadius: 22, borderTopRightRadius: 22, background: "#9a5848", marginTop: 3 }} />
+              {/* Botanical fresco: lemon branch */}
+              <div style={{ width: 110, height: 86, background: "#d89e80", borderRadius: 3, display: "flex", flexDirection: "column", alignItems: "center", padding: "8px 10px", gap: 4 }}>
+                {/* top garland row */}
+                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                  <div style={{ width: 14, height: 9, borderRadius: 7, background: "#4a7840", opacity: 0.85 }} />
+                  <div style={{ width: 11, height: 11, borderRadius: 6, background: "#d4a832", opacity: 0.9 }} />
+                  <div style={{ width: 14, height: 9, borderRadius: 7, background: "#4a7840", opacity: 0.85 }} />
+                  <div style={{ width: 10, height: 10, borderRadius: 5, background: "#d4a832", opacity: 0.9 }} />
+                  <div style={{ width: 12, height: 8, borderRadius: 6, background: "#4a7840", opacity: 0.85 }} />
                 </div>
-                <div style={{ width: 58, height: 55, background: "#a06858", display: "flex", justifyContent: "center" }}>
-                  <div style={{ width: 44, height: 55, background: "#9a5848", display: "flex", flexDirection: "column", alignItems: "center", paddingTop: 8, gap: 3 }}>
-                    <div style={{ width: 20, height: 7, background: "#c89060", borderRadius: 4 }} />
-                    <div style={{ width: 26, height: 22, background: "#c89060", borderRadius: "0 0 13px 13px" }} />
-                    <div style={{ width: 12, height: 5, background: "#b07850" }} />
-                  </div>
+                {/* stem */}
+                <div style={{ width: 2, height: 10, background: "#4a7840", opacity: 0.7 }} />
+                {/* middle row */}
+                <div style={{ display: "flex", gap: 5, alignItems: "center" }}>
+                  <div style={{ width: 18, height: 10, borderRadius: 9, background: "#4a7840", opacity: 0.8 }} />
+                  <div style={{ width: 15, height: 15, borderRadius: 8, background: "#d4a832", opacity: 0.95 }} />
+                  <div style={{ width: 18, height: 10, borderRadius: 9, background: "#4a7840", opacity: 0.8 }} />
                 </div>
-                <div style={{ width: 66, height: 3, background: "#f0b8a0" }} />
-                <div style={{ width: 66, height: 4, background: "#c8887a" }} />
-                <div style={{ width: 66, height: 2, background: "#884840" }} />
+                {/* stem */}
+                <div style={{ width: 2, height: 8, background: "#4a7840", opacity: 0.7 }} />
+                {/* bottom leaf pair */}
+                <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
+                  <div style={{ width: 22, height: 10, borderRadius: 10, background: "#4a7840", opacity: 0.75 }} />
+                  <div style={{ width: 22, height: 10, borderRadius: 10, background: "#4a7840", opacity: 0.75 }} />
+                </div>
+                {/* cornice lines at bottom */}
+                <div style={{ width: 90, height: 2, background: "#f0b8a0", marginTop: 2 }} />
+                <div style={{ width: 90, height: 3, background: "#c8887a" }} />
               </div>
 
-              {/* Painted fake window — shutters closed, faded = painted look */}
-              <div style={{ display: "flex", flexDirection: "column", opacity: 0.5 }}>
-                <div style={{ width: 6, height: 90, background: "#c8887a" }} />
-              </div>
-              <div style={{ display: "flex", flexDirection: "column", opacity: 0.5 }}>
+              {/* Faded painted fake window — shutters closed */}
+              <div style={{ display: "flex", flexDirection: "column", opacity: 0.45 }}>
                 <div style={{ display: "flex" }}>
                   <div style={{ width: 34, height: 88, background: SHUTTER, display: "flex", flexDirection: "column", gap: 10, padding: "8px 0" }}>
                     {[0,1,2,3,4,5,6].map(i => (
@@ -151,6 +168,7 @@ export default function OGImage() {
                 </div>
                 <div style={{ width: 68, height: 5, background: SILL }} />
               </div>
+
             </div>
 
             {/* 3D string course */}
@@ -212,21 +230,21 @@ export default function OGImage() {
         {/* Green divider */}
         <div style={{ width: 5, height: 630, background: SHUTTER }} />
 
-        {/* ══ RIGHT — text ══ */}
-        <div style={{ flex: 1, height: 630, background: DARK, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 80px" }}>
-          <div style={{ width: 48, height: 1, background: CREAM, opacity: 0.25, marginBottom: 40 }} />
+        {/* ══ RIGHT — text (warm cream) ══ */}
+        <div style={{ flex: 1, height: 630, background: WARM, display: "flex", flexDirection: "column", justifyContent: "center", padding: "0 80px" }}>
+          <div style={{ width: 48, height: 1, background: INK, opacity: 0.18, marginBottom: 40 }} />
 
-          <div style={{ fontSize: 88, color: CREAM, fontFamily: "Georgia, serif", lineHeight: 1, opacity: 0.92 }}>
+          <div style={{ fontSize: 88, color: INK, fontFamily: "Georgia, serif", lineHeight: 1, opacity: 0.88 }}>
             Casa Nina
           </div>
 
-          <div style={{ fontSize: 18, color: CREAM, letterSpacing: "0.28em", marginTop: 22, opacity: 0.38, fontFamily: "sans-serif" }}>
+          <div style={{ fontSize: 18, color: INK, letterSpacing: "0.28em", marginTop: 22, opacity: 0.4, fontFamily: "sans-serif" }}>
             CARIGNANO · GENOVA
           </div>
 
-          <div style={{ width: 48, height: 1, background: CREAM, opacity: 0.2, marginTop: 40 }} />
+          <div style={{ width: 48, height: 1, background: INK, opacity: 0.15, marginTop: 40 }} />
 
-          <div style={{ fontSize: 14, color: CREAM, letterSpacing: "0.08em", marginTop: 28, opacity: 0.22, fontFamily: "sans-serif" }}>
+          <div style={{ fontSize: 14, color: INK, letterSpacing: "0.08em", marginTop: 28, opacity: 0.28, fontFamily: "sans-serif" }}>
             casaninacarignano.com
           </div>
         </div>
