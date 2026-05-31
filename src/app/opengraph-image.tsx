@@ -134,9 +134,9 @@ export default function OGImage() {
                   <div style={{ width: 66, height: 52, background: "#265033", opacity: 0.4, borderRadius: 2 }} />
                   <div style={{ width: 10, height: 10, borderRadius: 5, background: BRASS, alignSelf: "flex-end", marginRight: 2 }} />
                 </div>
-                {/* Number plate */}
-                <div style={{ width: 84, height: 18, background: "#c8887a", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ fontSize: 11, color: "#faf8f4", fontFamily: "Georgia, serif", letterSpacing: "0.15em", opacity: 0.9 }}>N° 66</div>
+                {/* Gold number on door */}
+                <div style={{ width: 84, height: 22, background: SHUTTER, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ fontSize: 15, color: BRASS, fontFamily: "Georgia, serif", letterSpacing: "0.2em", fontWeight: "bold" }}>66</div>
                 </div>
               </div>
 
