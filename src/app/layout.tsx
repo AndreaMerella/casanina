@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { DM_Serif_Display } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const dmSerif = DM_Serif_Display({
@@ -74,6 +75,10 @@ export default function RootLayout({
         className={`${GeistSans.variable} ${GeistMono.variable} ${dmSerif.variable} antialiased`}
       >
         {children}
+        <Script
+          src="https://storage.googleapis.com/vikey-widgets/bookingengine/vikey-booking-engine-widget.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

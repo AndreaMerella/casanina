@@ -52,11 +52,10 @@ import GenovaFerraris from "@/components/GenovaFerraris";
 import AnimateIn from "@/components/AnimateIn";
 import EBikeModal from "@/components/EBikeModal";
 import WeatherBadge from "@/components/WeatherBadge";
-import BookingModal from "@/components/BookingModal";
+import VikeyWidget from "@/components/VikeyWidget";
 import ScrollReset from "@/components/ScrollReset";
 import ReviewsSection from "@/components/ReviewsSection";
 
-const NIGHTLY_RATE = parseInt(process.env.NIGHTLY_RATE_CENTS || "15000") / 100;
 
 const amenities = [
   { icon: Wifi, label: "1 Gbps Fiber Wi-Fi" },
@@ -109,7 +108,7 @@ export default function Home() {
       <ScrollReset />
       <IntroScreen />
       <Header />
-      <FloatingBar nightlyRate={NIGHTLY_RATE} />
+      <FloatingBar />
       <main className="bg-background text-foreground">
         <Suspense>
           <BookingBanner />
@@ -260,28 +259,25 @@ export default function Home() {
 
         {/* ─── Booking ─── */}
         <section id="booking" className="py-12 md:py-16 px-4 sm:px-6">
-          <div className="max-w-5xl mx-auto">
-            <div className="grid lg:grid-cols-5 gap-10 lg:gap-16 items-start">
+          <div className="max-w-3xl mx-auto">
+            <AnimateIn className="text-center mb-10">
+              <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">Reserve</p>
+              <h2 className="font-serif text-3xl md:text-4xl mb-4">Book Your Stay</h2>
+              <p className="text-muted leading-relaxed max-w-xl mx-auto">
+                Book directly for the best rate — no OTA commission, no middleman. Secure payment and instant confirmation.
+              </p>
+              <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-4 text-sm text-muted">
+                <span><strong className="text-foreground">Min. stay:</strong> 2 nights</span>
+                <span><strong className="text-foreground">Check-in:</strong> from 15:00</span>
+                <span><strong className="text-foreground">Check-out:</strong> by 10:00</span>
+              </div>
+            </AnimateIn>
 
-              <AnimateIn className="lg:col-span-2 lg:sticky lg:top-24">
-                <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">Reserve</p>
-                <h2 className="font-serif text-3xl md:text-4xl mb-4">Book Your Stay</h2>
-                <p className="text-muted leading-relaxed mb-6">
-                  Book directly for the best rate. No OTA commission, no middleman. Secure payment and instant confirmation.
-                </p>
-                <div className="text-sm text-muted space-y-2">
-                  <p><strong className="text-foreground">From:</strong> &euro;{NIGHTLY_RATE} / night</p>
-                  <p><strong className="text-foreground">Minimum stay:</strong> 2 nights</p>
-                  <p><strong className="text-foreground">Check-in:</strong> from 15:00</p>
-                  <p><strong className="text-foreground">Check-out:</strong> by 10:00</p>
-                </div>
-              </AnimateIn>
-
-              <AnimateIn className="lg:col-span-3" delay={100}>
-                <BookingModal nightlyRate={NIGHTLY_RATE} />
-              </AnimateIn>
-
-            </div>
+            <AnimateIn delay={100}>
+              <Suspense>
+                <VikeyWidget />
+              </Suspense>
+            </AnimateIn>
           </div>
         </section>
 
@@ -390,9 +386,9 @@ export default function Home() {
                   within reach. No hills are too steep.
                 </p>
                 <ul className="text-sm text-muted space-y-2 mb-8">
-                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> 2 e-bikes included on request</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> 1 bike €25/day · both bikes €40/day</li>
+                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Free for stays of 7+ nights</li>
                   <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Helmets and locks provided</li>
-                  <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Cycle paths along Corso Italia</li>
                   <li className="flex items-center gap-2"><span className="w-1.5 h-1.5 rounded-full bg-accent inline-block" /> Reach Boccadasse in 10 minutes</li>
                 </ul>
                 <EBikeModal />
@@ -406,7 +402,7 @@ export default function Home() {
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className="absolute bottom-4 left-4 text-white text-sm font-medium">2 e-bikes included on request</div>
+                <div className="absolute bottom-4 left-4 text-white text-sm font-medium">E-bikes from €25/day · both for €40</div>
               </div>
             </div>
           </div>

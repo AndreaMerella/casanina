@@ -76,15 +76,30 @@ export default function EBikeModal() {
               </div>
             ) : (
               <>
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-xl bg-accent/20 flex items-center justify-center shrink-0">
                     <Bike className="w-5 h-5 text-accent" />
                   </div>
                   <div>
                     <h3 className="font-serif text-xl leading-tight">Request E-Bikes</h3>
-                    <p className="text-muted text-xs mt-0.5">2 e-bikes · helmets &amp; locks included</p>
+                    <p className="text-muted text-xs mt-0.5">Helmets &amp; locks included · subject to availability</p>
                   </div>
                 </div>
+
+                {/* Pricing */}
+                <div className="grid grid-cols-2 gap-2 mb-5">
+                  <div className="bg-background border border-border rounded-xl px-4 py-3 text-center">
+                    <p className="text-[11px] text-muted uppercase tracking-wider mb-1">1 bike</p>
+                    <p className="font-serif text-2xl font-bold">€25</p>
+                    <p className="text-[11px] text-muted">per day</p>
+                  </div>
+                  <div className="bg-background border border-border rounded-xl px-4 py-3 text-center">
+                    <p className="text-[11px] text-muted uppercase tracking-wider mb-1">Both bikes</p>
+                    <p className="font-serif text-2xl font-bold">€40</p>
+                    <p className="text-[11px] text-muted">per day</p>
+                  </div>
+                </div>
+                <p className="text-xs text-muted mb-5">Free for stays of 7+ nights.</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-2 gap-3">

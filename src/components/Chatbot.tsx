@@ -119,13 +119,13 @@ const QA: { keywords: string[]; answer: ML }[] = [
 
   // ── Direct booking / price ────────────────────────────────────────────────────
   {
-    keywords: ["price","cost","rate","night","how much","pricing","direct","best rate","discount","cheaper","save","promo","code","nina10","coupon","offer","warum direkt","pourquoi direct","por qué directo","prezzo","quanto costa","costo","offerta","sconto"],
+    keywords: ["price","cost","rate","night","how much","pricing","direct","best rate","discount","cheaper","save","promo","code","coupon","offer","warum direkt","pourquoi direct","por qué directo","prezzo","quanto costa","costo","offerta","sconto"],
     answer: {
-      en: "Booking directly on casaninacarignano.com guarantees the lowest rate — no Airbnb or Booking.com commission (typically +15–20%). You also get: free parking permit, priority early check-in, and direct contact with Arcangelo. Use code **NINA10** for an extra 10% off your first direct booking.",
-      it: "Prenotando direttamente su casaninacarignano.com hai la tariffa più bassa — senza commissioni Airbnb o Booking.com (tipicamente +15–20%). Ottieni anche: pass parcheggio gratuito, priorità per il check-in anticipato e contatto diretto con Arcangelo. Usa il codice **NINA10** per un ulteriore 10% di sconto.",
-      de: "Eine Direktbuchung auf casaninacarignano.com garantiert den günstigsten Preis — ohne Airbnb- oder Booking.com-Provision (typischerweise +15–20 %). Du bekommst außerdem: kostenlosen Parkausweis, bevorzugten Early Check-in und direkten Kontakt zu Arcangelo. Nutze den Code **NINA10** für weitere 10 % Rabatt.",
-      fr: "Réserver directement sur casaninacarignano.com vous garantit le meilleur tarif — sans commission Airbnb ou Booking.com (généralement +15–20 %). Vous bénéficiez aussi : badge de stationnement gratuit, early check-in prioritaire et contact direct avec Arcangelo. Utilisez le code **NINA10** pour -10 % supplémentaires.",
-      es: "Reservar directamente en casaninacarignano.com garantiza la tarifa más baja — sin comisiones de Airbnb o Booking.com (normalmente +15–20 %). Además obtienes: permiso de aparcamiento gratuito, prioridad para el check-in anticipado y contacto directo con Arcangelo. Usa el código **NINA10** para un 10 % adicional de descuento.",
+      en: "Booking directly on casaninacarignano.com guarantees the lowest rate — no Airbnb or Booking.com commission (typically +15–20%). You also get: free parking permit, priority early check-in, and direct contact with Arcangelo.",
+      it: "Prenotando direttamente su casaninacarignano.com hai la tariffa più bassa — senza commissioni Airbnb o Booking.com (tipicamente +15–20%). Ottieni anche: pass parcheggio gratuito, priorità per il check-in anticipato e contatto diretto con Arcangelo.",
+      de: "Eine Direktbuchung auf casaninacarignano.com garantiert den günstigsten Preis — ohne Airbnb- oder Booking.com-Provision (typischerweise +15–20 %). Du bekommst außerdem: kostenlosen Parkausweis, bevorzugten Early Check-in und direkten Kontakt zu Arcangelo.",
+      fr: "Réserver directement sur casaninacarignano.com vous garantit le meilleur tarif — sans commission Airbnb ou Booking.com (généralement +15–20 %). Vous bénéficiez aussi : badge de stationnement gratuit, early check-in prioritaire et contact direct avec Arcangelo.",
+      es: "Reservar directamente en casaninacarignano.com garantiza la tarifa más baja — sin comisiones de Airbnb o Booking.com (normalmente +15–20 %). Además obtienes: permiso de aparcamiento gratuito, prioridad para el check-in anticipado y contacto directo con Arcangelo.",
     },
   },
 
