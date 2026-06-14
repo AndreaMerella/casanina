@@ -1,45 +1,153 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useLang } from "@/components/LanguageSwitcher";
-import { Tag } from "lucide-react";
+import { Tag, Lock, CalendarCheck, BadgeCheck, MessageCircle } from "lucide-react";
 
-const LANG_MAP: Record<string, string> = { en: "en", it: "it", ge: "it" };
-const CLIENT_KEY = "niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4";
+const VIKEY_URL = "https://booking.vikey.it/?local_key=niwVv6ZrwEZ0QeBOqqDJpZnNJwwHXUY_x384GCmFqt4";
 
-const PROMO_LABELS: Record<string, string> = {
-  NINA10: "10% off",
-  NINA15: "15% off",
-  NINA20: "20% off",
+const PROMO_CODES: Record<string, { pct: number; label: string }> = {
+  NINA10: { pct: 10, label: "Book direct, save 10%" },
+  NINA15: { pct: 15, label: "Welcome back — 15% off" },
+  NINA20: { pct: 20, label: "Long stay offer — 20% off" },
 };
+
+function openBooking() {
+  const w = 720, h = 820;
+  const left = Math.round((window.screen.width - w) / 2);
+  const top  = Math.round((window.screen.height - h) / 6);
+  const popup = window.open(VIKEY_URL, "CasaNinaBooking",
+    `width=${w},height=${h},left=${left},top=${top},scrollbars=yes,resizable=yes,toolbar=no,menubar=no,location=no`);
+  if (!popup) window.open(VIKEY_URL, "_blank", "noopener,noreferrer");
+}
 
 export default function VikeyWidget() {
   const [lang] = useLang();
   const searchParams = useSearchParams();
-  const promo = searchParams.get("promo")?.toUpperCase().trim();
-  const promoLabel = promo ? PROMO_LABELS[promo] : null;
-  const vikeyLang = LANG_MAP[lang] ?? "en";
+  const [code, setCode]     = useState("");
+  const [applied, setApplied] = useState<typeof PROMO_CODES[string] | null>(null);
+  const [error, setError]   = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  // Auto-apply promo code from URL param (?promo=NINA10 via QR code)
+  useEffect(() => {
+    const param = searchParams.get("promo")?.toUpperCase().trim();
+    if (param && PROMO_CODES[param]) {
+      setCode(param);
+      setApplied(PROMO_CODES[param]);
+    }
+  }, [searchParams]);
+
+  function applyCode() {
+    const promo = PROMO_CODES[code.toUpperCase().trim()];
+    if (promo) { setApplied(promo); setError(false); }
+    else       { setApplied(null); setError(true); }
+  }
+
+  function clearCode() { setCode(""); setApplied(null); setError(false); setCopied(false); }
+
+  function handleBook() {
+    if (applied) {
+      navigator.clipboard.writeText(code.toUpperCase().trim()).catch(() => {});
+    }
+    openBooking();
+  }
 
   return (
-    <div className="space-y-4">
-      {/* Promo banner — shown when arriving via QR code (?promo=NINA10) */}
-      {promo && promoLabel && (
-        <div className="flex items-center gap-3 bg-accent/10 border border-accent/25 rounded-xl px-4 py-3">
-          <Tag className="w-4 h-4 text-accent shrink-0" />
-          <div className="text-sm">
-            <span className="font-semibold text-accent">{promo}</span>
-            <span className="text-muted"> — {promoLabel} · enter this code in the discount field below</span>
-          </div>
-        </div>
-      )}
+    <div className="bg-card rounded-2xl border border-border p-7 md:p-8 shadow-sm">
 
-      {/* Vikey embedded booking engine */}
-      <div
-        className="vikey-booking-engine-widget rounded-2xl overflow-hidden"
-        data-client-key={CLIENT_KEY}
-        data-vikey-language={vikeyLang}
-        data-vikey-widget-width="full"
-      />
+      {/* Best rate badge */}
+      <div className="inline-flex items-center gap-1.5 bg-accent/10 text-accent text-[11px] font-semibold uppercase tracking-[0.1em] px-3 py-1.5 rounded-full mb-5">
+        <BadgeCheck className="w-3.5 h-3.5" />
+        Best rate guaranteed · book direct
+      </div>
+
+      {/* Status line */}
+      <div className="mb-6">
+        {applied ? (
+          <div className="flex items-baseline gap-2">
+            <span className="font-serif text-2xl font-bold text-accent">{applied.pct}% off</span>
+            <span className="text-muted text-sm">applied to your stay</span>
+          </div>
+        ) : (
+          <p className="text-sm text-muted">Best rate guaranteed — no OTA fees, no middleman.</p>
+        )}
+      </div>
+
+      {/* Promo code */}
+      <div className="mb-6">
+        {applied ? (
+          <div className="space-y-2">
+            <div className="flex items-center justify-between bg-accent/8 border border-accent/25 rounded-xl px-4 py-3">
+              <div className="flex items-center gap-2 text-sm">
+                <Tag className="w-4 h-4 text-accent shrink-0" />
+                <span className="font-medium text-accent">{code.toUpperCase()}</span>
+                <span className="text-muted">&mdash; {applied.label}</span>
+              </div>
+              <button onClick={clearCode} className="text-muted hover:text-foreground transition-colors ml-2 text-lg leading-none">&times;</button>
+            </div>
+            <div className="flex items-start gap-2.5 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+              <span className="text-amber-500 mt-0.5 shrink-0">↓</span>
+              <p className="text-xs text-amber-800 leading-relaxed">
+                In the booking window, enter your code in the{" "}
+                <strong>&ldquo;Hai un codice sconto?&rdquo; / &ldquo;Do you have a discount code?&rdquo;</strong>{" "}
+                field — it&apos;s been copied to your clipboard.
+              </p>
+            </div>
+          </div>
+        ) : (
+          <div className="space-y-1.5">
+            <label className="text-xs font-medium text-muted uppercase tracking-[0.08em]">Promo code</label>
+            <div className="flex gap-2">
+              <input
+                type="text"
+                value={code}
+                onChange={e => { setCode(e.target.value); setError(false); }}
+                onKeyDown={e => e.key === "Enter" && applyCode()}
+                placeholder="Promo code"
+                className={`flex-1 px-3.5 py-2.5 rounded-xl border text-sm font-mono uppercase tracking-wider bg-background focus:outline-none transition-colors ${
+                  error ? "border-red-300 focus:border-red-400" : "border-border focus:border-accent"
+                }`}
+              />
+              <button
+                onClick={applyCode}
+                disabled={!code.trim()}
+                className="px-4 py-2.5 bg-foreground/8 hover:bg-foreground/14 text-foreground text-sm font-medium rounded-xl transition-colors disabled:opacity-40"
+              >
+                Apply
+              </button>
+            </div>
+            {error && <p className="text-xs text-red-500">Invalid promo code.</p>}
+          </div>
+        )}
+      </div>
+
+      {/* Book button */}
+      <button
+        onClick={handleBook}
+        className="w-full py-4 bg-foreground text-background rounded-xl font-semibold text-sm tracking-wide hover:opacity-90 transition-opacity"
+      >
+        {applied ? `Book with ${applied.pct}% discount →` : "Check Availability & Book"}
+      </button>
+      <p className="text-center text-[11px] text-muted mt-2">
+        A secure booking window will open · select your dates and confirm
+      </p>
+
+      {/* Trust signals */}
+      <div className="grid grid-cols-2 gap-x-4 gap-y-3 mt-5 text-xs text-muted">
+        {[
+          { icon: Lock,          text: "Secure payment" },
+          { icon: CalendarCheck, text: "Instant confirmation" },
+          { icon: BadgeCheck,    text: "Best rate guaranteed" },
+          { icon: MessageCircle, text: "Direct host contact" },
+        ].map(({ icon: Icon, text }) => (
+          <div key={text} className="flex items-center gap-2">
+            <Icon className="w-3.5 h-3.5 shrink-0 text-accent" />
+            <span>{text}</span>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
