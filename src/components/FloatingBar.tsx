@@ -20,12 +20,10 @@ export default function FloatingBar() {
         href="#booking"
         className="flex items-center gap-3 bg-foreground text-background px-5 py-3.5 rounded-2xl shadow-2xl"
       >
-        <div className="w-px h-5 bg-white/15" />
         <div className="flex items-center gap-1.5">
           <BadgeCheck className="w-3.5 h-3.5 text-accent shrink-0" />
           <span className="text-xs text-background/70 font-medium">Best rate direct</span>
         </div>
-        <div className="w-px h-5 bg-white/15" />
         <span className="text-sm font-semibold tracking-wide">Book &rarr;</span>
       </a>
     </div>

@@ -71,7 +71,7 @@ export default function VikeyWidget() {
             <span className="text-muted text-sm">applied to your stay</span>
           </div>
         ) : (
-          <p className="text-sm text-muted">Best rate guaranteed — no OTA fees, no middleman.</p>
+          <p className="text-sm text-muted">Best rate guaranteed — no OTA fees.</p>
         )}
       </div>
 

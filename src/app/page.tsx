@@ -264,7 +264,7 @@ export default function Home() {
               <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">Reserve</p>
               <h2 className="font-serif text-3xl md:text-4xl mb-4">Book Your Stay</h2>
               <p className="text-muted leading-relaxed max-w-xl mx-auto">
-                Book directly for the best rate — no OTA commission, no middleman. Secure payment and instant confirmation.
+                Book directly for the best rate — no OTA commission. Secure payment and instant confirmation.
               </p>
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-1 mt-4 text-sm text-muted">
                 <span><strong className="text-foreground">Min. stay:</strong> 2 nights</span>
