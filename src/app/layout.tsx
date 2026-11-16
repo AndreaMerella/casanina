@@ -13,9 +13,13 @@ const dmSerif = DM_Serif_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://casaninacarignano.com"),
   title: "Casa Nina Carignano | Appartamento a Genova",
   description:
     "Un appartamento spazioso e accogliente nel quartiere Carignano di Genova. Perfetto per famiglie, coppie e viaggiatori. Prenota direttamente al miglior prezzo.",
+  alternates: {
+    canonical: "https://casaninacarignano.com",
+  },
   openGraph: {
     title: "Casa Nina Carignano",
     description:
@@ -31,7 +35,7 @@ const jsonLd = {
   name: "Casa Nina Carignano",
   description:
     "Appartamento raffinato nel quartiere Carignano di Genova, con soffitti alti, pavimenti in rovere e design curato.",
-  url: "https://casaninaa.vercel.app",
+  url: "https://casaninacarignano.com",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Quartiere Carignano",
