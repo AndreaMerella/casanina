@@ -20,6 +20,25 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: "/(.*)", headers: securityHeaders }];
   },
+  async redirects() {
+    return [
+      // Force every *.vercel.app visit to the canonical custom domain,
+      // so only casaninacarignano.com is reachable (301 permanent).
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "(?<sub>.*)\\.vercel\\.app" }],
+        destination: "https://casaninacarignano.com/:path*",
+        permanent: true,
+      },
+      // Normalise www -> bare canonical domain.
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "www.casaninacarignano.com" }],
+        destination: "https://casaninacarignano.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     unoptimized: true,
     remotePatterns: [
