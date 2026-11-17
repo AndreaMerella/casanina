@@ -30,12 +30,36 @@ export default function GenovaBoccadasse() {
           <clipPath id="bocca-sea-clip">
             <rect x="0" y="0" width="446" height="200"/>
           </clipPath>
+          <linearGradient id="bocca-sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stopColor="#ecefe9" />
+            <stop offset="0.3" stopColor="#bcdcea" />
+            <stop offset="0.68" stopColor="#d2e6ec" />
+            <stop offset="1" stopColor="#eef1ec" />
+          </linearGradient>
         </defs>
 
         <g clipPath="url(#bocca-viewport)">
-        {/* ── Sky ── */}
-        <rect x="0" y="0" width="900" height="200" fill="#faf8f4" />
-        <rect x="0" y="70" width="900" height="24" fill="#dce8ee" opacity="0.35" />
+        {/* ── Sky — soft sunny Ligurian blue ── */}
+        <rect x="0" y="0" width="900" height="200" fill="url(#bocca-sky)" />
+
+        {/* Drifting clouds */}
+        {[
+          { x0: 120, y: 24, s: 1.1, o: 0.9, dur: "26s", begin: "0s" },
+          { x0: 520, y: 40, s: 0.78, o: 0.78, dur: "34s", begin: "-14s" },
+          { x0: 770, y: 30, s: 0.95, o: 0.85, dur: "30s", begin: "-22s" },
+        ].map((cl, i) => (
+          <g key={i} opacity={cl.o}>
+            <animateTransform attributeName="transform" type="translate"
+              values={`${cl.x0} ${cl.y}; ${cl.x0 + 34} ${cl.y}; ${cl.x0} ${cl.y}`}
+              dur={cl.dur} begin={cl.begin} repeatCount="indefinite" />
+            <g transform={`scale(${cl.s})`}>
+              <ellipse cx="0" cy="0" rx="20" ry="6.5" fill="#fdfefe" />
+              <ellipse cx="-12" cy="2.5" rx="13" ry="5.5" fill="#fdfefe" />
+              <ellipse cx="13" cy="2.5" rx="13" ry="5.5" fill="#fdfefe" />
+              <ellipse cx="2" cy="-3" rx="11" ry="5.5" fill="#fdfefe" />
+            </g>
+          </g>
+        ))}
 
         {/* ── Distant coastal hills on left horizon ── */}
         <path d="M0 92 Q80 84 180 88 Q260 91 340 87 L340 200 L0 200 Z"
@@ -265,34 +289,68 @@ export default function GenovaBoccadasse() {
           <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
         </g>
 
-        {/* ── People on the dry beach — some with a glass of wine or a beer ── */}
+        {/* Beach towels / mats laid on the pebbles */}
         {[
-          { x: 92, c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c", drink: "wine" },
-          { x: 150, c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0", drink: "beer" },
-          { x: 206, c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88", drink: null },
-          { x: 262, c: "#b5654a", hair: "#3a2a1c", skin: "#e4c0a0", drink: "wine" },
-          { x: 320, c: "#3f6075", hair: "#2a1d12", skin: "#d8ac88", drink: null },
-          { x: 376, c: "#8a5a3a", hair: "#4a3020", skin: "#e4c0a0", drink: "beer" },
-        ].map(({ x, c, hair, skin, drink }, i) => (
-          <g key={i} transform={`translate(${x},191) scale(1.5)`}>
-            <ellipse cx="0" cy="0.6" rx="3" ry="0.9" fill="#8a7e6e" opacity="0.3" />
-            <line x1="-1" y1="0" x2="-0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
-            <line x1="1" y1="0" x2="0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
-            <path d="M-1.9 -4.6 L-1.7 -10 Q0 -10.7 1.7 -10 L1.9 -4.6 Q0 -5.1 -1.9 -4.6 Z" fill={c} />
-            <circle cx="0" cy="-12" r="1.7" fill={skin} />
-            <path d="M-1.7 -11.9 Q-1.5 -14 0 -14.1 Q1.5 -14 1.7 -11.9 Q0.9 -13 0 -13 Q-0.9 -13 -1.7 -11.9 Z" fill={hair} />
-            {drink === "wine" && (
+          { x: 62, y: 197, w: 22, c: "#d87a6a" },
+          { x: 104, y: 199, w: 20, c: "#5a8aa0" },
+          { x: 246, y: 194, w: 18, c: "#e0b050" },
+          { x: 268, y: 191, w: 15, c: "#8ab890" },
+          { x: 384, y: 188, w: 12, c: "#c88aa8" },
+        ].map(({ x, y, w, c }, i) => (
+          <ellipse key={i} cx={x} cy={y} rx={w / 2} ry={w * 0.16} fill={c} opacity="0.7" />
+        ))}
+
+        {/* ── Beach crowd — mostly sitting & relaxing, a few standing (orig. figures) ── */}
+        {[
+          // foreground sitting cluster (bigger = closer)
+          { x: 66, y: 195, s: 1.6, pose: "sit", c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c" },
+          { x: 90, y: 197, s: 1.7, pose: "sit", c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0" },
+          { x: 116, y: 194, s: 1.55, pose: "sit", c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88" },
+          // a standing pair with drinks
+          { x: 150, y: 193, s: 1.5, pose: "stand", c: "#b5654a", hair: "#3a2a1c", skin: "#e4c0a0", drink: "wine" },
+          { x: 170, y: 194, s: 1.45, pose: "stand", c: "#3f6075", hair: "#2a1d12", skin: "#d8ac88", drink: "beer" },
+          // mid sitting group
+          { x: 232, y: 190, s: 1.4, pose: "sit", c: "#8a5a3a", hair: "#4a3020", skin: "#e4c0a0" },
+          { x: 255, y: 192, s: 1.5, pose: "sit", c: "#6f8f6a", hair: "#2a1d14", skin: "#d8b08c" },
+          { x: 278, y: 189, s: 1.35, pose: "sit", c: "#a0506a", hair: "#2e2018", skin: "#e4c0a0" },
+          // adult + kid standing
+          { x: 320, y: 193, s: 1.5, pose: "stand", c: "#5a7a8a", hair: "#3a2a1c", skin: "#d8ac88" },
+          { x: 334, y: 194, s: 0.95, pose: "stand", c: "#d08040", hair: "#2a1d14", skin: "#e4c0a0" },
+          // far sitting group (smaller = further back)
+          { x: 372, y: 184, s: 1.1, pose: "sit", c: "#4a6a7a", hair: "#4a3020", skin: "#d8b08c" },
+          { x: 392, y: 186, s: 1.2, pose: "sit", c: "#9a5a48", hair: "#2e2018", skin: "#e4c0a0" },
+        ].map(({ x, y, s, pose, c, hair, skin, drink }, i) => (
+          <g key={i} transform={`translate(${x},${y}) scale(${s})`}>
+            <ellipse cx="0" cy="0.6" rx={pose === "sit" ? 4 : 3} ry="0.9" fill="#8a7e6e" opacity="0.28" />
+            {pose === "sit" ? (
               <>
-                <line x1="1.3" y1="-8" x2="2.8" y2="-10.6" stroke={c} strokeWidth="1.1" strokeLinecap="round" />
-                <line x1="2.8" y1="-10.6" x2="2.8" y2="-12.7" stroke="#6a5a48" strokeWidth="0.5" />
-                <path d="M1.9 -12.7 L3.7 -12.7 L2.8 -14.3 Z" fill="#7a1e2e" />
+                {/* seated, hugging knees — rounded dome reads as a person on the sand */}
+                <path d="M-3.4 0 Q-4 -5 -2.4 -6.6 Q0 -8 2.4 -6.6 Q4 -5 3.4 0 Z" fill={c} />
+                <ellipse cx="-2.9" cy="-1" rx="1.4" ry="1.8" fill={skin} opacity="0.9" />
+                <circle cx="0" cy="-8.4" r="1.7" fill={skin} />
+                <path d="M-1.6 -8.2 Q-1.4 -10.3 0 -10.4 Q1.4 -10.3 1.6 -8.2 Q0.8 -9.3 0 -9.3 Q-0.8 -9.3 -1.6 -8.2 Z" fill={hair} />
               </>
-            )}
-            {drink === "beer" && (
+            ) : (
               <>
-                <line x1="1.3" y1="-8" x2="2.5" y2="-10.6" stroke={c} strokeWidth="1.1" strokeLinecap="round" />
-                <rect x="2" y="-13.9" width="2.3" height="3.4" rx="0.3" fill="#e2a828" />
-                <rect x="2" y="-14.2" width="2.3" height="0.8" fill="#f5efe0" />
+                <line x1="-1" y1="0" x2="-0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
+                <line x1="1" y1="0" x2="0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
+                <path d="M-1.9 -4.6 L-1.7 -10 Q0 -10.7 1.7 -10 L1.9 -4.6 Q0 -5.1 -1.9 -4.6 Z" fill={c} />
+                <circle cx="0" cy="-12" r="1.7" fill={skin} />
+                <path d="M-1.7 -11.9 Q-1.5 -14 0 -14.1 Q1.5 -14 1.7 -11.9 Q0.9 -13 0 -13 Q-0.9 -13 -1.7 -11.9 Z" fill={hair} />
+                {drink === "wine" && (
+                  <>
+                    <line x1="1.3" y1="-8" x2="2.8" y2="-10.6" stroke={c} strokeWidth="1.1" strokeLinecap="round" />
+                    <line x1="2.8" y1="-10.6" x2="2.8" y2="-12.7" stroke="#6a5a48" strokeWidth="0.5" />
+                    <path d="M1.9 -12.7 L3.7 -12.7 L2.8 -14.3 Z" fill="#7a1e2e" />
+                  </>
+                )}
+                {drink === "beer" && (
+                  <>
+                    <line x1="1.3" y1="-8" x2="2.5" y2="-10.6" stroke={c} strokeWidth="1.1" strokeLinecap="round" />
+                    <rect x="2" y="-13.9" width="2.3" height="3.4" rx="0.3" fill="#e2a828" />
+                    <rect x="2" y="-14.2" width="2.3" height="0.8" fill="#f5efe0" />
+                  </>
+                )}
               </>
             )}
           </g>
