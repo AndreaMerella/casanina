@@ -133,25 +133,37 @@ export default function GenovaBoccadasse() {
 
         {/* ══ Boccadasse houses — short Ligurian facades, flat tops, real colours ══ */}
         {[
-          /* back tier — shorter, up the hill behind the front row */
-          { x: 486, y: 80, w: 30, h: 50, c: "#d4a84c" },
-          { x: 518, y: 76, w: 30, h: 54, c: "#b8c490" },
-          { x: 550, y: 72, w: 30, h: 58, c: "#d98a7a" },
-          { x: 582, y: 70, w: 26, h: 60, c: "#e0b85a" },
-          { x: 724, y: 66, w: 30, h: 58, c: "#c8d4a0" },
-          { x: 758, y: 64, w: 30, h: 60, c: "#d98a7a" },
-          { x: 792, y: 64, w: 32, h: 60, c: "#d4a84c" },
-          /* front tier — taller (3–4 storeys), bases at the wall */
-          { x: 456, y: 104, w: 36, h: 78, c: "#cf7a5a" },
-          { x: 496, y: 98, w: 38, h: 84, c: "#e0b85a" },
-          { x: 538, y: 102, w: 34, h: 80, c: "#d98a7a" },
-          { x: 574, y: 108, w: 28, h: 74, c: "#b8c490" },
-          { x: 618, y: 120, w: 30, h: 62, c: "#d89068" },
-          { x: 664, y: 104, w: 36, h: 78, c: "#e8ddc4" },
-          { x: 704, y: 100, w: 38, h: 82, c: "#d89068" },
-          { x: 746, y: 104, w: 36, h: 78, c: "#d4a84c" },
-          { x: 788, y: 102, w: 38, h: 80, c: "#d98a7a" },
-          { x: 830, y: 106, w: 36, h: 76, c: "#e0a888" },
+          /* TIER 3 — highest on the slope, just under the green */
+          { x: 492, y: 74, w: 30, h: 44, c: "#d98a7a" },
+          { x: 526, y: 70, w: 30, h: 48, c: "#e0b85a" },
+          { x: 560, y: 68, w: 30, h: 50, c: "#b8c490" },
+          { x: 594, y: 70, w: 26, h: 48, c: "#d89068" },
+          { x: 676, y: 70, w: 30, h: 50, c: "#e0a888" },
+          { x: 710, y: 66, w: 30, h: 52, c: "#d4a84c" },
+          { x: 744, y: 66, w: 30, h: 52, c: "#d98a7a" },
+          { x: 778, y: 66, w: 30, h: 52, c: "#c8d4a0" },
+          { x: 812, y: 68, w: 32, h: 50, c: "#e0b85a" },
+          /* TIER 2 — middle, overlapping the backs of tier 1 */
+          { x: 462, y: 106, w: 32, h: 46, c: "#e0b85a" },
+          { x: 498, y: 102, w: 32, h: 50, c: "#cf7a5a" },
+          { x: 534, y: 100, w: 32, h: 52, c: "#d98a7a" },
+          { x: 570, y: 102, w: 30, h: 50, c: "#e8ddc4" },
+          { x: 658, y: 104, w: 32, h: 50, c: "#d4a84c" },
+          { x: 694, y: 100, w: 32, h: 52, c: "#d98a7a" },
+          { x: 730, y: 102, w: 32, h: 50, c: "#e0a888" },
+          { x: 766, y: 104, w: 32, h: 48, c: "#cf7a5a" },
+          { x: 802, y: 106, w: 34, h: 46, c: "#e0b85a" },
+          /* TIER 1 — front row, right down at the water's edge */
+          { x: 438, y: 140, w: 34, h: 42, c: "#cf7a5a" },
+          { x: 474, y: 136, w: 34, h: 46, c: "#e0b85a" },
+          { x: 510, y: 134, w: 34, h: 48, c: "#d98a7a" },
+          { x: 546, y: 136, w: 32, h: 46, c: "#b8c490" },
+          { x: 580, y: 140, w: 30, h: 42, c: "#e8ddc4" },
+          { x: 650, y: 142, w: 34, h: 40, c: "#d89068" },
+          { x: 686, y: 140, w: 34, h: 42, c: "#d4a84c" },
+          { x: 722, y: 142, w: 34, h: 40, c: "#d98a7a" },
+          { x: 758, y: 144, w: 34, h: 38, c: "#e0a888" },
+          { x: 794, y: 144, w: 36, h: 38, c: "#cf7a5a" },
         ].map(({ x, y, w, h, c }, i) => {
           const rows = Math.max(2, Math.round((h - 6) / 19));
           const wins = [];
