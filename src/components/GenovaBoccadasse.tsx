@@ -116,39 +116,69 @@ export default function GenovaBoccadasse() {
         <rect x="486" y="182" width="414" height="18" fill="#b0a184" />
         <rect x="486" y="182" width="414" height="3" fill="#9c8e72" opacity="0.6" />
 
-        {/* ══ Dense hillside houses covering the promontory (back → front) ══ */}
+        {/* ══ Flat-topped Ligurian tower-houses packed up the promontory ══ */}
+        {/* Tall rectangular facades, flat roofs, rows of shuttered windows —
+            the real Boccadasse look, not little pitched-roof cottages. */}
         {[
-          /* back row — high on the hill, smaller, tucked under the ridge */
-          { x: 468, y: 68, w: 26, h: 52, c: "#e8c060", r: "#c8a040" },
-          { x: 498, y: 62, w: 28, h: 58, c: "#dd8a70", r: "#bd6a50" },
-          { x: 530, y: 56, w: 26, h: 62, c: "#8fb878", r: "#6f9858" },
-          { x: 560, y: 52, w: 28, h: 66, c: "#e0a878", r: "#c08858" },
-          { x: 592, y: 50, w: 26, h: 68, c: "#d890a0", r: "#b87080" },
-          { x: 616, y: 118, w: 30, h: 64, c: "#d8a878", r: "#b88858" },
-          { x: 658, y: 48, w: 26, h: 64, c: "#e8c868", r: "#c8a848" },
-          { x: 690, y: 46, w: 28, h: 66, c: "#c88a78", r: "#a86a58" },
-          { x: 722, y: 44, w: 26, h: 68, c: "#9cc080", r: "#7ca060" },
-          { x: 754, y: 42, w: 28, h: 70, c: "#e0b070", r: "#c09050" },
-          { x: 786, y: 42, w: 26, h: 70, c: "#dd96a0", r: "#bd7680" },
-          { x: 818, y: 40, w: 28, h: 72, c: "#e8cc78", r: "#c8ac58" },
-          { x: 850, y: 40, w: 30, h: 72, c: "#c0a888", r: "#a08868" },
-          /* front row — lower, larger, overlapping the back-row bases */
-          { x: 584, y: 98, w: 30, h: 84, c: "#e8b84a", r: "#c89830" },
-          { x: 656, y: 90, w: 32, h: 92, c: "#8ab890", r: "#6a9870" },
-          { x: 694, y: 86, w: 32, h: 96, c: "#e0a060", r: "#c08040" },
-          { x: 732, y: 84, w: 32, h: 98, c: "#d890a8", r: "#b87088" },
-          { x: 770, y: 82, w: 32, h: 100, c: "#ecc868", r: "#cca848" },
-          { x: 808, y: 80, w: 34, h: 102, c: "#c8a890", r: "#a88870" },
-          { x: 846, y: 78, w: 34, h: 104, c: "#e0956a", r: "#c0754a" },
-        ].map(({ x, y, w, h, c, r }, i) => (
-          <g key={i}>
-            <rect x={x} y={y} width={w} height={h} rx="1" fill={c} />
-            <path d={`M${x - 2} ${y} L${x + w / 2} ${y - 9} L${x + w + 2} ${y} Z`} fill={r} />
-            <rect x={x + w * 0.18} y={y + 7} width={w * 0.24} height="7" rx="1" fill="#3a2a1e" opacity="0.38" />
-            <rect x={x + w * 0.56} y={y + 7} width={w * 0.24} height="7" rx="1" fill="#3a2a1e" opacity="0.32" />
-            <rect x={x + w * 0.36} y={y + 20} width={w * 0.28} height="8" rx="1" fill="#3a2a1e" opacity="0.28" />
-          </g>
-        ))}
+          /* BACK tier — upper hill, only upper floors show above the front roofs */
+          { x: 448, y: 60, w: 26, h: 76 },
+          { x: 476, y: 56, w: 26, h: 80 },
+          { x: 504, y: 52, w: 26, h: 84 },
+          { x: 532, y: 50, w: 26, h: 86 },
+          { x: 560, y: 48, w: 26, h: 88 },
+          { x: 588, y: 46, w: 24, h: 90 },
+          /* castle gap 606–648 */
+          { x: 652, y: 44, w: 26, h: 92 },
+          { x: 680, y: 44, w: 26, h: 92 },
+          { x: 708, y: 42, w: 26, h: 94 },
+          { x: 736, y: 42, w: 26, h: 94 },
+          { x: 764, y: 40, w: 26, h: 96 },
+          { x: 792, y: 40, w: 26, h: 96 },
+          { x: 820, y: 40, w: 28, h: 96 },
+          { x: 850, y: 40, w: 28, h: 96 },
+          { x: 878, y: 42, w: 22, h: 94 },
+          /* FRONT tier — lower hill, taller, bases at the retaining wall */
+          { x: 440, y: 92, w: 30, h: 92 },
+          { x: 472, y: 84, w: 30, h: 100 },
+          { x: 504, y: 78, w: 30, h: 106 },
+          { x: 536, y: 74, w: 30, h: 110 },
+          { x: 568, y: 80, w: 26, h: 104 },
+          { x: 596, y: 102, w: 22, h: 82 },
+          { x: 654, y: 82, w: 32, h: 102 },
+          { x: 688, y: 78, w: 32, h: 106 },
+          { x: 722, y: 76, w: 32, h: 108 },
+          { x: 756, y: 80, w: 32, h: 104 },
+          { x: 790, y: 76, w: 32, h: 108 },
+          { x: 824, y: 80, w: 34, h: 104 },
+          { x: 858, y: 84, w: 34, h: 100 },
+        ].map(({ x, y, w, h }, i) => {
+          const palette = ["#e0b45a", "#d88a6a", "#cfa0a8", "#e8c878", "#c89878", "#dba074", "#c0a890", "#d4a088", "#e2c090", "#cc8878", "#d8b068", "#caa0a0"];
+          const c = palette[(i * 5 + 3) % palette.length];
+          const cols = 2;
+          const rows = Math.max(2, Math.round((h - 8) / 17));
+          const wins = [];
+          for (let r = 0; r < rows; r++) {
+            for (let k = 0; k < cols; k++) {
+              wins.push([
+                x + (w / (cols + 1)) * (k + 1) - 2.3,
+                y + 6 + r * ((h - 10) / rows),
+              ]);
+            }
+          }
+          return (
+            <g key={i}>
+              <rect x={x} y={y} width={w} height={h} fill={c} />
+              <rect x={x} y={y} width={w} height="2" fill="#2a1d14" opacity="0.14" />
+              {wins.map(([wx, wy], k) => (
+                <g key={k}>
+                  <rect x={wx} y={wy} width="4.6" height="6.6" rx="0.4" fill="#2e2016" opacity="0.46" />
+                  <rect x={wx - 1.1} y={wy} width="1.1" height="6.6" fill="#5c6a48" opacity="0.5" />
+                  <rect x={wx + 4.6} y={wy} width="1.1" height="6.6" fill="#5c6a48" opacity="0.5" />
+                </g>
+              ))}
+            </g>
+          );
+        })}
 
         {/* ── Castello — the landmark tower that crowns the cove ── */}
         <g>
@@ -172,26 +202,6 @@ export default function GenovaBoccadasse() {
           <rect x="639" y="34" width="4" height="7" rx="1" fill="#4e241c" />
           <rect x="622" y="92" width="8" height="15" rx="2" fill="#4e241c" />
         </g>
-
-        {/* Row 1 — lowest and most detailed */}
-        <rect x="458" y="108" width="34" height="68" rx="1" fill="#f0b84a" />
-        <path d="M456 108 L475 95 L494 108 Z" fill="#d09838" />
-        <rect x="462" y="118" width="9" height="13" rx="1" fill="#8a9878" opacity="0.65" />
-        <rect x="476" y="118" width="9" height="13" rx="1" fill="#8a9878" opacity="0.55" />
-
-        <rect x="498" y="102" width="36" height="74" rx="1" fill="#e58a68" />
-        <path d="M496 102 L516 88 L536 102 Z" fill="#c06a4a" />
-        <rect x="502" y="112" width="9" height="13" rx="1" fill="#8a9878" opacity="0.65" />
-        <rect x="518" y="112" width="9" height="13" rx="1" fill="#8a9878" opacity="0.55" />
-        {/* Balcony */}
-        <rect x="514" y="111" width="14" height="2" fill="#b89878" />
-        <rect x="514" y="113" width="2" height="7" fill="#b89878" />
-        <rect x="526" y="113" width="2" height="7" fill="#b89878" />
-
-        <rect x="540" y="96" width="32" height="80" rx="1" fill="#9ec878" />
-        <path d="M538 96 L556 82 L574 96 Z" fill="#7ca858" />
-        <rect x="544" y="106" width="8" height="12" rx="1" fill="#8a9878" opacity="0.65" />
-        <rect x="558" y="106" width="8" height="12" rx="1" fill="#8a9878" opacity="0.55" />
 
         {/* ── Harbour wall / breakwater ── */}
         <rect x="406" y="152" width="56" height="18" rx="2" fill="#a89878" />
