@@ -88,37 +88,41 @@ export default function GenovaBoccadasse() {
 
         {/* ══ HOUSES stacked on cliff ══ */}
 
-        {/* Row 3 — highest, smallest */}
-        {[
-          { x: 660, y: 38, w: 20, h: 24, fill: "#e8b058", roof: "#c89038" },
-          { x: 686, y: 34, w: 22, h: 26, fill: "#dd8a70", roof: "#bd6a50" },
-          { x: 714, y: 32, w: 20, h: 24, fill: "#9cc478", roof: "#7ca458" },
-          { x: 740, y: 26, w: 24, h: 28, fill: "#e0996a", roof: "#c0794a" },
-          { x: 770, y: 22, w: 22, h: 28, fill: "#ecc658", roof: "#cca638" },
-          { x: 800, y: 18, w: 24, h: 30, fill: "#a6c87e", roof: "#86a85e" },
-          { x: 830, y: 14, w: 28, h: 34, fill: "#e0a070", roof: "#c08050" },
-          { x: 864, y: 10, w: 36, h: 38, fill: "#ecc884", roof: "#cca864" },
-        ].map(({ x, y, w, h, fill, roof }) => (
-          <g key={x}>
-            <rect x={x} y={y} width={w} height={h} rx="1" fill={fill} />
-            <path d={`M${x - 2} ${y} L${x + w / 2} ${y - 8} L${x + w + 2} ${y} Z`} fill={roof} />
-            <rect x={x + 4} y={y + 6} width={5} height={7} rx="1" fill="#8a9878" opacity="0.5" />
-          </g>
-        ))}
+        {/* ── Promontory retaining wall / rock base under the houses ── */}
+        <rect x="486" y="182" width="414" height="18" fill="#b0a184" />
+        <rect x="486" y="182" width="414" height="3" fill="#9c8e72" opacity="0.6" />
 
-        {/* Row 2 — middle */}
+        {/* ══ Dense hillside houses covering the promontory (back → front) ══ */}
         {[
-          { x: 480, y: 72, w: 30, h: 40, fill: "#f0c050", roof: "#d0a038" },
-          { x: 516, y: 66, w: 32, h: 46, fill: "#e0907a", roof: "#c07058" },
-          { x: 554, y: 60, w: 28, h: 52, fill: "#9cc080", roof: "#7ca060" },
-          { x: 588, y: 54, w: 26, h: 56, fill: "#e8b85a", roof: "#c89840" },
-          { x: 620, y: 50, w: 30, h: 62, fill: "#a8d488", roof: "#88b468" },
-        ].map(({ x, y, w, h, fill, roof }) => (
-          <g key={x}>
-            <rect x={x} y={y} width={w} height={h} rx="1" fill={fill} />
-            <path d={`M${x - 2} ${y} L${x + w / 2} ${y - 10} L${x + w + 2} ${y} Z`} fill={roof} />
-            <rect x={x + 4} y={y + 8} width={8} height={10} rx="1" fill="#8a9878" opacity="0.6" />
-            <rect x={x + w - 14} y={y + 8} width={8} height={10} rx="1" fill="#8a9878" opacity="0.5" />
+          /* back row — high on the hill, smaller, tucked under the ridge */
+          { x: 468, y: 68, w: 26, h: 52, c: "#e8c060", r: "#c8a040" },
+          { x: 498, y: 62, w: 28, h: 58, c: "#dd8a70", r: "#bd6a50" },
+          { x: 530, y: 56, w: 26, h: 62, c: "#8fb878", r: "#6f9858" },
+          { x: 560, y: 52, w: 28, h: 66, c: "#e0a878", r: "#c08858" },
+          { x: 592, y: 50, w: 26, h: 68, c: "#d890a0", r: "#b87080" },
+          { x: 616, y: 118, w: 30, h: 64, c: "#d8a878", r: "#b88858" },
+          { x: 658, y: 48, w: 26, h: 64, c: "#e8c868", r: "#c8a848" },
+          { x: 690, y: 46, w: 28, h: 66, c: "#c88a78", r: "#a86a58" },
+          { x: 722, y: 44, w: 26, h: 68, c: "#9cc080", r: "#7ca060" },
+          { x: 754, y: 42, w: 28, h: 70, c: "#e0b070", r: "#c09050" },
+          { x: 786, y: 42, w: 26, h: 70, c: "#dd96a0", r: "#bd7680" },
+          { x: 818, y: 40, w: 28, h: 72, c: "#e8cc78", r: "#c8ac58" },
+          { x: 850, y: 40, w: 30, h: 72, c: "#c0a888", r: "#a08868" },
+          /* front row — lower, larger, overlapping the back-row bases */
+          { x: 584, y: 98, w: 30, h: 84, c: "#e8b84a", r: "#c89830" },
+          { x: 656, y: 90, w: 32, h: 92, c: "#8ab890", r: "#6a9870" },
+          { x: 694, y: 86, w: 32, h: 96, c: "#e0a060", r: "#c08040" },
+          { x: 732, y: 84, w: 32, h: 98, c: "#d890a8", r: "#b87088" },
+          { x: 770, y: 82, w: 32, h: 100, c: "#ecc868", r: "#cca848" },
+          { x: 808, y: 80, w: 34, h: 102, c: "#c8a890", r: "#a88870" },
+          { x: 846, y: 78, w: 34, h: 104, c: "#e0956a", r: "#c0754a" },
+        ].map(({ x, y, w, h, c, r }, i) => (
+          <g key={i}>
+            <rect x={x} y={y} width={w} height={h} rx="1" fill={c} />
+            <path d={`M${x - 2} ${y} L${x + w / 2} ${y - 9} L${x + w + 2} ${y} Z`} fill={r} />
+            <rect x={x + w * 0.18} y={y + 7} width={w * 0.24} height="7" rx="1" fill="#3a2a1e" opacity="0.38" />
+            <rect x={x + w * 0.56} y={y + 7} width={w * 0.24} height="7" rx="1" fill="#3a2a1e" opacity="0.32" />
+            <rect x={x + w * 0.36} y={y + 20} width={w * 0.28} height="8" rx="1" fill="#3a2a1e" opacity="0.28" />
           </g>
         ))}
 
@@ -261,12 +265,15 @@ export default function GenovaBoccadasse() {
           <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
         </g>
 
-        {/* ── People on the dry beach (bigger & lower = closer, drawn last) ── */}
+        {/* ── People on the dry beach — some with a glass of wine or a beer ── */}
         {[
-          { x: 118, c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c" },
-          { x: 208, c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0" },
-          { x: 332, c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88" },
-        ].map(({ x, c, hair, skin }, i) => (
+          { x: 92, c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c", drink: "wine" },
+          { x: 150, c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0", drink: "beer" },
+          { x: 206, c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88", drink: null },
+          { x: 262, c: "#b5654a", hair: "#3a2a1c", skin: "#e4c0a0", drink: "wine" },
+          { x: 320, c: "#3f6075", hair: "#2a1d12", skin: "#d8ac88", drink: null },
+          { x: 376, c: "#8a5a3a", hair: "#4a3020", skin: "#e4c0a0", drink: "beer" },
+        ].map(({ x, c, hair, skin, drink }, i) => (
           <g key={i} transform={`translate(${x},191) scale(1.5)`}>
             <ellipse cx="0" cy="0.6" rx="3" ry="0.9" fill="#8a7e6e" opacity="0.3" />
             <line x1="-1" y1="0" x2="-0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
@@ -274,6 +281,20 @@ export default function GenovaBoccadasse() {
             <path d="M-1.9 -4.6 L-1.7 -10 Q0 -10.7 1.7 -10 L1.9 -4.6 Q0 -5.1 -1.9 -4.6 Z" fill={c} />
             <circle cx="0" cy="-12" r="1.7" fill={skin} />
             <path d="M-1.7 -11.9 Q-1.5 -14 0 -14.1 Q1.5 -14 1.7 -11.9 Q0.9 -13 0 -13 Q-0.9 -13 -1.7 -11.9 Z" fill={hair} />
+            {drink === "wine" && (
+              <>
+                <line x1="1.3" y1="-8" x2="2.8" y2="-10.6" stroke={c} strokeWidth="1.1" strokeLinecap="round" />
+                <line x1="2.8" y1="-10.6" x2="2.8" y2="-12.7" stroke="#6a5a48" strokeWidth="0.5" />
+                <path d="M1.9 -12.7 L3.7 -12.7 L2.8 -14.3 Z" fill="#7a1e2e" />
+              </>
+            )}
+            {drink === "beer" && (
+              <>
+                <line x1="1.3" y1="-8" x2="2.5" y2="-10.6" stroke={c} strokeWidth="1.1" strokeLinecap="round" />
+                <rect x="2" y="-13.9" width="2.3" height="3.4" rx="0.3" fill="#e2a828" />
+                <rect x="2" y="-14.2" width="2.3" height="0.8" fill="#f5efe0" />
+              </>
+            )}
           </g>
         ))}
 
