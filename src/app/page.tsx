@@ -123,6 +123,8 @@ export default function Home() {
             muted
             loop
             playsInline
+            poster="/images/hero.jpg"
+            preload="metadata"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "saturate(1.3) brightness(1.1) contrast(1.03)" }}
           >
@@ -188,10 +190,10 @@ export default function Home() {
                 <GenovaIntro />
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {[
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/b/b1/Boccadasse.jpg", alt: "Boccadasse" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/c/ca/Canneto_il_Curto_Genova_01.JPG", alt: "Caruggi" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/7/77/Porto_Antico_Genova_varie_02.jpg", alt: "Porto Antico" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Boccadasse.jpg/640px-Boccadasse.jpg", alt: "Boccadasse" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG/640px-Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Canneto_il_Curto_Genova_01.JPG/640px-Canneto_il_Curto_Genova_01.JPG", alt: "Caruggi" },
+                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Porto_Antico_Genova_varie_02.jpg/640px-Porto_Antico_Genova_varie_02.jpg", alt: "Porto Antico" },
                   ].map(({ src, alt }) => (
                     <div key={alt} className="relative overflow-hidden rounded-xl aspect-[4/3] bg-border">
                       <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="20vw" />

@@ -282,42 +282,88 @@ export default function GenovaRolli() {
         <line x1="0" y1="194" x2="900" y2="194" stroke="#5a5250" strokeWidth="0.5" opacity="0.4" />
         <line x1="0" y1="198" x2="900" y2="198" stroke="#5a5250" strokeWidth="0.5" opacity="0.3" />
 
-        {/* ── People strolling on Via Garibaldi (original simple figures) ── */}
-        {/* Standing / chatting groups along the street, feet at ~y=199 */}
-        {[
-          { x: 118, c: "#5a5250", h: 13 },
-          { x: 148, c: "#8a3828", h: 12 },
-          { x: 408, c: "#44505e", h: 13 },
-          { x: 610, c: "#5a5250", h: 12 },
-          { x: 636, c: "#6a6460", h: 13 },
-          { x: 822, c: "#4a4440", h: 12 },
-        ].map(({ x, c, h }, i) => (
-          <g key={i} transform={`translate(${x},${199 - h})`}>
-            <circle cx="0" cy="1.6" r="1.7" fill={c} />
-            <path d={`M-1.8 3 Q0 2.2 1.8 3 L1.3 ${h - 4} L-1.3 ${h - 4} Z`} fill={c} />
-            <line x1="-0.9" y1={h - 4} x2="-1.4" y2={h} stroke={c} strokeWidth="1.2" strokeLinecap="round" />
-            <line x1="0.9" y1={h - 4} x2="1.4" y2={h} stroke={c} strokeWidth="1.2" strokeLinecap="round" />
-          </g>
-        ))}
-        {/* Two strollers crossing the street slowly */}
+        {/* ── Four little characters strolling Via Garibaldi (original figures) ── */}
+        {/* Each: horizontal walk + a subtle vertical bob so they bounce as they go */}
+
+        {/* 1 · Old man — flat cap + cane (L→R) */}
         <g>
           <animateTransform attributeName="transform" type="translate"
-            from="-20 0" to="920 0" dur="40s" repeatCount="indefinite" />
-          <g transform="translate(0,187)">
-            <circle cx="0" cy="1.6" r="1.7" fill="#3a5878" />
-            <path d="M-1.8 3 Q0 2.2 1.8 3 L1.3 8 L-1.3 8 Z" fill="#3a5878" />
-            <line x1="-0.9" y1="8" x2="-1.6" y2="12" stroke="#3a5878" strokeWidth="1.2" strokeLinecap="round" />
-            <line x1="0.9" y1="8" x2="1.6" y2="12" stroke="#3a5878" strokeWidth="1.2" strokeLinecap="round" />
+            from="-40 199" to="940 199" dur="44s" repeatCount="indefinite" />
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -0.7;0 0" dur="0.5s" repeatCount="indefinite" />
+            <line x1="-1.2" y1="0" x2="-1.1" y2="-5" stroke="#423c34" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="1.2" y1="0" x2="1.1" y2="-5" stroke="#423c34" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M-2.3 -5 L-2 -11 Q0 -11.8 2 -11 L2.3 -5 Q0 -5.7 -2.3 -5 Z" fill="#6e5f52" />
+            <circle cx="0" cy="-13.3" r="1.9" fill="#d8b08c" />
+            <path d="M-2.2 -14.4 Q0 -16.3 2.1 -14.4 L2.1 -13.9 L-2.2 -13.9 Z" fill="#54493f" />
+            <path d="M1.9 -14.1 Q3.5 -13.8 3.5 -13.2 L1.9 -13.5 Z" fill="#453c33" />
+            <line x1="2.2" y1="-10" x2="3.4" y2="0" stroke="#7a5230" strokeWidth="0.9" strokeLinecap="round" />
           </g>
         </g>
+
+        {/* 2 · Woman pushing a stroller with a child (L→R) */}
         <g>
           <animateTransform attributeName="transform" type="translate"
-            from="920 0" to="-20 0" dur="48s" repeatCount="indefinite" begin="-12s" />
-          <g transform="translate(0,188)">
-            <circle cx="0" cy="1.6" r="1.6" fill="#7a5038" />
-            <path d="M-1.7 3 Q0 2.2 1.7 3 L1.2 7 L-1.2 7 Z" fill="#7a5038" />
-            <line x1="-0.8" y1="7" x2="-1.4" y2="11" stroke="#7a5038" strokeWidth="1.1" strokeLinecap="round" />
-            <line x1="0.8" y1="7" x2="1.4" y2="11" stroke="#7a5038" strokeWidth="1.1" strokeLinecap="round" />
+            from="-95 199" to="905 199" dur="38s" repeatCount="indefinite" begin="-14s" />
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -0.6;0 0" dur="0.52s" repeatCount="indefinite" />
+            <line x1="-1" y1="0" x2="-0.9" y2="-5" stroke="#6a5048" strokeWidth="1.4" strokeLinecap="round" />
+            <line x1="1" y1="0" x2="0.9" y2="-5" stroke="#6a5048" strokeWidth="1.4" strokeLinecap="round" />
+            <path d="M-2.1 -5 L-1.9 -11 Q0 -11.7 1.9 -11 L2.1 -5 Q0 -5.6 -2.1 -5 Z" fill="#b5654a" />
+            <circle cx="0" cy="-13.2" r="1.9" fill="#e4c0a0" />
+            <path d="M-2 -13 Q-2.1 -15.4 0 -15.5 Q2.1 -15.4 2 -13 Q1.3 -14.1 0 -14.1 Q-1.3 -14.1 -2 -13 Z" fill="#3a2a1c" />
+            <line x1="1.8" y1="-10" x2="4" y2="-8" stroke="#b5654a" strokeWidth="1.3" strokeLinecap="round" />
+            <path d="M4 -8.2 Q4 -10.2 6 -10.4" fill="none" stroke="#35505c" strokeWidth="0.9" strokeLinecap="round" />
+            <path d="M4 -8 L8 -8 L7.4 -3.6 L4.6 -3.6 Z" fill="#46606e" />
+            <circle cx="5.3" cy="-2.3" r="1.1" fill="#2a2a2a" />
+            <circle cx="7.1" cy="-2.3" r="1.1" fill="#2a2a2a" />
+            <circle cx="6" cy="-9.2" r="1.05" fill="#f0d2b0" />
+          </g>
+        </g>
+
+        {/* 3 · Woman with a shoulder bag (R→L, facing left) */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="945 199" to="-45 199" dur="41s" repeatCount="indefinite" begin="-7s" />
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -0.7;0 0" dur="0.48s" repeatCount="indefinite" />
+            <g transform="scale(-1,1)">
+              <line x1="-1" y1="0" x2="-0.8" y2="-5" stroke="#4a5a46" strokeWidth="1.4" strokeLinecap="round" />
+              <line x1="1" y1="0" x2="1.2" y2="-5" stroke="#4a5a46" strokeWidth="1.4" strokeLinecap="round" />
+              <path d="M-2 -5 L-1.8 -11 Q0 -11.7 1.8 -11 L2 -5 Q0 -5.6 -2 -5 Z" fill="#6f8f6a" />
+              <circle cx="0" cy="-13.2" r="1.9" fill="#e8c8a4" />
+              <path d="M-2 -12.6 Q-2.2 -15.5 0 -15.5 Q2.2 -15.5 2 -12.6 Q2.2 -10.8 1.5 -10.2 L1.3 -12.9 Q0 -14.1 -1.3 -12.9 L-1.5 -10.2 Q-2.2 -10.8 -2 -12.6 Z" fill="#5a3a24" />
+              <line x1="-1.2" y1="-10.8" x2="2.2" y2="-7.6" stroke="#6a4028" strokeWidth="0.6" />
+              <rect x="1.7" y="-8.1" width="2.4" height="3" rx="0.5" fill="#8a5a3a" />
+            </g>
+          </g>
+        </g>
+
+        {/* 4 · Man walking a little dog (R→L, facing left) */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="905 199" to="-75 199" dur="35s" repeatCount="indefinite" begin="-22s" />
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -0.7;0 0" dur="0.46s" repeatCount="indefinite" />
+            <g transform="scale(-1,1)">
+              <line x1="-1.1" y1="0" x2="-1" y2="-5" stroke="#37332c" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="1.1" y1="0" x2="1.2" y2="-5" stroke="#37332c" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M-2.1 -5 L-1.9 -11.2 Q0 -12 1.9 -11.2 L2.1 -5 Q0 -5.6 -2.1 -5 Z" fill="#3f6075" />
+              <circle cx="0" cy="-13.4" r="1.9" fill="#d8ac88" />
+              <path d="M-1.9 -13.2 Q-1.6 -15.5 0 -15.5 Q1.6 -15.5 1.9 -13.2 Q1 -14.3 0 -14.3 Q-1 -14.3 -1.9 -13.2 Z" fill="#2a1d12" />
+              <line x1="2" y1="-9.5" x2="3.4" y2="-6" stroke="#3f6075" strokeWidth="1.3" strokeLinecap="round" />
+              <line x1="3.4" y1="-6" x2="5.3" y2="-2.4" stroke="#5a5250" strokeWidth="0.5" />
+              <ellipse cx="5.7" cy="-1.4" rx="2.1" ry="1.1" fill="#6a5038" />
+              <circle cx="7.5" cy="-2" r="1" fill="#6a5038" />
+              <path d="M7.1 -2.8 L7.4 -3.7 L7.9 -2.9 Z" fill="#5a4230" />
+              <line x1="4.7" y1="-0.5" x2="4.5" y2="0.5" stroke="#6a5038" strokeWidth="0.7" strokeLinecap="round" />
+              <line x1="6.5" y1="-0.5" x2="6.7" y2="0.5" stroke="#6a5038" strokeWidth="0.7" strokeLinecap="round" />
+              <path d="M3.7 -1.6 Q3.2 -2.2 3.4 -2.8" fill="none" stroke="#6a5038" strokeWidth="0.7" strokeLinecap="round" />
+            </g>
           </g>
         </g>
 
