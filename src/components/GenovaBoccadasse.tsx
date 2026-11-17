@@ -170,14 +170,52 @@ export default function GenovaBoccadasse() {
         <rect x="396" y="148" width="20" height="22" rx="1" fill="#a89878" />
         <rect x="406" y="144" width="14" height="8" rx="1" fill="#988868" />
 
-        {/* ── Pebble beach ── */}
-        <path d="M0 168 Q100 162 220 164 Q320 166 414 162 Q430 161 448 164 L448 200 L0 200 Z"
-          fill="#c4b8a8" />
-        {[...Array(30)].map((_, i) => {
-          const x = 10 + (i * 71) % 430;
-          const y = 172 + (i * 11) % 18;
+        {/* ══ BEACH & SHORELINE — layered back-to-front for real depth ══ */}
+
+        {/* Dry pebble beach fills the foreground below the tide line */}
+        <path d="M0 172 Q120 167 240 170 Q340 172 414 168 Q430 167 448 170 L448 200 L0 200 Z"
+          fill="#ccc1b1" />
+
+        {/* Damp-sand band at the water's edge (darker, where the sea just reached) */}
+        <path d="M0 168 Q110 163 230 166 Q330 168 414 164 Q430 163 448 166
+                 L448 175 Q430 174 414 176 Q330 180 230 178 Q110 175 0 180 Z"
+          fill="#a89a82" opacity="0.8" />
+
+        {/* Rocky foot of the promontory where the cliff meets the shore */}
+        <path d="M436 200 L436 179 Q448 171 462 177 Q476 171 490 178 L490 200 Z" fill="#9a8c74" />
+        <ellipse cx="452" cy="183" rx="9" ry="4.5" fill="#8c7e66" />
+        <ellipse cx="474" cy="185" rx="7" ry="4" fill="#8c7e66" />
+        <ellipse cx="463" cy="189" rx="11" ry="4" fill="#a2957d" opacity="0.65" />
+
+        {/* Shallow water + foam crest right at the water's edge (clipped to sea) */}
+        <g clipPath="url(#bocca-sea-clip)">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              from="-60 0" to="-960 0" dur="6s" repeatCount="indefinite" />
+            <path
+              d="M0 157 Q60 153 120 157 Q180 161 240 157 Q300 153 360 157 Q420 161 480 157
+                 Q540 153 600 157 Q660 161 720 157 Q780 153 840 157 Q900 161 960 157
+                 Q1020 153 1080 157 Q1140 161 1200 157 Q1260 153 1320 157 Q1380 161 1440 157
+                 Q1500 153 1560 157 Q1620 161 1680 157 Q1740 153 1800 157
+                 L1800 165 L0 165 Z"
+              fill="#6c98a6" opacity="0.38"
+            />
+            <path
+              d="M0 160 Q60 156 120 160 Q180 164 240 160 Q300 156 360 160 Q420 164 480 160
+                 Q540 156 600 160 Q660 164 720 160 Q780 156 840 160 Q900 164 960 160
+                 Q1020 156 1080 160 Q1140 164 1200 160 Q1260 156 1320 160 Q1380 164 1440 160
+                 Q1500 156 1560 160 Q1620 164 1680 160 Q1740 156 1800 160"
+              fill="none" stroke="#eef2ee" strokeWidth="1.3" opacity="0.6"
+            />
+          </g>
+        </g>
+
+        {/* Pebble texture on the dry beach */}
+        {[...Array(24)].map((_, i) => {
+          const x = 8 + (i * 73) % 420;
+          const y = 183 + (i * 11) % 13;
           const r = 2 + (i * 5) % 4;
-          return <ellipse key={i} cx={x} cy={y} rx={r} ry={r * 0.55} fill="#b0a494" opacity="0.5" />;
+          return <ellipse key={i} cx={x} cy={y} rx={r} ry={r * 0.5} fill="#b6aa96" opacity="0.5" />;
         })}
 
         {/* ── Boats pulled up ON the pebble beach (beached, grounded) ── */}
@@ -223,36 +261,21 @@ export default function GenovaBoccadasse() {
           <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
         </g>
 
-        {/* ── A few people down on the pebble beach (original figures) ── */}
+        {/* ── People on the dry beach (bigger & lower = closer, drawn last) ── */}
         {[
-          { x: 112, c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c" },
-          { x: 158, c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0" },
-          { x: 300, c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88" },
+          { x: 118, c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c" },
+          { x: 208, c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0" },
+          { x: 332, c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88" },
         ].map(({ x, c, hair, skin }, i) => (
-          <g key={i} transform={`translate(${x},171)`}>
+          <g key={i} transform={`translate(${x},191) scale(1.5)`}>
+            <ellipse cx="0" cy="0.6" rx="3" ry="0.9" fill="#8a7e6e" opacity="0.3" />
             <line x1="-1" y1="0" x2="-0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
             <line x1="1" y1="0" x2="0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
-            <path d={`M-1.9 -4.6 L-1.7 -10 Q0 -10.7 1.7 -10 L1.9 -4.6 Q0 -5.1 -1.9 -4.6 Z`} fill={c} />
+            <path d="M-1.9 -4.6 L-1.7 -10 Q0 -10.7 1.7 -10 L1.9 -4.6 Q0 -5.1 -1.9 -4.6 Z" fill={c} />
             <circle cx="0" cy="-12" r="1.7" fill={skin} />
             <path d="M-1.7 -11.9 Q-1.5 -14 0 -14.1 Q1.5 -14 1.7 -11.9 Q0.9 -13 0 -13 Q-0.9 -13 -1.7 -11.9 Z" fill={hair} />
           </g>
         ))}
-
-        {/* ── Foreground wave — clipped to sea area only ── */}
-        <g clipPath="url(#bocca-sea-clip)">
-          <g>
-            <animateTransform attributeName="transform" type="translate"
-              from="-60 0" to="-960 0" dur="6s" repeatCount="indefinite" />
-            <path
-              d="M0 158 Q60 153 120 158 Q180 163 240 158 Q300 153 360 158 Q420 163 480 158
-                 Q540 153 600 158 Q660 163 720 158 Q780 153 840 158 Q900 163 960 158
-                 Q1020 153 1080 158 Q1140 163 1200 158 Q1260 153 1320 158 Q1380 163 1440 158
-                 Q1500 153 1560 158 Q1620 163 1680 158 Q1740 153 1800 158
-                 L1800 185 L0 185 Z"
-              fill="#5a8898" opacity="0.5"
-            />
-          </g>
-        </g>
 
         {/* ── Seagull — SVG-native animation so it's clipped by viewport ── */}
         <g>
