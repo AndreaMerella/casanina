@@ -90,14 +90,14 @@ export default function GenovaBoccadasse() {
 
         {/* Row 3 — highest, smallest */}
         {[
-          { x: 660, y: 38, w: 20, h: 24, fill: "#d4b880", roof: "#c0a060" },
-          { x: 686, y: 34, w: 22, h: 26, fill: "#c0a8a0", roof: "#a89090" },
-          { x: 714, y: 32, w: 20, h: 24, fill: "#a8c4a0", roof: "#88a880" },
-          { x: 740, y: 26, w: 24, h: 28, fill: "#c8b0a0", roof: "#a89080" },
-          { x: 770, y: 22, w: 22, h: 28, fill: "#d8c890", roof: "#c0b070" },
-          { x: 800, y: 18, w: 24, h: 30, fill: "#b8c8b0", roof: "#98a890" },
-          { x: 830, y: 14, w: 28, h: 34, fill: "#d0b8a0", roof: "#b89880" },
-          { x: 864, y: 10, w: 36, h: 38, fill: "#e0c8a8", roof: "#c8a888" },
+          { x: 660, y: 38, w: 20, h: 24, fill: "#e8b058", roof: "#c89038" },
+          { x: 686, y: 34, w: 22, h: 26, fill: "#dd8a70", roof: "#bd6a50" },
+          { x: 714, y: 32, w: 20, h: 24, fill: "#9cc478", roof: "#7ca458" },
+          { x: 740, y: 26, w: 24, h: 28, fill: "#e0996a", roof: "#c0794a" },
+          { x: 770, y: 22, w: 22, h: 28, fill: "#ecc658", roof: "#cca638" },
+          { x: 800, y: 18, w: 24, h: 30, fill: "#a6c87e", roof: "#86a85e" },
+          { x: 830, y: 14, w: 28, h: 34, fill: "#e0a070", roof: "#c08050" },
+          { x: 864, y: 10, w: 36, h: 38, fill: "#ecc884", roof: "#cca864" },
         ].map(({ x, y, w, h, fill, roof }) => (
           <g key={x}>
             <rect x={x} y={y} width={w} height={h} rx="1" fill={fill} />
@@ -108,11 +108,11 @@ export default function GenovaBoccadasse() {
 
         {/* Row 2 — middle */}
         {[
-          { x: 480, y: 72, w: 30, h: 40, fill: "#e8d098", roof: "#c8b078" },
-          { x: 516, y: 66, w: 32, h: 46, fill: "#d4a8a0", roof: "#b88880" },
-          { x: 554, y: 60, w: 28, h: 52, fill: "#a8c0b0", roof: "#88a090" },
-          { x: 588, y: 54, w: 26, h: 56, fill: "#e0d0a8", roof: "#c0b088" },
-          { x: 620, y: 50, w: 30, h: 62, fill: "#c8e0c8", roof: "#a8c0a8" },
+          { x: 480, y: 72, w: 30, h: 40, fill: "#f0c050", roof: "#d0a038" },
+          { x: 516, y: 66, w: 32, h: 46, fill: "#e0907a", roof: "#c07058" },
+          { x: 554, y: 60, w: 28, h: 52, fill: "#9cc080", roof: "#7ca060" },
+          { x: 588, y: 54, w: 26, h: 56, fill: "#e8b85a", roof: "#c89840" },
+          { x: 620, y: 50, w: 30, h: 62, fill: "#a8d488", roof: "#88b468" },
         ].map(({ x, y, w, h, fill, roof }) => (
           <g key={x}>
             <rect x={x} y={y} width={w} height={h} rx="1" fill={fill} />
@@ -122,14 +122,37 @@ export default function GenovaBoccadasse() {
           </g>
         ))}
 
+        {/* ── Castello — the landmark tower that crowns the cove ── */}
+        <g>
+          {/* main tower body */}
+          <rect x="606" y="48" width="42" height="64" fill="#b4543e" />
+          <rect x="606" y="100" width="42" height="12" fill="#9c4634" />
+          {/* crenellated parapet */}
+          <rect x="606" y="42" width="8" height="7" fill="#b4543e" />
+          <rect x="618" y="42" width="8" height="7" fill="#b4543e" />
+          <rect x="630" y="42" width="8" height="7" fill="#b4543e" />
+          <rect x="640" y="42" width="8" height="7" fill="#b4543e" />
+          {/* taller corner turret */}
+          <rect x="636" y="30" width="14" height="19" fill="#aa4e38" />
+          <rect x="636" y="26" width="5" height="5" fill="#aa4e38" />
+          <rect x="645" y="26" width="5" height="5" fill="#aa4e38" />
+          {/* arched windows */}
+          <rect x="613" y="56" width="6" height="10" rx="2" fill="#4e241c" />
+          <rect x="633" y="56" width="6" height="10" rx="2" fill="#4e241c" />
+          <rect x="613" y="74" width="6" height="10" rx="2" fill="#4e241c" />
+          <rect x="633" y="74" width="6" height="10" rx="2" fill="#4e241c" />
+          <rect x="639" y="34" width="4" height="7" rx="1" fill="#4e241c" />
+          <rect x="622" y="92" width="8" height="15" rx="2" fill="#4e241c" />
+        </g>
+
         {/* Row 1 — lowest and most detailed */}
-        <rect x="458" y="108" width="34" height="68" rx="1" fill="#e8c888" />
-        <path d="M456 108 L475 95 L494 108 Z" fill="#c8a868" />
+        <rect x="458" y="108" width="34" height="68" rx="1" fill="#f0b84a" />
+        <path d="M456 108 L475 95 L494 108 Z" fill="#d09838" />
         <rect x="462" y="118" width="9" height="13" rx="1" fill="#8a9878" opacity="0.65" />
         <rect x="476" y="118" width="9" height="13" rx="1" fill="#8a9878" opacity="0.55" />
 
-        <rect x="498" y="102" width="36" height="74" rx="1" fill="#c8a898" />
-        <path d="M496 102 L516 88 L536 102 Z" fill="#a88878" />
+        <rect x="498" y="102" width="36" height="74" rx="1" fill="#e58a68" />
+        <path d="M496 102 L516 88 L536 102 Z" fill="#c06a4a" />
         <rect x="502" y="112" width="9" height="13" rx="1" fill="#8a9878" opacity="0.65" />
         <rect x="518" y="112" width="9" height="13" rx="1" fill="#8a9878" opacity="0.55" />
         {/* Balcony */}
@@ -137,8 +160,8 @@ export default function GenovaBoccadasse() {
         <rect x="514" y="113" width="2" height="7" fill="#b89878" />
         <rect x="526" y="113" width="2" height="7" fill="#b89878" />
 
-        <rect x="540" y="96" width="32" height="80" rx="1" fill="#b8d0b0" />
-        <path d="M538 96 L556 82 L574 96 Z" fill="#98b090" />
+        <rect x="540" y="96" width="32" height="80" rx="1" fill="#9ec878" />
+        <path d="M538 96 L556 82 L574 96 Z" fill="#7ca858" />
         <rect x="544" y="106" width="8" height="12" rx="1" fill="#8a9878" opacity="0.65" />
         <rect x="558" y="106" width="8" height="12" rx="1" fill="#8a9878" opacity="0.55" />
 
