@@ -282,6 +282,45 @@ export default function GenovaRolli() {
         <line x1="0" y1="194" x2="900" y2="194" stroke="#5a5250" strokeWidth="0.5" opacity="0.4" />
         <line x1="0" y1="198" x2="900" y2="198" stroke="#5a5250" strokeWidth="0.5" opacity="0.3" />
 
+        {/* ── People strolling on Via Garibaldi (original simple figures) ── */}
+        {/* Standing / chatting groups along the street, feet at ~y=199 */}
+        {[
+          { x: 118, c: "#5a5250", h: 13 },
+          { x: 148, c: "#8a3828", h: 12 },
+          { x: 408, c: "#44505e", h: 13 },
+          { x: 610, c: "#5a5250", h: 12 },
+          { x: 636, c: "#6a6460", h: 13 },
+          { x: 822, c: "#4a4440", h: 12 },
+        ].map(({ x, c, h }, i) => (
+          <g key={i} transform={`translate(${x},${199 - h})`}>
+            <circle cx="0" cy="1.6" r="1.7" fill={c} />
+            <path d={`M-1.8 3 Q0 2.2 1.8 3 L1.3 ${h - 4} L-1.3 ${h - 4} Z`} fill={c} />
+            <line x1="-0.9" y1={h - 4} x2="-1.4" y2={h} stroke={c} strokeWidth="1.2" strokeLinecap="round" />
+            <line x1="0.9" y1={h - 4} x2="1.4" y2={h} stroke={c} strokeWidth="1.2" strokeLinecap="round" />
+          </g>
+        ))}
+        {/* Two strollers crossing the street slowly */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="-20 0" to="920 0" dur="40s" repeatCount="indefinite" />
+          <g transform="translate(0,187)">
+            <circle cx="0" cy="1.6" r="1.7" fill="#3a5878" />
+            <path d="M-1.8 3 Q0 2.2 1.8 3 L1.3 8 L-1.3 8 Z" fill="#3a5878" />
+            <line x1="-0.9" y1="8" x2="-1.6" y2="12" stroke="#3a5878" strokeWidth="1.2" strokeLinecap="round" />
+            <line x1="0.9" y1="8" x2="1.6" y2="12" stroke="#3a5878" strokeWidth="1.2" strokeLinecap="round" />
+          </g>
+        </g>
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="920 0" to="-20 0" dur="48s" repeatCount="indefinite" begin="-12s" />
+          <g transform="translate(0,188)">
+            <circle cx="0" cy="1.6" r="1.6" fill="#7a5038" />
+            <path d="M-1.7 3 Q0 2.2 1.7 3 L1.2 7 L-1.2 7 Z" fill="#7a5038" />
+            <line x1="-0.8" y1="7" x2="-1.4" y2="11" stroke="#7a5038" strokeWidth="1.1" strokeLinecap="round" />
+            <line x1="0.8" y1="7" x2="1.4" y2="11" stroke="#7a5038" strokeWidth="1.1" strokeLinecap="round" />
+          </g>
+        </g>
+
         {/* ── Seagulls — SVG animateTransform so clipPath contains them ── */}
         {/* Each seagull: two wing arches forming an M shape */}
         <g>

@@ -115,14 +115,16 @@ export default function Home() {
         </Suspense>
 
         {/* ─── Hero ─── */}
-        <section className="relative h-[85vh] w-full overflow-hidden bg-stone-900">
-          {/* Drone video — Genova old town & harbour aerial */}
+        <section className="relative h-[72vh] w-full overflow-hidden bg-stone-900">
+          {/* Drone video — Genova old town & harbour aerial.
+              Warm colour grade so it reads as a sunny Ligurian day, not grey. */}
           <video
             autoPlay
             muted
             loop
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
+            style={{ filter: "saturate(1.3) brightness(1.1) contrast(1.03)" }}
           >
             <source
               src="https://videos.pexels.com/video-files/6769886/6769886-uhd_2560_1440_25fps.mp4"
@@ -134,7 +136,9 @@ export default function Home() {
               type="video/mp4"
             />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+          {/* Warm sun wash to counter the grey footage */}
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-500/15 via-transparent to-sky-300/10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/5" />
 
           {/* Weather badge */}
           <div className="absolute top-20 right-4 md:right-6 z-10">
@@ -155,7 +159,7 @@ export default function Home() {
         <GenovaSails />
 
         {/* ─── Gallery ─── */}
-        <section id="gallery" className="py-16 md:py-24 px-4 md:px-8">
+        <section id="gallery" className="py-10 md:py-16 px-4 md:px-8">
           <div className="max-w-6xl mx-auto">
             <AnimateIn className="text-center mb-10 md:mb-14">
               <p className="text-accent text-xs uppercase tracking-[0.12em] font-medium mb-4">
@@ -177,7 +181,7 @@ export default function Home() {
         <GenovaVignette />
 
         {/* ─── Genova + Location ─── */}
-        <section id="location" className="py-16 md:py-20 px-6 bg-card">
+        <section id="location" className="py-10 md:py-16 px-6 bg-card">
           <div className="max-w-5xl mx-auto">
             <div className="grid md:grid-cols-2 gap-10 items-start">
               <div>

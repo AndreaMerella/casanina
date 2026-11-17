@@ -157,55 +157,47 @@ export default function GenovaBoccadasse() {
           return <ellipse key={i} cx={x} cy={y} rx={r} ry={r * 0.55} fill="#b0a494" opacity="0.5" />;
         })}
 
-        {/* ── Boats on the beach — SVG animateTransform to avoid Safari CSS bleed ── */}
-        <g transform="translate(65,166)">
-          <g>
-            <animateTransform attributeName="transform" type="rotate"
-              values="-4 0 0;4 0 0;-4 0 0" dur="4s" repeatCount="indefinite"
-              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
-            <path d="M-28 0 Q-30 6 -24 10 L24 10 Q30 6 28 0 Z" fill="#3a5878" />
-            <rect x="-24" y="-2" width="48" height="4" fill="#4a6888" />
-            <line x1="0" y1="-2" x2="0" y2="-20" stroke="#2a1810" strokeWidth="1.5" />
-            <path d="M0 -20 L16 -12 L0 -4 Z" fill="#e8d4a0" opacity="0.8" />
-          </g>
+        {/* ── Boats pulled up ON the pebble beach (beached, grounded) ── */}
+        {/* Each boat: a soft shadow on the pebbles, then mast/sail, then hull
+            drawn last so the keel rests on the beach surface (no sinking). */}
+
+        {/* Blue sailboat */}
+        <g transform="translate(72,153)">
+          <ellipse cx="0" cy="12" rx="30" ry="3" fill="#8a7e6e" opacity="0.32" />
+          <line x1="0" y1="2" x2="0" y2="-18" stroke="#2a1810" strokeWidth="1.5" />
+          <path d="M0 -18 L15 -10 L0 -3 Z" fill="#e8d4a0" opacity="0.85" />
+          <path d="M-28 2 Q-30 8 -23 11 L23 11 Q30 8 28 2 Z" fill="#3a5878" />
+          <rect x="-24" y="0" width="48" height="3.5" fill="#4a6888" />
         </g>
-        <g transform="translate(162,164)">
-          <g>
-            <animateTransform attributeName="transform" type="rotate"
-              values="3 0 0;-4 0 0;3 0 0" dur="5s" repeatCount="indefinite" begin="-1.5s"
-              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
-            <path d="M-22 0 Q-24 5 -18 8 L18 8 Q24 5 22 0 Z" fill="#b83820" />
-            <rect x="-18" y="-1" width="36" height="3" fill="#c84830" />
-            <line x1="0" y1="-1" x2="0" y2="-16" stroke="#2a1810" strokeWidth="1.2" />
-            <path d="M0 -16 L12 -10 L0 -3 Z" fill="#e8d4a0" opacity="0.75" />
-          </g>
+
+        {/* Red sailboat */}
+        <g transform="translate(166,155)">
+          <ellipse cx="0" cy="10" rx="24" ry="2.6" fill="#8a7e6e" opacity="0.32" />
+          <line x1="0" y1="1" x2="0" y2="-15" stroke="#2a1810" strokeWidth="1.2" />
+          <path d="M0 -15 L12 -9 L0 -2 Z" fill="#e8d4a0" opacity="0.8" />
+          <path d="M-22 1 Q-24 6 -18 9 L18 9 Q24 6 22 1 Z" fill="#b83820" />
+          <rect x="-18" y="-1" width="36" height="3" fill="#c84830" />
         </g>
-        <g transform="translate(248,166)">
-          <g>
-            <animateTransform attributeName="transform" type="rotate"
-              values="-3 0 0;3 0 0;-3 0 0" dur="3.5s" repeatCount="indefinite" begin="-0.8s"
-              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
-            <path d="M-20 0 Q-22 5 -17 8 L17 8 Q22 5 20 0 Z" fill="#7a9840" />
-            <rect x="-17" y="-1" width="34" height="3" fill="#8aaa50" />
-          </g>
+
+        {/* Green rowing boat */}
+        <g transform="translate(250,157)">
+          <ellipse cx="0" cy="10" rx="22" ry="2.4" fill="#8a7e6e" opacity="0.3" />
+          <path d="M-20 1 Q-22 6 -16 9 L16 9 Q22 6 20 1 Z" fill="#7a9840" />
+          <rect x="-17" y="-1" width="34" height="3" fill="#8aaa50" />
         </g>
-        <g transform="translate(322,165)">
-          <g>
-            <animateTransform attributeName="transform" type="rotate"
-              values="-4 0 0;4 0 0;-4 0 0" dur="4.8s" repeatCount="indefinite" begin="-2.2s"
-              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
-            <path d="M-16 0 Q-18 4 -14 7 L14 7 Q18 4 16 0 Z" fill="#7a5830" />
-            <rect x="-14" y="-1" width="28" height="3" fill="#8a6840" />
-          </g>
+
+        {/* Brown rowing boat */}
+        <g transform="translate(324,159)">
+          <ellipse cx="0" cy="9" rx="18" ry="2.2" fill="#8a7e6e" opacity="0.3" />
+          <path d="M-16 1 Q-18 5 -13 8 L13 8 Q18 5 16 1 Z" fill="#7a5830" />
+          <rect x="-14" y="-1" width="28" height="3" fill="#8a6840" />
         </g>
-        <g transform="translate(375,167)">
-          <g>
-            <animateTransform attributeName="transform" type="rotate"
-              values="-4 0 0;4 0 0;-4 0 0" dur="4s" repeatCount="indefinite" begin="-3s"
-              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
-            <path d="M-13 0 Q-15 4 -11 6 L11 6 Q15 4 13 0 Z" fill="#884858" />
-            <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
-          </g>
+
+        {/* Plum skiff */}
+        <g transform="translate(378,157)">
+          <ellipse cx="0" cy="8" rx="15" ry="2" fill="#8a7e6e" opacity="0.28" />
+          <path d="M-13 1 Q-15 5 -11 7 L11 7 Q15 5 13 1 Z" fill="#884858" />
+          <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
         </g>
 
         {/* ── Foreground wave — clipped to sea area only ── */}
