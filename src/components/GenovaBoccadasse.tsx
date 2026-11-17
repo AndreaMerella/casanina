@@ -116,64 +116,59 @@ export default function GenovaBoccadasse() {
         <rect x="486" y="182" width="414" height="18" fill="#b0a184" />
         <rect x="486" y="182" width="414" height="3" fill="#9c8e72" opacity="0.6" />
 
-        {/* ══ Flat-topped Ligurian tower-houses packed up the promontory ══ */}
-        {/* Tall rectangular facades, flat roofs, rows of shuttered windows —
-            the real Boccadasse look, not little pitched-roof cottages. */}
+        {/* ── Green vegetation cloaking the upper promontory ── */}
+        <path d="M436 96 Q510 62 620 50 Q740 42 840 40 L900 39 L900 120 Q820 112 720 114 Q600 118 500 114 Q462 112 436 128 Z"
+          fill="#9eb078" opacity="0.72" />
+        <path d="M560 66 Q650 50 770 46 Q850 44 900 44 L900 92 Q820 86 740 90 Q650 94 560 98 Z"
+          fill="#8aa068" opacity="0.5" />
         {[
-          /* BACK tier — upper hill, only upper floors show above the front roofs */
-          { x: 448, y: 60, w: 26, h: 76 },
-          { x: 476, y: 56, w: 26, h: 80 },
-          { x: 504, y: 52, w: 26, h: 84 },
-          { x: 532, y: 50, w: 26, h: 86 },
-          { x: 560, y: 48, w: 26, h: 88 },
-          { x: 588, y: 46, w: 24, h: 90 },
-          /* castle gap 606–648 */
-          { x: 652, y: 44, w: 26, h: 92 },
-          { x: 680, y: 44, w: 26, h: 92 },
-          { x: 708, y: 42, w: 26, h: 94 },
-          { x: 736, y: 42, w: 26, h: 94 },
-          { x: 764, y: 40, w: 26, h: 96 },
-          { x: 792, y: 40, w: 26, h: 96 },
-          { x: 820, y: 40, w: 28, h: 96 },
-          { x: 850, y: 40, w: 28, h: 96 },
-          { x: 878, y: 42, w: 22, h: 94 },
-          /* FRONT tier — lower hill, taller, bases at the retaining wall */
-          { x: 440, y: 92, w: 30, h: 92 },
-          { x: 472, y: 84, w: 30, h: 100 },
-          { x: 504, y: 78, w: 30, h: 106 },
-          { x: 536, y: 74, w: 30, h: 110 },
-          { x: 568, y: 80, w: 26, h: 104 },
-          { x: 596, y: 102, w: 22, h: 82 },
-          { x: 654, y: 82, w: 32, h: 102 },
-          { x: 688, y: 78, w: 32, h: 106 },
-          { x: 722, y: 76, w: 32, h: 108 },
-          { x: 756, y: 80, w: 32, h: 104 },
-          { x: 790, y: 76, w: 32, h: 108 },
-          { x: 824, y: 80, w: 34, h: 104 },
-          { x: 858, y: 84, w: 34, h: 100 },
-        ].map(({ x, y, w, h }, i) => {
-          const palette = ["#e0b45a", "#d88a6a", "#cfa0a8", "#e8c878", "#c89878", "#dba074", "#c0a890", "#d4a088", "#e2c090", "#cc8878", "#d8b068", "#caa0a0"];
-          const c = palette[(i * 5 + 3) % palette.length];
-          const cols = 2;
-          const rows = Math.max(2, Math.round((h - 8) / 17));
+          [470, 90], [512, 74], [556, 64], [598, 58], [688, 54], [730, 52],
+          [772, 50], [814, 50], [856, 52], [660, 58], [540, 70],
+        ].map(([tx, ty], i) => (
+          <g key={`t${i}`}>
+            <ellipse cx={tx} cy={ty} rx="7" ry="5.5" fill="#7c9460" opacity="0.62" />
+            <ellipse cx={tx + 4} cy={ty + 1.5} rx="5" ry="4.5" fill="#8ca66c" opacity="0.6" />
+          </g>
+        ))}
+
+        {/* ══ Boccadasse houses — short Ligurian facades, flat tops, real colours ══ */}
+        {[
+          /* back tier — shorter, up the hill behind the front row */
+          { x: 486, y: 80, w: 30, h: 50, c: "#d4a84c" },
+          { x: 518, y: 76, w: 30, h: 54, c: "#b8c490" },
+          { x: 550, y: 72, w: 30, h: 58, c: "#d98a7a" },
+          { x: 582, y: 70, w: 26, h: 60, c: "#e0b85a" },
+          { x: 724, y: 66, w: 30, h: 58, c: "#c8d4a0" },
+          { x: 758, y: 64, w: 30, h: 60, c: "#d98a7a" },
+          { x: 792, y: 64, w: 32, h: 60, c: "#d4a84c" },
+          /* front tier — taller (3–4 storeys), bases at the wall */
+          { x: 456, y: 104, w: 36, h: 78, c: "#cf7a5a" },
+          { x: 496, y: 98, w: 38, h: 84, c: "#e0b85a" },
+          { x: 538, y: 102, w: 34, h: 80, c: "#d98a7a" },
+          { x: 574, y: 108, w: 28, h: 74, c: "#b8c490" },
+          { x: 618, y: 120, w: 30, h: 62, c: "#d89068" },
+          { x: 664, y: 104, w: 36, h: 78, c: "#e8ddc4" },
+          { x: 704, y: 100, w: 38, h: 82, c: "#d89068" },
+          { x: 746, y: 104, w: 36, h: 78, c: "#d4a84c" },
+          { x: 788, y: 102, w: 38, h: 80, c: "#d98a7a" },
+          { x: 830, y: 106, w: 36, h: 76, c: "#e0a888" },
+        ].map(({ x, y, w, h, c }, i) => {
+          const rows = Math.max(2, Math.round((h - 6) / 19));
           const wins = [];
           for (let r = 0; r < rows; r++) {
-            for (let k = 0; k < cols; k++) {
-              wins.push([
-                x + (w / (cols + 1)) * (k + 1) - 2.3,
-                y + 6 + r * ((h - 10) / rows),
-              ]);
+            for (let k = 0; k < 2; k++) {
+              wins.push([x + (w / 3) * (k + 1) - 2.4, y + 7 + r * ((h - 12) / rows)]);
             }
           }
           return (
             <g key={i}>
               <rect x={x} y={y} width={w} height={h} fill={c} />
-              <rect x={x} y={y} width={w} height="2" fill="#2a1d14" opacity="0.14" />
+              <rect x={x} y={y} width={w} height="2" fill="#2a1d14" opacity="0.12" />
               {wins.map(([wx, wy], k) => (
                 <g key={k}>
-                  <rect x={wx} y={wy} width="4.6" height="6.6" rx="0.4" fill="#2e2016" opacity="0.46" />
-                  <rect x={wx - 1.1} y={wy} width="1.1" height="6.6" fill="#5c6a48" opacity="0.5" />
-                  <rect x={wx + 4.6} y={wy} width="1.1" height="6.6" fill="#5c6a48" opacity="0.5" />
+                  <rect x={wx} y={wy} width="4.8" height="6.4" rx="0.4" fill="#2e2016" opacity="0.42" />
+                  <rect x={wx - 1.1} y={wy} width="1.1" height="6.4" fill="#5c6a48" opacity="0.5" />
+                  <rect x={wx + 4.8} y={wy} width="1.1" height="6.4" fill="#5c6a48" opacity="0.5" />
                 </g>
               ))}
             </g>
