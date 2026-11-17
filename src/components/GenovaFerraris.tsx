@@ -240,6 +240,80 @@ export default function GenovaFerraris() {
             rx="1" fill="#b0a898" opacity="0.4" />
         ))}
 
+        {/* ── Supporters in the forecourt — red/blue flags + Genova cross ── */}
+        {/* Fan with red-and-blue flag */}
+        <g transform="translate(250,193)">
+          <line x1="-0.9" y1="0" x2="-0.8" y2="-4" stroke="#3a3228" strokeWidth="1.2" strokeLinecap="round" />
+          <line x1="0.9" y1="0" x2="0.8" y2="-4" stroke="#3a3228" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M-1.7 -4 L-1.6 -9 Q0 -9.6 1.6 -9 L1.7 -4 Q0 -4.5 -1.7 -4 Z" fill="#b82828" />
+          <circle cx="0" cy="-10.6" r="1.5" fill="#d8b08c" />
+          <line x1="1.3" y1="-8.4" x2="2.6" y2="-11" stroke="#b82828" strokeWidth="1.1" strokeLinecap="round" />
+          <line x1="2.6" y1="-11" x2="3.6" y2="-27" stroke="#5a4a3a" strokeWidth="0.8" strokeLinecap="round" />
+          <g transform="translate(3.6,-26)">
+            <g>
+              <animateTransform attributeName="transform" type="rotate"
+                values="-4 0 0;6 0 0;-4 0 0" dur="1.8s" repeatCount="indefinite"
+                calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+              <path d="M0 0 L5 0 L5 7 L0 7 Z" fill="#c02020" />
+              <path d="M5 0 L10 0 Q10.6 3.5 10 7 L5 7 Z" fill="#1830a0" />
+            </g>
+          </g>
+        </g>
+
+        {/* Fan with the Genova flag (St George cross) */}
+        <g transform="translate(300,194)">
+          <line x1="-0.9" y1="0" x2="-0.8" y2="-4" stroke="#333028" strokeWidth="1.2" strokeLinecap="round" />
+          <line x1="0.9" y1="0" x2="0.8" y2="-4" stroke="#333028" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M-1.7 -4 L-1.6 -9 Q0 -9.6 1.6 -9 L1.7 -4 Q0 -4.5 -1.7 -4 Z" fill="#2a3a6a" />
+          <circle cx="0" cy="-10.6" r="1.5" fill="#e4c0a0" />
+          <line x1="1.3" y1="-8.4" x2="2.6" y2="-11" stroke="#2a3a6a" strokeWidth="1.1" strokeLinecap="round" />
+          <line x1="2.6" y1="-11" x2="3.6" y2="-28" stroke="#5a4a3a" strokeWidth="0.8" strokeLinecap="round" />
+          <g transform="translate(3.6,-27)">
+            <g>
+              <animateTransform attributeName="transform" type="rotate"
+                values="5 0 0;-4 0 0;5 0 0" dur="2.1s" begin="-0.6s" repeatCount="indefinite"
+                calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+              <rect x="0" y="0" width="11" height="8" fill="#f2efe8" />
+              <rect x="4.5" y="0" width="2" height="8" fill="#c02020" />
+              <rect x="0" y="3" width="11" height="2" fill="#c02020" />
+            </g>
+          </g>
+        </g>
+
+        {/* Two cheering fans, arms up */}
+        {[
+          { x: 520, shirt: "#1830a0", skin: "#d8ac88" },
+          { x: 560, shirt: "#b82828", skin: "#e4c0a0" },
+        ].map(({ x, shirt, skin }, i) => (
+          <g key={i} transform={`translate(${x},${193 + (i % 2)})`}>
+            <line x1="-0.9" y1="0" x2="-0.8" y2="-4" stroke="#3a3228" strokeWidth="1.2" strokeLinecap="round" />
+            <line x1="0.9" y1="0" x2="0.8" y2="-4" stroke="#3a3228" strokeWidth="1.2" strokeLinecap="round" />
+            <path d="M-1.7 -4 L-1.6 -9 Q0 -9.6 1.6 -9 L1.7 -4 Q0 -4.5 -1.7 -4 Z" fill={shirt} />
+            <circle cx="0" cy="-10.6" r="1.5" fill={skin} />
+            <line x1="-1.4" y1="-8.6" x2="-2.6" y2="-12" stroke={shirt} strokeWidth="1.1" strokeLinecap="round" />
+            <line x1="1.4" y1="-8.6" x2="2.6" y2="-12" stroke={shirt} strokeWidth="1.1" strokeLinecap="round" />
+          </g>
+        ))}
+
+        {/* Fan with a second red-and-blue flag on the right */}
+        <g transform="translate(600,193)">
+          <line x1="-0.9" y1="0" x2="-0.8" y2="-4" stroke="#333028" strokeWidth="1.2" strokeLinecap="round" />
+          <line x1="0.9" y1="0" x2="0.8" y2="-4" stroke="#333028" strokeWidth="1.2" strokeLinecap="round" />
+          <path d="M-1.7 -4 L-1.6 -9 Q0 -9.6 1.6 -9 L1.7 -4 Q0 -4.5 -1.7 -4 Z" fill="#2a3a6a" />
+          <circle cx="0" cy="-10.6" r="1.5" fill="#d8b08c" />
+          <line x1="-1.3" y1="-8.4" x2="-2.6" y2="-11" stroke="#2a3a6a" strokeWidth="1.1" strokeLinecap="round" />
+          <line x1="-2.6" y1="-11" x2="-3.6" y2="-27" stroke="#5a4a3a" strokeWidth="0.8" strokeLinecap="round" />
+          <g transform="translate(-3.6,-26)">
+            <g>
+              <animateTransform attributeName="transform" type="rotate"
+                values="4 0 0;-6 0 0;4 0 0" dur="1.9s" begin="-1s" repeatCount="indefinite"
+                calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+              <path d="M0 0 L-5 0 L-5 7 L0 7 Z" fill="#1830a0" />
+              <path d="M-5 0 L-10 0 Q-10.6 3.5 -10 7 L-5 7 Z" fill="#c02020" />
+            </g>
+          </g>
+        </g>
+
         {/* ── Label ── */}
         <text x="430" y="197" textAnchor="middle" fontSize="7" fill="#746a5e"
           fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.65">

@@ -288,10 +288,11 @@ export default function GenovaRolli() {
         {/* 1 · Old man — flat cap + cane (L→R) */}
         <g>
           <animateTransform attributeName="transform" type="translate"
-            from="-40 199" to="940 199" dur="44s" repeatCount="indefinite" />
+            from="-50 199" to="950 199" dur="44s" repeatCount="indefinite" />
+          <g transform="scale(1.5)">
           <g>
             <animateTransform attributeName="transform" type="translate"
-              values="0 0;0 -0.7;0 0" dur="0.5s" repeatCount="indefinite" />
+              values="0 0;0 -0.9;0 0" dur="0.5s" repeatCount="indefinite" />
             <line x1="-1.2" y1="0" x2="-1.1" y2="-5" stroke="#423c34" strokeWidth="1.5" strokeLinecap="round" />
             <line x1="1.2" y1="0" x2="1.1" y2="-5" stroke="#423c34" strokeWidth="1.5" strokeLinecap="round" />
             <path d="M-2.3 -5 L-2 -11 Q0 -11.8 2 -11 L2.3 -5 Q0 -5.7 -2.3 -5 Z" fill="#6e5f52" />
@@ -300,15 +301,17 @@ export default function GenovaRolli() {
             <path d="M1.9 -14.1 Q3.5 -13.8 3.5 -13.2 L1.9 -13.5 Z" fill="#453c33" />
             <line x1="2.2" y1="-10" x2="3.4" y2="0" stroke="#7a5230" strokeWidth="0.9" strokeLinecap="round" />
           </g>
+          </g>
         </g>
 
         {/* 2 · Woman pushing a stroller with a child (L→R) */}
         <g>
           <animateTransform attributeName="transform" type="translate"
-            from="-95 199" to="905 199" dur="38s" repeatCount="indefinite" begin="-14s" />
+            from="-110 199" to="915 199" dur="38s" repeatCount="indefinite" begin="-14s" />
+          <g transform="scale(1.5)">
           <g>
             <animateTransform attributeName="transform" type="translate"
-              values="0 0;0 -0.6;0 0" dur="0.52s" repeatCount="indefinite" />
+              values="0 0;0 -0.8;0 0" dur="0.52s" repeatCount="indefinite" />
             <line x1="-1" y1="0" x2="-0.9" y2="-5" stroke="#6a5048" strokeWidth="1.4" strokeLinecap="round" />
             <line x1="1" y1="0" x2="0.9" y2="-5" stroke="#6a5048" strokeWidth="1.4" strokeLinecap="round" />
             <path d="M-2.1 -5 L-1.9 -11 Q0 -11.7 1.9 -11 L2.1 -5 Q0 -5.6 -2.1 -5 Z" fill="#b5654a" />
@@ -321,15 +324,17 @@ export default function GenovaRolli() {
             <circle cx="7.1" cy="-2.3" r="1.1" fill="#2a2a2a" />
             <circle cx="6" cy="-9.2" r="1.05" fill="#f0d2b0" />
           </g>
+          </g>
         </g>
 
         {/* 3 · Woman with a shoulder bag (R→L, facing left) */}
         <g>
           <animateTransform attributeName="transform" type="translate"
-            from="945 199" to="-45 199" dur="41s" repeatCount="indefinite" begin="-7s" />
+            from="955 199" to="-55 199" dur="41s" repeatCount="indefinite" begin="-7s" />
+          <g transform="scale(1.5)">
           <g>
             <animateTransform attributeName="transform" type="translate"
-              values="0 0;0 -0.7;0 0" dur="0.48s" repeatCount="indefinite" />
+              values="0 0;0 -0.9;0 0" dur="0.48s" repeatCount="indefinite" />
             <g transform="scale(-1,1)">
               <line x1="-1" y1="0" x2="-0.8" y2="-5" stroke="#4a5a46" strokeWidth="1.4" strokeLinecap="round" />
               <line x1="1" y1="0" x2="1.2" y2="-5" stroke="#4a5a46" strokeWidth="1.4" strokeLinecap="round" />
@@ -340,15 +345,17 @@ export default function GenovaRolli() {
               <rect x="1.7" y="-8.1" width="2.4" height="3" rx="0.5" fill="#8a5a3a" />
             </g>
           </g>
+          </g>
         </g>
 
         {/* 4 · Man walking a little dog (R→L, facing left) */}
         <g>
           <animateTransform attributeName="transform" type="translate"
-            from="905 199" to="-75 199" dur="35s" repeatCount="indefinite" begin="-22s" />
+            from="915 199" to="-85 199" dur="35s" repeatCount="indefinite" begin="-22s" />
+          <g transform="scale(1.5)">
           <g>
             <animateTransform attributeName="transform" type="translate"
-              values="0 0;0 -0.7;0 0" dur="0.46s" repeatCount="indefinite" />
+              values="0 0;0 -0.9;0 0" dur="0.46s" repeatCount="indefinite" />
             <g transform="scale(-1,1)">
               <line x1="-1.1" y1="0" x2="-1" y2="-5" stroke="#37332c" strokeWidth="1.5" strokeLinecap="round" />
               <line x1="1.1" y1="0" x2="1.2" y2="-5" stroke="#37332c" strokeWidth="1.5" strokeLinecap="round" />
@@ -364,6 +371,7 @@ export default function GenovaRolli() {
               <line x1="6.5" y1="-0.5" x2="6.7" y2="0.5" stroke="#6a5038" strokeWidth="0.7" strokeLinecap="round" />
               <path d="M3.7 -1.6 Q3.2 -2.2 3.4 -2.8" fill="none" stroke="#6a5038" strokeWidth="0.7" strokeLinecap="round" />
             </g>
+          </g>
           </g>
         </g>
 

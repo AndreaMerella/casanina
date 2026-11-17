@@ -351,6 +351,56 @@ export default function GenovaVicoli() {
           </g>
         </g>
 
+        {/* ── Life in the caruggi — two passers-by and a cat (original figures) ── */}
+        {/* Person walking L→R */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="-30 138" to="930 138" dur="30s" repeatCount="indefinite" />
+          <g transform="scale(1.15)">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -0.8;0 0" dur="0.5s" repeatCount="indefinite" />
+            <line x1="-1.2" y1="0" x2="-1.1" y2="-5" stroke="#3a3228" strokeWidth="1.5" strokeLinecap="round" />
+            <line x1="1.2" y1="0" x2="1.1" y2="-5" stroke="#3a3228" strokeWidth="1.5" strokeLinecap="round" />
+            <path d="M-2.2 -5 L-2 -11 Q0 -11.8 2 -11 L2.2 -5 Q0 -5.6 -2.2 -5 Z" fill="#8a5a46" />
+            <circle cx="0" cy="-13.2" r="1.9" fill="#d8b08c" />
+            <path d="M-1.9 -13 Q-1.7 -15.3 0 -15.4 Q1.7 -15.3 1.9 -13 Q1 -14.2 0 -14.2 Q-1 -14.2 -1.9 -13 Z" fill="#2a1d14" />
+          </g>
+          </g>
+        </g>
+        {/* Person walking R→L (facing left) */}
+        <g>
+          <animateTransform attributeName="transform" type="translate"
+            from="930 138" to="-30 138" dur="36s" repeatCount="indefinite" begin="-12s" />
+          <g transform="scale(1.15)">
+          <g>
+            <animateTransform attributeName="transform" type="translate"
+              values="0 0;0 -0.8;0 0" dur="0.46s" repeatCount="indefinite" />
+            <g transform="scale(-1,1)">
+              <line x1="-1.2" y1="0" x2="-1.1" y2="-5" stroke="#2e3a30" strokeWidth="1.5" strokeLinecap="round" />
+              <line x1="1.2" y1="0" x2="1.1" y2="-5" stroke="#2e3a30" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M-2.2 -5 L-2 -11.2 Q0 -12 2 -11.2 L2.2 -5 Q0 -5.6 -2.2 -5 Z" fill="#4a6a7a" />
+              <circle cx="0" cy="-13.4" r="1.9" fill="#e4c0a0" />
+              <path d="M-2 -13 Q-2.1 -15.5 0 -15.6 Q2.1 -15.5 2 -13 Q1.3 -14.2 0 -14.2 Q-1.3 -14.2 -2 -13 Z" fill="#5a3a24" />
+            </g>
+          </g>
+          </g>
+        </g>
+        {/* Cat sitting by a doorway */}
+        <g transform="translate(700,139)">
+          <g transform="rotate(0)">
+            <path d="M4 -1.5 Q8.5 -2.5 7.2 -7" fill="none" stroke="#3f3732" strokeWidth="1.5" strokeLinecap="round">
+              <animateTransform attributeName="transform" type="rotate"
+                values="-4 4 -1.5;7 4 -1.5;-4 4 -1.5" dur="3.2s" repeatCount="indefinite"
+                calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            </path>
+          </g>
+          <path d="M-3 0 Q-3.6 -7 0 -7.4 Q3.6 -7 3 0 Z" fill="#453c36" />
+          <circle cx="0" cy="-8.4" r="2.1" fill="#453c36" />
+          <path d="M-2.1 -9.6 L-2.6 -12 L-0.6 -10.2 Z" fill="#453c36" />
+          <path d="M2.1 -9.6 L2.6 -12 L0.6 -10.2 Z" fill="#453c36" />
+        </g>
+
         {/* ── Label ── */}
         <text x="450" y="138" textAnchor="middle" fontSize="6.5" fill="#8a7858"
           fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.65">

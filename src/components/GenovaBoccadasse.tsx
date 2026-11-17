@@ -200,6 +200,21 @@ export default function GenovaBoccadasse() {
           <rect x="-11" y="-1" width="22" height="2.5" fill="#986868" />
         </g>
 
+        {/* ── A few people down on the pebble beach (original figures) ── */}
+        {[
+          { x: 112, c: "#9a5a48", hair: "#2a1d14", skin: "#d8b08c" },
+          { x: 158, c: "#4a6a7a", hair: "#5a3a24", skin: "#e4c0a0" },
+          { x: 300, c: "#6f8f6a", hair: "#2e2018", skin: "#d8ac88" },
+        ].map(({ x, c, hair, skin }, i) => (
+          <g key={i} transform={`translate(${x},171)`}>
+            <line x1="-1" y1="0" x2="-0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
+            <line x1="1" y1="0" x2="0.9" y2="-4.6" stroke="#44392f" strokeWidth="1.3" strokeLinecap="round" />
+            <path d={`M-1.9 -4.6 L-1.7 -10 Q0 -10.7 1.7 -10 L1.9 -4.6 Q0 -5.1 -1.9 -4.6 Z`} fill={c} />
+            <circle cx="0" cy="-12" r="1.7" fill={skin} />
+            <path d="M-1.7 -11.9 Q-1.5 -14 0 -14.1 Q1.5 -14 1.7 -11.9 Q0.9 -13 0 -13 Q-0.9 -13 -1.7 -11.9 Z" fill={hair} />
+          </g>
+        ))}
+
         {/* ── Foreground wave — clipped to sea area only ── */}
         <g clipPath="url(#bocca-sea-clip)">
           <g>
