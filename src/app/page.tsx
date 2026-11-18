@@ -31,6 +31,10 @@ import {
   Ban,
   Dog,
   Flame,
+  Waves,
+  Landmark,
+  Building2,
+  Anchor,
 } from "lucide-react";
 import IntroScreen from "@/components/IntroScreen";
 import Header from "@/components/Header";
@@ -190,14 +194,18 @@ export default function Home() {
                 <GenovaIntro />
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {[
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Boccadasse.jpg/640px-Boccadasse.jpg", alt: "Boccadasse" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8d/Palazzo_Ducale_piazza_Matteotti_2.JPG/640px-Palazzo_Ducale_piazza_Matteotti_2.JPG", alt: "Palazzo Ducale" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Canneto_il_Curto_Genova_01.JPG/640px-Canneto_il_Curto_Genova_01.JPG", alt: "Caruggi" },
-                    { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Porto_Antico_Genova_varie_02.jpg/640px-Porto_Antico_Genova_varie_02.jpg", alt: "Porto Antico" },
-                  ].map(({ src, alt }) => (
-                    <div key={alt} className="relative overflow-hidden rounded-xl aspect-[4/3] bg-border">
-                      <Image src={src} alt={alt} fill className="object-cover hover:scale-105 transition-transform duration-700" sizes="20vw" />
-                      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent text-white text-[10px] text-center py-2">{alt}</div>
+                    { icon: Waves, label: "Boccadasse", bg: "#dcebf0" },
+                    { icon: Landmark, label: "Palazzo Ducale", bg: "#efe6da" },
+                    { icon: Building2, label: "Caruggi", bg: "#f2e7d4" },
+                    { icon: Anchor, label: "Porto Antico", bg: "#e2ede7" },
+                  ].map(({ icon: Icon, label, bg }) => (
+                    <div
+                      key={label}
+                      className="rounded-xl aspect-[4/3] flex flex-col items-center justify-center gap-2 border border-border/60 card-hover"
+                      style={{ backgroundColor: bg }}
+                    >
+                      <Icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
+                      <span className="text-xs font-medium text-foreground/80">{label}</span>
                     </div>
                   ))}
                 </div>
