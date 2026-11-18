@@ -31,14 +31,11 @@ import {
   Ban,
   Dog,
   Flame,
-  Waves,
-  Landmark,
-  Building2,
-  Anchor,
 } from "lucide-react";
 import IntroScreen from "@/components/IntroScreen";
 import Header from "@/components/Header";
 import FloatingBar from "@/components/FloatingBar";
+import GenovaThumb from "@/components/GenovaThumbs";
 import Gallery from "@/components/Gallery";
 import BookingBanner from "@/components/BookingBanner";
 import Guestbook from "@/components/Guestbook";
@@ -194,18 +191,19 @@ export default function Home() {
                 <GenovaIntro />
                 <div className="grid grid-cols-2 gap-2 mb-6">
                   {[
-                    { icon: Waves, label: "Boccadasse", bg: "#dcebf0" },
-                    { icon: Landmark, label: "Palazzo Ducale", bg: "#efe6da" },
-                    { icon: Building2, label: "Caruggi", bg: "#f2e7d4" },
-                    { icon: Anchor, label: "Porto Antico", bg: "#e2ede7" },
-                  ].map(({ icon: Icon, label, bg }) => (
+                    { name: "boccadasse", label: "Boccadasse" },
+                    { name: "palazzo", label: "Palazzo Ducale" },
+                    { name: "caruggi", label: "Caruggi" },
+                    { name: "porto", label: "Porto Antico" },
+                  ].map(({ name, label }) => (
                     <div
                       key={label}
-                      className="rounded-xl aspect-[4/3] flex flex-col items-center justify-center gap-2 border border-border/60 card-hover"
-                      style={{ backgroundColor: bg }}
+                      className="relative overflow-hidden rounded-xl aspect-[4/3] border border-border/60 card-hover"
                     >
-                      <Icon className="w-7 h-7 text-accent" strokeWidth={1.5} />
-                      <span className="text-xs font-medium text-foreground/80">{label}</span>
+                      <GenovaThumb name={name} />
+                      <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/55 to-transparent text-white text-[10px] text-center py-1.5 font-medium">
+                        {label}
+                      </div>
                     </div>
                   ))}
                 </div>
