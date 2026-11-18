@@ -1,7 +1,17 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
-  <rect width="100" height="100" rx="24" fill="#b5703a" />
-  <!-- house silhouette: roof + body -->
-  <path d="M50 24 L82 52 L73 52 L73 78 L27 78 L27 52 L18 52 Z" fill="#faf6ef" />
-  <!-- arched doorway -->
-  <path d="M42 78 L42 62 Q50 54 58 62 L58 78 Z" fill="#b5703a" />
+  <rect width="100" height="100" rx="26" fill="#b5703a" />
+  <!-- roof -->
+  <path d="M50 21 L83 51 L17 51 Z" fill="#faf6ef" />
+  <!-- body -->
+  <rect x="26" y="50" width="48" height="31" rx="3" fill="#faf6ef" />
+  <!-- little heart in the gable -->
+  <path d="M50 33 q-2.6 -3.6 -5.3 -0.9 q-1.9 1.9 0 3.8 l5.3 4.8 l5.3 -4.8 q1.9 -1.9 0 -3.8 q-2.7 -2.7 -5.3 0.9 z" fill="#d98a7a" />
+  <!-- two round windows -->
+  <circle cx="39" cy="63" r="4.6" fill="#9ec878" />
+  <circle cx="39" cy="63" r="4.6" fill="none" stroke="#b5703a" stroke-width="1.4" />
+  <circle cx="61" cy="63" r="4.6" fill="#9ec878" />
+  <circle cx="61" cy="63" r="4.6" fill="none" stroke="#b5703a" stroke-width="1.4" />
+  <!-- arched door -->
+  <path d="M44 81 L44 70 Q50 64 56 70 L56 81 Z" fill="#8f5a34" />
+  <circle cx="54" cy="74" r="1" fill="#faf6ef" />
 </svg>
