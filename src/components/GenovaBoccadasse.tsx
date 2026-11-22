@@ -28,7 +28,9 @@ export default function GenovaBoccadasse() {
             <rect x="0" y="0" width="900" height="200"/>
           </clipPath>
           <clipPath id="bocca-sea-clip">
-            <rect x="0" y="0" width="398" height="200"/>
+            {/* Water area: full width at the horizon, right edge recedes along the
+                shore and tucks behind the pier/headland — no vertical "wall" of sea */}
+            <path d="M0 0 L444 0 L444 120 Q432 150 408 170 L0 172 Z" />
           </clipPath>
           <linearGradient id="bocca-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stopColor="#ecefe9" />
