@@ -266,8 +266,58 @@ export default function GenovaRolli() {
         {/* Ground */}
         <path d="M818 162 Q833 152 848 162 L848 190 L818 190 Z" fill="#1a100a" opacity="0.72" />
 
-        {/* ── Thin pilaster lines between palaces ── */}
-        {[177, 355, 583, 757].map((x) => (
+        {/* ── Civic flags on Palazzo Doria-Tursi (the Municipio) ── */}
+        {/* Italian tricolore */}
+        <line x1="470" y1="50" x2="452" y2="35" stroke="#463f37" strokeWidth="1.3" strokeLinecap="round" />
+        <circle cx="452" cy="35" r="1.1" fill="#c8a63c" />
+        <g transform="translate(452,36)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="-3 0 0;4 0 0;-3 0 0" dur="2.3s" repeatCount="indefinite"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <rect x="-1" y="0" width="6" height="13" fill="#2a8a4a" />
+            <rect x="5" y="0" width="6" height="13" fill="#f4f1ea" />
+            <rect x="11" y="0" width="6" height="13" fill="#c62828" />
+          </g>
+        </g>
+        {/* Genova flag — St George cross */}
+        <line x1="500" y1="50" x2="482" y2="35" stroke="#463f37" strokeWidth="1.3" strokeLinecap="round" />
+        <circle cx="482" cy="35" r="1.1" fill="#c8a63c" />
+        <g transform="translate(482,36)">
+          <g>
+            <animateTransform attributeName="transform" type="rotate"
+              values="4 0 0;-3 0 0;4 0 0" dur="2.6s" begin="-0.5s" repeatCount="indefinite"
+              calcMode="spline" keyTimes="0;0.5;1" keySplines="0.5 0 0.5 1;0.5 0 0.5 1" />
+            <rect x="-1" y="0" width="18" height="13" fill="#f4f1ea" />
+            <rect x="6" y="0" width="4" height="13" fill="#c62828" />
+            <rect x="-1" y="5" width="18" height="4" fill="#c62828" />
+          </g>
+        </g>
+
+        {/* ── Caruggi — narrow alleys descending between some palaces ── */}
+        {[355, 583].map((ax) => (
+          <g key={`alley${ax}`}>
+            {/* sliver of sky at the very top where the walls almost meet */}
+            <rect x={ax - 2} y="6" width="4" height="14" fill="#d8e2e6" opacity="0.5" />
+            {/* dark alley slot */}
+            <rect x={ax - 7} y="18" width="14" height="172" fill="#241f1b" />
+            {/* side walls catching a little light, narrowing with depth */}
+            <path d={`M${ax - 7} 18 L${ax - 2.5} 44 L${ax - 2.5} 190 L${ax - 7} 190 Z`} fill="#38322b" />
+            <path d={`M${ax + 7} 18 L${ax + 2.5} 44 L${ax + 2.5} 190 L${ax + 7} 190 Z`} fill="#2c2721" />
+            {/* descending steps near the bottom */}
+            {[150, 160, 170, 180].map((sy, i) => (
+              <rect key={i} x={ax - 2.5} y={sy} width="5" height="2" fill="#50463c" opacity="0.85" />
+            ))}
+            {/* warm light spilling from the lower (downhill) end */}
+            <rect x={ax - 2.5} y="150" width="5" height="40" fill="#c2a258" opacity="0.34" />
+            {/* a hanging lantern */}
+            <line x1={ax} y1="52" x2={ax} y2="58" stroke="#3a332c" strokeWidth="0.7" />
+            <circle cx={ax} cy="59" r="1.6" fill="#f2d278" opacity="0.9" />
+          </g>
+        ))}
+
+        {/* ── Thin pilaster lines between the remaining palaces ── */}
+        {[177, 757].map((x) => (
           <rect key={x} x={x - 1} y="6" width="3" height="184" fill="#746a5e" opacity="0.22" />
         ))}
 
@@ -397,8 +447,8 @@ export default function GenovaRolli() {
         </g>
 
         {/* ── Label ── */}
-        <text x="450" y="196" textAnchor="middle" fontSize="7" fill="#746a5e"
-          fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.6">
+        <text x="450" y="196.5" textAnchor="middle" fontSize="7" fill="#efe9dd"
+          fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.92">
           PALAZZI DEI ROLLI · VIA GARIBALDI · UNESCO 2006
         </text>
         </g>{/* end rolli-viewport clip */}

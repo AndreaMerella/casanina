@@ -28,7 +28,7 @@ export default function GenovaBoccadasse() {
             <rect x="0" y="0" width="900" height="200"/>
           </clipPath>
           <clipPath id="bocca-sea-clip">
-            <rect x="0" y="0" width="446" height="200"/>
+            <rect x="0" y="0" width="398" height="200"/>
           </clipPath>
           <linearGradient id="bocca-sky" x1="0" y1="0" x2="0" y2="1">
             <stop offset="0" stopColor="#ecefe9" />
@@ -375,8 +375,9 @@ export default function GenovaBoccadasse() {
         </g>
 
         {/* ── Label ── */}
-        <text x="230" y="196" textAnchor="middle" fontSize="7" fill="#746a5e"
-          fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.14em" opacity="0.65">
+        <rect x="186" y="188" width="88" height="11" rx="5" fill="#faf6ee" opacity="0.72" />
+        <text x="230" y="196" textAnchor="middle" fontSize="7.5" fill="#453c32"
+          fontFamily="Georgia,'Times New Roman',serif" letterSpacing="0.16em" fontWeight="600">
           BOCCADASSE
         </text>
         </g>{/* end bocca-viewport clip */}

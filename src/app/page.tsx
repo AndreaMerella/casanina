@@ -116,16 +116,17 @@ export default function Home() {
         </Suspense>
 
         {/* ─── Hero ─── */}
-        <section className="relative h-[72vh] w-full overflow-hidden bg-stone-900">
+        <section className="relative h-[72vh] w-full overflow-hidden bg-[#20303a]">
           {/* Drone video — Genova old town & harbour aerial.
-              Warm colour grade so it reads as a sunny Ligurian day, not grey. */}
+              Warm colour grade so it reads as a sunny Ligurian day, not grey.
+              No poster: the calm dark-sea background shows until the video plays,
+              which avoids the jarring flash of the apartment photo. */}
           <video
             autoPlay
             muted
             loop
             playsInline
-            poster="/images/hero.jpg"
-            preload="metadata"
+            preload="auto"
             className="absolute inset-0 w-full h-full object-cover"
             style={{ filter: "saturate(1.3) brightness(1.1) contrast(1.03)" }}
           >
